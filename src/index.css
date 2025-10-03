@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  overflow: hidden;
+}
+.slide {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  display: flex;
+  overflow: hidden;
+}
+
+/*sidebar*/
+.sidebar {
+  width: 300px;
+  background: linear-gradient(180deg, #dbeafe, #bfdbfe);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1"/></svg>');
+  opacity: 0.3;
+}
+.sidebar-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.sidebar-nav {
+  list-style: none;
+  position: relative;
+  z-index: 1;
+}
+.sidebar-nav-item {
+  margin-bottom: 13px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.sidebar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateX(5px);
+}
+.sidebar-nav-item.active {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.sidebar-nav-item i {
+  color: #3b82f6;
+  font-size: 18px;
+  margin-right: 12px;
+}
+.sidebar-nav-item span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1e40af;
+}
+
+/*content*/
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 60px;
+  position: relative;
+}
+
+/*slideHeader*/
+.header {
+  margin-bottom: 30px;
+}
+.title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 10px;
+}
+.subtitle {
+  font-size: 18px;
+  color: #64748b;
+  font-weight: 400;
+}
