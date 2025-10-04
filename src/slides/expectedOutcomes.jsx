@@ -1,6 +1,32 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import AnimatedCounter from "../components/animatedCounter.jsx";
 
-const ExpectedOutcomesContent= () => {
+const ExpectedOutcomesContent = () => {
+    const [animate, setAnimate] = useState(false);
+
+    useEffect(() => {
+        // Trigger animation after mount
+        setTimeout(() => setAnimate(true), 100);
+    }, []);
+
+
+    const tangible = [
+        { icon: "fa-user-tie", title: "Increased Interview Rates", metric: {pre:"+",value:75,post:"%"}, progress: 75 },
+        { icon: "fa-clock", title: "Reduced Time to Create Resume", metric: {pre:"-",value:60,post:"%"}, progress: 60 },
+        { icon: "fa-users", title: "User Adoption", metric: {pre:" ",value:10,post:"K+"}, progress: 85 },
+        { icon: "fa-percentage", title: "ATS Compatibility Score",metric: {pre:" ",value:90,post:"%"}, progress: 95 },
+    ];
+    const intangible=[
+        {icon: "fa-smile", title: "Improved Job Search Experience", metric: "High", progress: 90},
+        {icon: "fa-brain", title: "Reduced ATS Frustration", metric: "High", progress: 80},
+        {
+            icon: "fa-graduation-cap",
+            title: "Increased ATS Knowledge",
+            metric: "Medium",
+            progress: 70
+        },
+        {icon: "fa-award", title: "Enhanced Professional Image", metric: "High", progress: 85},
+    ];
     return (
         <div className="flex flex-col relative flex-1 px-[60px] py-[50px]">
             {/* Header */}
@@ -16,9 +42,11 @@ const ExpectedOutcomesContent= () => {
             {/* Outcomes Grid */}
             <div className="grid grid-cols-2 gap-6 flex-grow">
                 {/* Tangible Outcomes */}
-                <div className="bg-white rounded-2xl p-6 shadow-md hover:-translate-y-1 hover:shadow-xl transition">
+                <div
+                    className="bg-white rounded-2xl p-6 shadow-md hover:-translate-y-1 hover:shadow-xl transition h-fit">
                     <div className="flex items-center mb-6">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mr-4">
+                        <div
+                            className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mr-4">
                             <i className="fas fa-chart-bar text-blue-500 text-2xl"></i>
                         </div>
                         <h3 className="text-xl font-semibold text-blue-500">
@@ -27,12 +55,7 @@ const ExpectedOutcomesContent= () => {
                     </div>
 
                     <div className="flex flex-col gap-4">
-                        {[
-                            { icon: "fa-user-tie", title: "Increased Interview Rates", metric: "+75%", progress: "w-[75%]" },
-                            { icon: "fa-clock", title: "Reduced Time to Create Resume", metric: "-60%", progress: "w-[60%]" },
-                            { icon: "fa-users", title: "User Adoption", metric: "10K+", progress: "w-[85%]" },
-                            { icon: "fa-percentage", title: "ATS Compatibility Score", metric: "95%", progress: "w-[95%]" },
-                        ].map((item, idx) => (
+                        {tangible.map((item, idx) => (
                             <div
                                 key={idx}
                                 className="flex items-start bg-gray-50 rounded-xl p-4 hover:translate-x-1 transition"
@@ -44,11 +67,16 @@ const ExpectedOutcomesContent= () => {
                                     <div className="flex justify-between items-center text-blue-500 font-semibold text-base mb-1">
                                         {item.title}
                                         <span className="bg-blue-100 text-blue-500 text-xs font-semibold px-3 py-1 rounded-full">
-                      {item.metric}
-                    </span>
+                {item.metric.pre}{<AnimatedCounter start={0} end={item.metric.value} duration={3000}/>}{item.metric.post}
+              </span>
                                     </div>
                                     <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                                        <div className={`h-full bg-gradient-to-r from-blue-500 to-blue-400 ${item.progress}`}></div>
+                                        <div
+                                            className="h-full bg-gradient-to-r from-blue-500 to-blue-400 transition-all duration-[3000ms]"
+                                            style={{
+                                                width: animate ? `${item.progress}%` : "0%",
+                                            }}
+                                        ></div>
                                     </div>
                                 </div>
                             </div>
@@ -57,9 +85,11 @@ const ExpectedOutcomesContent= () => {
                 </div>
 
                 {/* Intangible Outcomes */}
-                <div className="bg-white rounded-2xl p-6 shadow-md hover:-translate-y-1 hover:shadow-xl transition">
+                <div
+                    className="bg-white rounded-2xl p-6 shadow-md hover:-translate-y-1 hover:shadow-xl transition h-fit">
                     <div className="flex items-center mb-6">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center mr-4">
+                        <div
+                            className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center mr-4">
                             <i className="fas fa-lightbulb text-green-500 text-2xl"></i>
                         </div>
                         <h3 className="text-xl font-semibold text-green-500">
@@ -68,12 +98,7 @@ const ExpectedOutcomesContent= () => {
                     </div>
 
                     <div className="flex flex-col gap-4">
-                        {[
-                            { icon: "fa-smile", title: "Improved Job Search Experience", metric: "High", progress: "w-[90%]" },
-                            { icon: "fa-brain", title: "Reduced ATS Frustration", metric: "High", progress: "w-[80%]" },
-                            { icon: "fa-graduation-cap", title: "Increased ATS Knowledge", metric: "Medium", progress: "w-[70%]" },
-                            { icon: "fa-award", title: "Enhanced Professional Image", metric: "High", progress: "w-[85%]" },
-                        ].map((item, idx) => (
+                        {intangible.map((item, idx) => (
                             <div
                                 key={idx}
                                 className="flex items-start bg-gray-50 rounded-xl p-4 hover:translate-x-1 transition"
@@ -82,14 +107,21 @@ const ExpectedOutcomesContent= () => {
                                     <i className={`fas ${item.icon} text-green-500 text-lg`}></i>
                                 </div>
                                 <div className="flex-1">
-                                    <div className="flex justify-between items-center text-green-500 font-semibold text-base mb-1">
+                                    <div
+                                        className="flex justify-between items-center text-green-500 font-semibold text-base mb-1">
                                         {item.title}
-                                        <span className="bg-green-100 text-green-500 text-xs font-semibold px-3 py-1 rounded-full">
-                      {item.metric}
-                    </span>
+                                        <span
+                                            className="bg-green-100 text-green-500 text-xs font-semibold px-3 py-1 rounded-full">
+                {item.metric}
+              </span>
                                     </div>
                                     <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                                        <div className={`h-full bg-gradient-to-r from-green-500 to-green-400 ${item.progress}`}></div>
+                                        <div
+                                            className="h-full bg-gradient-to-r from-green-500 to-green-400 transition-all duration-[3000ms]"
+                                            style={{
+                                                width: animate ? `${item.progress}%` : "0%",
+                                            }}
+                                        ></div>
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +143,8 @@ const ExpectedOutcomesContent= () => {
             </div>
 
             {/* Accent Circle */}
-            <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-br from-blue-100/50 to-blue-200/30 bottom-[-150px] right-[-100px]"></div>
+            <div
+                className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-br from-blue-100/50 to-blue-200/30 bottom-[-150px] right-[-100px]"></div>
         </div>
     );
 };

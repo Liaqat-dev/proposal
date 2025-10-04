@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 function Aside() {
     return (
         <div className="sidebar">
-            <h2 className="sidebar-title">PROJECT OVERVIEW</h2>
+            <h2 className="sidebar-title">ResuCraft</h2>
             <ul className="sidebar-nav">
                 {routes.map((route, index) => (
                     <li key={index}>

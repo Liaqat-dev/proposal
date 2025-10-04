@@ -1,4 +1,5 @@
 import React from "react";
+import NoteCard from "../components/noteCard.jsx";
 
 const GanttContent= () => {
     return (
@@ -14,7 +15,7 @@ const GanttContent= () => {
             </div>
 
             {/* Gantt Container */}
-            <div className="flex flex-col flex-grow bg-white rounded-2xl p-6 shadow-md">
+            <div className="flex flex-col flex-grow bg-white rounded-2xl p-6 shadow-md ">
                 {/* Gantt Header */}
                 <div className="flex justify-between mb-5">
                     <div className="text-xl font-semibold text-blue-900">
@@ -53,7 +54,7 @@ const GanttContent= () => {
                 </div>
 
                 {/* Tasks */}
-                <div className="flex flex-col gap-3 flex-grow">
+                <div className="flex flex-col gap-3 flex-grow ">
                     {/* Example Task Row */}
                     {[
                         {
@@ -81,7 +82,7 @@ const GanttContent= () => {
                             label: "M2-M3",
                         },
                         {
-                            name: "Frontend Development",
+                            name: "Frontend",
                             type: "bar",
                             color: "bg-yellow-500",
                             left: "left-[33.33%]",
@@ -89,7 +90,7 @@ const GanttContent= () => {
                             label: "M3-M4",
                         },
                         {
-                            name: "Backend Development",
+                            name: "Backend",
                             type: "bar",
                             color: "bg-yellow-500",
                             left: "left-[33.33%]",
@@ -121,7 +122,7 @@ const GanttContent= () => {
                             label: "M5",
                         },
                         {
-                            name: "User Acceptance Testing",
+                            name: "UA Testing",
                             type: "bar",
                             color: "bg-purple-500",
                             left: "left-[83.33%]",
@@ -136,10 +137,10 @@ const GanttContent= () => {
                             width: "w-[8.33%]",
                             label: "M6",
                         },
-                        { name: "Project Kickoff", type: "milestone", left: "left-[0%]", label: "K" },
-                        { name: "Design Review", type: "milestone", left: "left-[33.33%]", label: "R" },
-                        { name: "Beta Release", type: "milestone", left: "left-[83.33%]", label: "B" },
-                        { name: "Project Completion", type: "milestone", left: "left-[100%]", label: "C" },
+                        // { name: "Project Kickoff", type: "milestone", left: "left-[0%]", label: "K" },
+                        // { name: "Design Review", type: "milestone", left: "left-[33.33%]", label: "R" },
+                        // { name: "Beta Release", type: "milestone", left: "left-[83.33%]", label: "B" },
+                        // { name: "Project Completion", type: "milestone", left: "left-[100%]", label: "C" },
                     ].map((task, idx) => (
                         <div key={idx} className="flex items-center h-10">
                             <div className="w-44 pr-4 text-right text-sm font-medium text-gray-700">
@@ -165,20 +166,8 @@ const GanttContent= () => {
                 </div>
             </div>
 
-            {/* Note Card */}
-            <div className="bg-gradient-to-r from-blue-100 to-blue-200 rounded-2xl p-5 mt-8 flex items-center shadow relative z-10">
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white/60 mr-4">
-                    <i className="fas fa-info-circle text-blue-500"></i>
-                </div>
-                <p className="text-blue-800 font-medium">
-                    Project timeline includes buffer periods for potential delays. Critical
-                    path: Requirements → Design → Development → Testing → Deployment
-                </p>
-            </div>
-
-            {/* Accent Circle */}
-            <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-br from-blue-100/50 to-blue-200/30 bottom-[-150px] right-[-100px]"></div>
-        </div>
+            <NoteCard icon={"fa-info-circle"} note={"Project timeline includes buffer periods for potential delays. Critical path: Requirements → Design → Development → Testing → Deployment"}/>
+    </div>
     );
 };
 

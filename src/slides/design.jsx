@@ -12,7 +12,7 @@ function DesignPhase() {
         </header>
 
         {/* Design Grid */}
-        <section className="design-grid grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow">
+        <section className="design-grid grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow ">
             {/* System Architecture */}
             <div
                 className="design-card bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition flex flex-col">
@@ -34,7 +34,7 @@ function DesignPhase() {
                     }, {
                         icon: "fas fa-code",
                         title: "Frontend Layer",
-                        tech: "React.js, HTML5, CSS3",
+                        tech: "React.js, Tailwind CSS",
                         color: "text-green-500 bg-green-100/40",
                     }, {
                         icon: "fas fa-server",

@@ -46,6 +46,36 @@ const Testing = () => {
                     </div>
                 </div>
 
+                {/* Card 3 - Tools */}
+                <div className="bg-white rounded-2xl p-[25px] shadow-md hover:-translate-y-1 hover:shadow-xl transition">
+                    <div className="flex items-center mb-5">
+                        <div className="w-[50px] h-[50px] rounded-xl bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center mr-[15px]">
+                            <i className="fas fa-tools text-yellow-500 text-2xl"></i>
+                        </div>
+                        <h3 className="text-[20px] font-semibold text-yellow-500">Testing Tools</h3>
+                    </div>
+
+                    <div className="flex flex-col gap-[15px]">
+                        {[
+                            { icon: "fa-vial", title: "Jest", desc: "JavaScript testing framework" },
+                            { icon: "fa-spider", title: "Cypress", desc: "End-to-end testing framework" },
+                            { icon: "fa-chart-line", title: "Performance Testing", desc: "Load and stress testing tools" },
+                        ].map((item, idx) => (
+                            <div
+                                key={idx}
+                                className="flex items-start bg-gray-50 rounded-xl p-[15px] hover:translate-x-1 transition"
+                            >
+                                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-yellow-100 mr-3">
+                                    <i className={`fas ${item.icon} text-yellow-500 text-lg`}></i>
+                                </div>
+                                <div>
+                                    <div className="text-[16px] font-semibold text-yellow-500 mb-1">{item.title}</div>
+                                    <div className="text-sm text-gray-500">{item.desc}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
                 {/* Card 2 - Types */}
                 <div className="bg-white rounded-2xl p-[25px] shadow-md hover:-translate-y-1 hover:shadow-xl transition">
                     <div className="flex items-center mb-5">
@@ -78,37 +108,6 @@ const Testing = () => {
                     </div>
                 </div>
 
-                {/* Card 3 - Tools */}
-                <div className="bg-white rounded-2xl p-[25px] shadow-md hover:-translate-y-1 hover:shadow-xl transition">
-                    <div className="flex items-center mb-5">
-                        <div className="w-[50px] h-[50px] rounded-xl bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center mr-[15px]">
-                            <i className="fas fa-tools text-yellow-500 text-2xl"></i>
-                        </div>
-                        <h3 className="text-[20px] font-semibold text-yellow-500">Testing Tools</h3>
-                    </div>
-
-                    <div className="flex flex-col gap-[15px]">
-                        {[
-                            { icon: "fa-vial", title: "Jest", desc: "JavaScript testing framework" },
-                            { icon: "fa-spider", title: "Cypress", desc: "End-to-end testing framework" },
-                            { icon: "fa-robot", title: "ATS Simulators", desc: "Custom ATS testing environment" },
-                            { icon: "fa-chart-line", title: "Performance Testing", desc: "Load and stress testing tools" },
-                        ].map((item, idx) => (
-                            <div
-                                key={idx}
-                                className="flex items-start bg-gray-50 rounded-xl p-[15px] hover:translate-x-1 transition"
-                            >
-                                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-yellow-100 mr-3">
-                                    <i className={`fas ${item.icon} text-yellow-500 text-lg`}></i>
-                                </div>
-                                <div>
-                                    <div className="text-[16px] font-semibold text-yellow-500 mb-1">{item.title}</div>
-                                    <div className="text-sm text-gray-500">{item.desc}</div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
 
                 {/* Card 4 - Metrics */}
                 <div className="bg-white rounded-2xl p-[25px] shadow-md hover:-translate-y-1 hover:shadow-xl transition">
@@ -135,7 +134,7 @@ const Testing = () => {
                                 <div className="flex-1">
                                     <div className="text-[16px] font-semibold text-purple-500 mb-1">{item.title}</div>
                                     <div className="flex items-center justify-start bg-gray-50 rounded-xl p-[10px] mt-2">
-                                        <div className="text-[24px] font-bold text-purple-500 mr-2">{item.value}</div>
+                                        <div className="text-md font-bold text-purple-500 mr-2">{item.value}</div>
                                         <div className="text-sm text-gray-700 leading-tight">{item.desc}</div>
                                     </div>
                                 </div>
@@ -154,10 +153,7 @@ const Testing = () => {
                     Testing focuses on ATS compatibility, user experience, and performance to ensure the resume maker meets all requirements and delivers value to job seekers.
                 </p>
             </div>
-
-            {/* Accent Circle */}
-            <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-br from-blue-100/50 to-blue-200/30 bottom-[-150px] right-[-100px]"></div>
-        </div>
+      </div>
     );
 };
 
