@@ -1,5 +1,25 @@
 @import "tailwindcss";
+@import "./assets/css/card.css";
+@import "./assets/css/noteCard.css";
+  /*--sidebarBg:linear-gradient(180deg, #dbeafe, #bfdbfe);*/
+  /*--slideBg:linear-gradient(135deg, #f8fafc, #e2e8f0);*/
+/*--sidebarColor: #c5bcbc;*/
+:root {
+  --sidebarColor: #edede9;
+  --slideColor: #FCF7F3;
 
+  --sidebarBg: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--sidebarColor), white 8%),
+          color-mix(in srgb, var(--sidebarColor), black 4%)
+  );
+
+  --slideBg: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--slideColor), white 6%),
+          color-mix(in srgb, var(--slideColor), black 3%)
+  );
+}
 
 body {
 
@@ -11,7 +31,7 @@ body {
   width: 1920px;
   height: 1080px;
   position: relative;
-  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  background: var(--slideBg);
   display: flex;
   transform-origin: top left; /* scaling from top-left */
   overflow: hidden;
@@ -20,7 +40,7 @@ body {
 /*sidebar*/
 .sidebar {
   width: 300px;
-  background: linear-gradient(180deg, #dbeafe, #bfdbfe);
+  background: var(--sidebarBg);
   padding: 40px 30px;
   display: flex;
   flex-direction: column;
@@ -35,13 +55,13 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1"/></svg>');
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/></svg>');
   opacity: 0.3;
 }
 .sidebar-title {
   font-size: 24px;
   font-weight: 700;
-  color: #1e40af;
+  color: #827c76;
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
@@ -69,14 +89,14 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 .sidebar-nav-item i {
-  color: #3b82f6;
+  color: #827c76;
   font-size: 18px;
   margin-right: 12px;
 }
 .sidebar-nav-item span {
   font-size: 16px;
   font-weight: 500;
-  color: #1e40af;
+  color: #827c76;
 }
 
 /*content*/

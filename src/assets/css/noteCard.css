@@ -1,0 +1,115 @@
+@layer components {
+    .note-card {
+        @apply rounded-2xl p-4 mt-4 flex items-center shadow relative z-10;
+        /* Default is blue */
+        --note-color: 100 100 95;     /* #827c76 - medium base */
+        --note-color-light: 225 220 215; /* #e1dcd7 - softer, brighter light tone */
+        --note-color-lighter: 240 237 233; /* #f0ede9 - pale background/lightest */
+        --note-color-dark: 90 85 80;   /* #5a5550 - main dark tone */
+
+        background: linear-gradient(to right,
+        rgb(var(--note-color-lighter)),
+        rgb(var(--note-color-light))
+        );
+    }
+
+    /* Color variants as separate classes */
+    .note-card.note-card-blue {
+        --note-color: 59 130 246; /* blue-500 */
+        --note-color-light: 191 219 254; /* blue-100 */
+        --note-color-lighter: 219 234 254; /* blue-50 */
+        --note-color-dark: 59 130 246; /* blue-500 */
+    }
+
+    .note-card.note-card-green {
+        --note-color: 34 197 94; /* green-500 */
+        --note-color-light: 187 247 208; /* green-100 */
+        --note-color-lighter: 220 252 231; /* green-50 */
+        --note-color-dark: 34 197 94; /* green-500 */
+    }
+
+    .note-card.note-card-purple {
+        --note-color: 168 85 247; /* purple-500 */
+        --note-color-light: 233 213 255; /* purple-100 */
+        --note-color-lighter: 243 232 255; /* purple-50 */
+        --note-color-dark: 168 85 247; /* purple-500 */
+    }
+
+    .note-card.note-card-red {
+        --note-color: 239 68 68; /* red-500 */
+        --note-color-light: 254 202 202; /* red-100 */
+        --note-color-lighter: 254 226 226; /* red-50 */
+        --note-color-dark: 239 68 68; /* red-500 */
+    }
+
+    .note-card.note-card-orange {
+        --note-color: 249 115 22; /* orange-500 */
+        --note-color-light: 254 215 170; /* orange-100 */
+        --note-color-lighter: 255 237 213; /* orange-50 */
+        --note-color-dark: 249 115 22; /* orange-500 */
+    }
+
+    .note-card.note-card-pink {
+        --note-color: 236 72 153; /* pink-500 */
+        --note-color-light: 252 231 243; /* pink-100 */
+        --note-color-lighter: 253 244 246; /* pink-50 */
+        --note-color-dark: 236 72 153; /* pink-500 */
+    }
+
+    .note-card.note-card-indigo {
+        --note-color: 99 102 241; /* indigo-500 */
+        --note-color-light: 199 210 254; /* indigo-100 */
+        --note-color-lighter: 224 231 255; /* indigo-50 */
+        --note-color-dark: 99 102 241; /* indigo-500 */
+    }
+
+    .note-card.note-card-yellow {
+        --note-color: 234 179 8; /* yellow-500 */
+        --note-color-light: 254 249 195; /* yellow-100 */
+        --note-color-lighter: 254 252 220; /* yellow-50 */
+        --note-color-dark: 234 179 8; /* yellow-500 */
+    }
+
+    .note-card.note-card-warm-grey {
+        --note-color: 90 95 95;     /* #827c76 - medium base */
+        --note-color-light: 225 220 215; /* #e1dcd7 - softer, brighter light tone */
+        --note-color-lighter: 240 237 233; /* #f0ede9 - pale background/lightest */
+        --note-color-dark: 90 85 80;   /* #5a5550 - main dark tone */
+    }
+
+
+    .note-card-icon {
+        @apply w-12 h-12 rounded-full flex justify-center items-center mr-5 text-2xl;
+        background-color: rgb(255 255 255 / 0.5); /* white/50 */
+        color: rgb(var(--note-color));
+    }
+
+    .note-card-title {
+        @apply text-lg font-semibold mb-1;
+        color: rgb(var(--note-color-dark));
+    }
+
+    .note-card-subtitle {
+        @apply font-medium;
+        color: rgb(var(--note-color) / 0.8); /* Slightly darker than main color */
+    }
+}
+
+
+/*@layer components {*/
+/*    .note-card {*/
+/*        @apply bg-gradient-to-r from-blue-100 to-blue-200 rounded-2xl p-5 mt-8 flex items-center shadow relative z-10;*/
+/*    }*/
+
+/*    .note-card-icon {*/
+/*        @apply w-12 h-12 rounded-full bg-white/50 flex justify-center items-center mr-5 text-blue-500 text-2xl;*/
+/*    }*/
+
+/*    .note-card-title {*/
+/*        @apply text-lg font-semibold text-blue-900 mb-1;*/
+/*    }*/
+
+/*    .note-card-subtitle {*/
+/*        @apply text-blue-800 font-medium;*/
+/*    }*/
+/*}*/

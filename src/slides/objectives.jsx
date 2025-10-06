@@ -186,6 +186,7 @@ const Objectives = () => {
             </div>
 
             <NoteCard
+                variant={'warm-grey'}
                 icon={"fa-info-circle"}
                 title={"Measurable Outcomes"}
                 note={"Success measured through user testing, ATS compatibility scores and post-launch metrics including adoption rates and interview success."}/>

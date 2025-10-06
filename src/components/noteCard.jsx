@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
+function NoteCard({variant = 'warm-grey', icon, title, note}) {
+    // Map variant names to CSS classes
+    const variantClass = variant ? `note-card-${variant}` : 'note-card-blue';
 
-function NoteCard({icon, note,title}) {
     return (
         <div
-            className="bg-gradient-to-r from-blue-100 to-blue-200 rounded-2xl p-5 mt-8 flex items-center shadow relative z-10">
-            <div className="w-12 h-12 rounded-full bg-white/50 flex justify-center items-center mr-5">
-                <i className={`fas ${icon ? icon : 'fa-lightbulb'} text-blue-500 text-2xl`}></i>
+            className={`note-card ${variantClass}`} >
+            <div className="note-card-icon">
+                <i className={`fas ${icon ? icon : 'fa-lightbulb'} `}></i>
             </div>
             <div>
-                <h6 className={'text-lg font-semibold text-blue-900 mb-1'}>{title}</h6>
-            <p className="text-blue-800 font-medium">
+                <h6 className={'note-card-title'}>{title}</h6>
+            <p className="note-card-subtitle">
                 {note}
             </p>
             </div>
@@ -19,8 +21,11 @@ function NoteCard({icon, note,title}) {
     );
 }
 
-
 NoteCard.propTypes = {
+    variant: PropTypes.oneOf([
+        'blue', 'green', 'purple', 'red',
+        'orange', 'pink', 'indigo', 'yellow','warm-grey'
+    ]),
     icon: PropTypes.string,     // optional
     title: PropTypes.string,     // optional
     note: PropTypes.string.isRequired,  // required

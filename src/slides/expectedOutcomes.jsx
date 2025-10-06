@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import AnimatedCounter from "../components/animatedCounter.jsx";
+import NoteCard from "../components/noteCard.jsx";
 
 const ExpectedOutcomesContent = () => {
     const [animate, setAnimate] = useState(false);
@@ -11,21 +12,51 @@ const ExpectedOutcomesContent = () => {
 
 
     const tangible = [
-        { icon: "fa-user-tie", title: "Increased Interview Rates", metric: {pre:"+",value:75,post:"%"}, progress: 75 },
-        { icon: "fa-clock", title: "Reduced Time to Create Resume", metric: {pre:"-",value:60,post:"%"}, progress: 60 },
-        { icon: "fa-users", title: "User Adoption", metric: {pre:" ",value:10,post:"K+"}, progress: 85 },
-        { icon: "fa-percentage", title: "ATS Compatibility Score",metric: {pre:" ",value:90,post:"%"}, progress: 95 },
+        {
+            icon: "fa-user-tie",
+            title: "Increased Interview Rates",
+            metric: {pre: "+", value: 75, post: "%"},
+            progress: 75
+        },
+        {
+            icon: "fa-clock",
+            title: "Reduced Time to Create Resume",
+            metric: {pre: "-", value: 60, post: "%"},
+            progress: 60
+        },
+        {icon: "fa-users", title: "User Adoption", metric: {pre: " ", value: 10, post: "K+"}, progress: 85},
+        {
+            icon: "fa-percentage",
+            title: "ATS Compatibility Score",
+            metric: {pre: " ", value: 90, post: "%"},
+            progress: 95
+        },
     ];
-    const intangible=[
-        {icon: "fa-smile", title: "Improved Job Search Experience", metric: "High", progress: 90},
-        {icon: "fa-brain", title: "Reduced ATS Frustration", metric: "High", progress: 80},
+    const intangible = [
+        {
+            icon: "fa-smile",
+            title: "Improved Job Search Experience",
+            metric: "High",
+            progress: 90
+        },
+        {
+            icon: "fa-brain",
+            title: "Reduced ATS Frustration",
+            metric: "High",
+            progress: 80
+        },
         {
             icon: "fa-graduation-cap",
             title: "Increased ATS Knowledge",
             metric: "Medium",
             progress: 70
         },
-        {icon: "fa-award", title: "Enhanced Professional Image", metric: "High", progress: 85},
+        {
+            icon: "fa-award",
+            title: "Enhanced Professional Image",
+            metric: "High",
+            progress: 85
+        },
     ];
     return (
         <div className="flex flex-col relative flex-1 px-[60px] py-[50px]">
@@ -43,31 +74,33 @@ const ExpectedOutcomesContent = () => {
             <div className="grid grid-cols-2 gap-6 flex-grow">
                 {/* Tangible Outcomes */}
                 <div
-                    className="bg-white rounded-2xl p-6 shadow-md hover:-translate-y-1 hover:shadow-xl transition h-fit">
-                    <div className="flex items-center mb-6">
+                    className="card card-blue h-fit">
+                    <div className="card-header">
                         <div
-                            className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mr-4">
-                            <i className="fas fa-chart-bar text-blue-500 text-2xl"></i>
+                            className="card-header-icon">
+                            <i className="fas fa-chart-bar"></i>
                         </div>
-                        <h3 className="text-xl font-semibold text-blue-500">
+                        <h3 className="card-header-title">
                             Tangible Outcomes
                         </h3>
                     </div>
 
-                    <div className="flex flex-col gap-4">
+                    <div className="card-body">
                         {tangible.map((item, idx) => (
                             <div
                                 key={idx}
-                                className="flex items-start bg-gray-50 rounded-xl p-4 hover:translate-x-1 transition"
+                                className="card-item"
                             >
-                                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-blue-100 mr-3">
-                                    <i className={`fas ${item.icon} text-blue-500 text-lg`}></i>
+                                <div className="card-item-icon">
+                                    <i className={`fas ${item.icon} `}></i>
                                 </div>
                                 <div className="flex-1">
-                                    <div className="flex justify-between items-center text-blue-500 font-semibold text-base mb-1">
+                                    <div className="flex justify-between items-center card-item-title">
                                         {item.title}
-                                        <span className="bg-blue-100 text-blue-500 text-xs font-semibold px-3 py-1 rounded-full">
-                {item.metric.pre}{<AnimatedCounter start={0} end={item.metric.value} duration={3000}/>}{item.metric.post}
+                                        <span
+                                            className=" card-item-title bg-blue-100 text-xs mb-0 px-3 py-1 rounded-full">
+                {item.metric.pre}{<AnimatedCounter start={0} end={item.metric.value}
+                                                   duration={3000}/>}{item.metric.post}
               </span>
                                     </div>
                                     <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
@@ -86,34 +119,32 @@ const ExpectedOutcomesContent = () => {
 
                 {/* Intangible Outcomes */}
                 <div
-                    className="bg-white rounded-2xl p-6 shadow-md hover:-translate-y-1 hover:shadow-xl transition h-fit">
-                    <div className="flex items-center mb-6">
+                    className="card card-green h-fit">
+                    <div className="card-header">
                         <div
-                            className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center mr-4">
-                            <i className="fas fa-lightbulb text-green-500 text-2xl"></i>
+                            className="card-header-icon">
+                            <i className="fas fa-lightbulb "></i>
                         </div>
-                        <h3 className="text-xl font-semibold text-green-500">
+                        <h3 className="card-header-title">
                             Intangible Outcomes
                         </h3>
                     </div>
 
-                    <div className="flex flex-col gap-4">
+                    <div className="card-body">
                         {intangible.map((item, idx) => (
                             <div
                                 key={idx}
-                                className="flex items-start bg-gray-50 rounded-xl p-4 hover:translate-x-1 transition"
+                                className="card-item"
                             >
-                                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-green-100 mr-3">
-                                    <i className={`fas ${item.icon} text-green-500 text-lg`}></i>
+                                <div className="card-item-icon">
+                                    <i className={`fas ${item.icon} `}></i>
                                 </div>
                                 <div className="flex-1">
                                     <div
-                                        className="flex justify-between items-center text-green-500 font-semibold text-base mb-1">
+                                        className="flex justify-between items-center card-item-title">
                                         {item.title}
                                         <span
-                                            className="bg-green-100 text-green-500 text-xs font-semibold px-3 py-1 rounded-full">
-                {item.metric}
-              </span>
+                                            className="card-item-title bg-green-100 text-xs mb-0 px-3 py-1 rounded-full">{item.metric}</span>
                                     </div>
                                     <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
                                         <div
@@ -130,21 +161,13 @@ const ExpectedOutcomesContent = () => {
                 </div>
             </div>
 
-            {/* Note */}
-            <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-5 mt-6 flex items-center">
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white/50 mr-4">
-                    <i className="fas fa-info-circle text-blue-500 text-lg"></i>
-                </div>
-                <p className="text-blue-900 font-medium text-[16px]">
-                    Success metrics will be tracked through user feedback, application
+            <NoteCard
+                icon={'fa-info-circle'}
+                title={"Title here"}
+                note={`Success metrics will be tracked through user feedback, application
                     analytics, and post-launch surveys to measure the impact on job
-                    seekers' success rates.
-                </p>
-            </div>
+                    seekers' success rates.`}/>
 
-            {/* Accent Circle */}
-            <div
-                className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-br from-blue-100/50 to-blue-200/30 bottom-[-150px] right-[-100px]"></div>
         </div>
     );
 };

@@ -5,9 +5,7 @@ function Home() {
             <div className="flex flex-col justify-center flex-1 relative px-20 py-16">
                 {/* Title */}
                 <h1 className="text-[72px] font-extrabold leading-tight mb-5 bg-gradient-to-r from-blue-500 to-blue-800 bg-clip-text text-transparent">
-                    ATS-Friendly
-                    <br />
-                    Resume Maker
+                    ResuCraft
                 </h1>
 
                 {/* Subtitle */}

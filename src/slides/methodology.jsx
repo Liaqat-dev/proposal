@@ -77,14 +77,15 @@ function Methodology() {
                     </div>
 
                     {/* Steps */}
-                    <div className="flex justify-between mb-4">
+                    <div className="flex justify-between mb-4 relative">
+                        <div className="absolute top-[20px] left-[40px] right-[40px] h-[2px] z-0 bg-gray-200 "></div>
                         {["Planning", "Design", "Develop", "Test"].map((step, idx) => (
                             <div key={idx} className="flex flex-col items-center">
                                 <div
-                                    className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-yellow-100 to-yellow-200 text-yellow-700 font-semibold mb-2">
+                                    className="w-10 h-10 rounded-full flex z-10 items-center justify-center bg-gradient-to-br from-yellow-100 to-yellow-200 text-yellow-700 font-semibold mb-2">
                                     {idx + 1}
                                 </div>
-                                <span className="text-xs font-medium text-slate-600">
+                                <span className="text-xs font-medium text-slate-600 ">
                   {step}
                 </span>
                             </div>
