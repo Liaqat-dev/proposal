@@ -1,5 +1,6 @@
 import React from "react";
 import NoteCard from "../components/noteCard.jsx";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 const ConclusionContent = () => {
     const problems = [
@@ -71,16 +72,8 @@ const ConclusionContent = () => {
         },
     ];
     return (
-        <div className="flex flex-col relative flex-1 px-[60px] py-[50px]">
-            {/* Header */}
-            <div className="mb-8">
-                <h1 className="text-[42px] font-bold text-blue-900 mb-2">
-                    Project Conclusion
-                </h1>
-                <p className="text-lg text-gray-500 font-normal">
-                    Key takeaways and future potential of the ATS-Friendly Resume Maker
-                </p>
-            </div>
+        <div className="content">
+            <SlideHeader title={'Project Conclusion'} subtitle={'Key takeaways and future potential of the ATS-Friendly Resume Maker'}/>
 
             {/* Conclusion Grid */}
             <div className="grid grid-cols-2 gap-6 flex-grow">

@@ -1,18 +1,14 @@
 import React from "react";
 import NoteCard from "../components/noteCard.jsx";
 import AnimatedCounter from "../components/animatedCounter.jsx";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 function Methodology() {
     return (
         <main
-            className="content flex-1 flex flex-col px-14 py-12 relative font-poppins bg-gradient-to-br from-slate-50 to-slate-200">
-            {/* Header */}
-            <header className="mb-10">
-                <h1 className="text-4xl font-bold text-blue-900 mb-2">Methodology</h1>
-                <p className="text-lg text-slate-600">
-                    Development approach and processes for the ATS-Friendly Resume Maker
-                </p>
-            </header>
+            className="content">
+
+            <SlideHeader title={'Methodology'} subtitle={'Development approach and processes for the ATS-Friendly Resume Maker'}/>
 
             {/* Methodology Grid */}
             <section className="grid grid-cols-2 gap-6 flex-grow">

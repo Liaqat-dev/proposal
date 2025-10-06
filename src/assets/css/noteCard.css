@@ -1,6 +1,6 @@
 @layer components {
     .note-card {
-        @apply rounded-2xl p-4 mt-4 flex items-center shadow relative z-10;
+        @apply rounded-2xl p-4 mt-4 flex items-center shadow-md relative z-10;
         /* Default is blue */
         --note-color: 100 100 95;     /* #827c76 - medium base */
         --note-color-light: 225 220 215; /* #e1dcd7 - softer, brighter light tone */
@@ -11,6 +11,9 @@
         rgb(var(--note-color-lighter)),
         rgb(var(--note-color-light))
         );
+    }
+    .note-card:hover {
+        @apply -translate-y-1;
     }
 
     /* Color variants as separate classes */

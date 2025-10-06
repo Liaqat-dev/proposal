@@ -1,18 +1,11 @@
 import React from "react";
 import AnimatedCounter from "../components/animatedCounter.jsx";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 function Introduction() {
     return (
-        <main className="content flex-1 flex flex-col px-14 py-12 relative font-poppins">
-            {/* Header */}
-            <header className="mb-10">
-                <h1 className="text-4xl font-bold text-blue-900 mb-2">
-                    Understanding ATS Systems
-                </h1>
-                <p className="text-lg text-slate-600">
-                    How applicant tracking systems work and why they matter
-                </p>
-            </header>
+        <main className="content">
+            <SlideHeader title={'Understanding ATS Systems'} subtitle={'How applicant tracking systems work and why they matter'}/>
 
             {/* Stats */}
             <section className="flex gap-6 mb-10">
@@ -26,7 +19,7 @@ function Introduction() {
                         className="flex-1 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition flex flex-col items-center justify-center"
                     >
                         <div
-                            className="text-5xl font-extrabold bg-gradient-to-r from-blue-500 to-blue-800 bg-clip-text text-transparent mb-2">
+                            className="text-5xl font-extrabold bg-gradient-to-r from-[#827c76] to-[#8D7F76] bg-clip-text text-transparent mb-2">
                             {AnimatedCounter({start:0,end:stat.number})}{stat.unit}
                         </div>
                         <p className="text-slate-500 font-medium text-center">

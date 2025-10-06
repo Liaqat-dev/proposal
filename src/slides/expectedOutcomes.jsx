@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import AnimatedCounter from "../components/animatedCounter.jsx";
 import NoteCard from "../components/noteCard.jsx";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 const ExpectedOutcomesContent = () => {
     const [animate, setAnimate] = useState(false);
@@ -59,18 +60,11 @@ const ExpectedOutcomesContent = () => {
         },
     ];
     return (
-        <div className="flex flex-col relative flex-1 px-[60px] py-[50px]">
-            {/* Header */}
-            <div className="mb-8">
-                <h1 className="text-[42px] font-bold text-blue-900 mb-2">
-                    Expected Outcomes
-                </h1>
-                <p className="text-lg text-gray-500 font-normal">
-                    Anticipated results and benefits of the ATS-Friendly Resume Maker
-                </p>
-            </div>
+        <div className="content">
+            <SlideHeader
+                title={'Expected Outcomes'}
+                subtitle={'Anticipated results and benefits of the ATS-Friendly Resume Maker'}/>
 
-            {/* Outcomes Grid */}
             <div className="grid grid-cols-2 gap-6 flex-grow">
                 {/* Tangible Outcomes */}
                 <div
@@ -98,9 +92,9 @@ const ExpectedOutcomesContent = () => {
                                     <div className="flex justify-between items-center card-item-title">
                                         {item.title}
                                         <span
-                                            className=" card-item-title bg-blue-100 text-xs mb-0 px-3 py-1 rounded-full">
-                {item.metric.pre}{<AnimatedCounter start={0} end={item.metric.value}
-                                                   duration={3000}/>}{item.metric.post}
+                                            className=" card-item-title bg-blue-100 text-xs mb-0 px-3 py-1 rounded-full">{item.metric.pre}{
+                                            <AnimatedCounter start={0} end={item.metric.value}
+                                                             duration={3000}/>}{item.metric.post}
               </span>
                                     </div>
                                     <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
@@ -146,7 +140,7 @@ const ExpectedOutcomesContent = () => {
                                         <span
                                             className="card-item-title bg-green-100 text-xs mb-0 px-3 py-1 rounded-full">{item.metric}</span>
                                     </div>
-                                    <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                    <div className="h-1.5 min-h-1.5 max-h-1.5 bg-gray-200 rounded-full overflow-hidden">
                                         <div
                                             className="h-full bg-gradient-to-r from-green-500 to-green-400 transition-all duration-[3000ms]"
                                             style={{

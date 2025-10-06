@@ -27,7 +27,7 @@ function Layout() {
                 <Aside/>
                 <Outlet/>
                 <div
-                    className="absolute bottom-[-150px] right-[-100px] w-[300px] h-[300px] rounded-full bg-gradient-to-br from-blue-100/50 to-blue-200/30 z-0"></div>
+                    className="absolute bottom-[-150px] right-[-100px] w-[300px] h-[300px] rounded-full bg-gradient-to-br from-gray-100 to-gray-200 z-[-1]"></div>
             </div>
         </div>
     );

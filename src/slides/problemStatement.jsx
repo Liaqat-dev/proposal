@@ -1,18 +1,11 @@
 import React from "react";
 import AnimatedCounter from "../components/animatedCounter.jsx";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 const ProblemStatement = () => {
     return (
-        <div className="content flex flex-col p-12 relative">
-            {/* Header */}
-            <div className="header mb-8">
-                <h1 className="title text-4xl font-bold text-blue-900 mb-2">
-                    Problem Statement
-                </h1>
-                <p className="subtitle text-lg text-gray-500">
-                    Key challenges in creating ATS-compatible resumes
-                </p>
-            </div>
+        <div className="content">
+            <SlideHeader title={'Problem Statement'} subtitle={'Key challenges in creating ATS-compatible resumes'}/>
 
             {/* Main Content */}
             <div className="main-content flex gap-8 flex-grow">

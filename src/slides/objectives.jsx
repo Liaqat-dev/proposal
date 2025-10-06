@@ -1,18 +1,11 @@
 import React from "react";
 import NoteCard from "../components/noteCard.jsx";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 const Objectives = () => {
     return (
-        <div className="content flex flex-col relative p-[50px_60px]">
-            {/* Header */}
-            <div className="header mb-8">
-                <h1 className="title text-[42px] font-bold text-blue-900 mb-2">
-                    Project Objectives
-                </h1>
-                <p className="subtitle text-lg text-gray-500 font-normal">
-                    Primary and secondary goals with measurable outcomes
-                </p>
-            </div>
+        <div className="content">
+            <SlideHeader title={'Project Objectives'} subtitle={'Primary and secondary goals with measurable outcomes'}/>
 
             {/* Objectives Container */}
             <div className="objectives-container flex gap-8 flex-grow">
@@ -186,11 +179,9 @@ const Objectives = () => {
             </div>
 
             <NoteCard
-                variant={'warm-grey'}
                 icon={"fa-info-circle"}
                 title={"Measurable Outcomes"}
                 note={"Success measured through user testing, ATS compatibility scores and post-launch metrics including adoption rates and interview success."}/>
-
         </div>
     );
 };

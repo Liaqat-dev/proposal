@@ -1,15 +1,10 @@
 import React from "react";
 import NoteCard from "../components/noteCard.jsx";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 function DesignPhase() {
-    return (<main className="content flex-1 flex flex-col px-14 py-12 relative font-poppins">
-        {/* Header */}
-        <header className="mb-10">
-            <h1 className="text-4xl font-bold text-blue-900 mb-2">Design Phase</h1>
-            <p className="text-lg text-slate-600">
-                System architecture, UI/UX design, and database structure
-            </p>
-        </header>
+    return (<main className="content">
+        <SlideHeader title={'Design Phase'} subtitle={'System architecture, UI/UX design, and database structure'}/>
 
         {/* Design Grid */}
         <section className="design-grid grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow ">

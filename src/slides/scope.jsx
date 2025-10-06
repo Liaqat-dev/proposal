@@ -1,5 +1,6 @@
 import React from "react";
 import NoteCard from "../components/noteCard.jsx";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 const Scope = () => {
     const outOfScope = [
@@ -59,16 +60,8 @@ const Scope = () => {
 
 
     return (
-        <div className="content relative flex flex-col p-[50px] px-[60px]">
-            {/* Header */}
-            <div className="header mb-8">
-                <h1 className="title text-[42px] font-bold text-blue-900 mb-2">
-                    Project Scope
-                </h1>
-                <p className="subtitle text-lg text-gray-500 font-normal">
-                    Defining boundaries and limitations of the ATS-Friendly Resume Maker
-                </p>
-            </div>
+        <div className="content">
+            <SlideHeader title={'Project Scope'} subtitle={'Defining boundaries and limitations of the ATS-Friendly Resume Maker'}/>
 
             {/* Scope Container */}
             <div className="grid grid-cols-2 gap-6 flex-grow">

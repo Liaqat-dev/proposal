@@ -1,17 +1,11 @@
 import React from "react";
+import SlideHeader from "../components/shared/slideHeader.jsx";
+import NoteCard from "../components/noteCard.jsx";
 
 const Testing = () => {
     return (
-        <div className="flex flex-col relative flex-1 px-[60px] py-[50px]">
-            {/* Header */}
-            <div className="mb-[30px]">
-                <h1 className="text-[42px] font-bold text-blue-900 mb-[10px]">
-                    Testing Strategy
-                </h1>
-                <p className="text-[18px] text-gray-500 font-normal">
-                    Comprehensive testing approach for the ATS-Friendly Resume Maker
-                </p>
-            </div>
+        <div className="content">
+            <SlideHeader title={'Testing Strategy'} subtitle={'Comprehensive testing approach for the ATS-Friendly Resume Maker'}/>
 
             {/* Grid */}
             <div className="grid grid-cols-2 gap-[25px] flex-grow">
@@ -109,7 +103,7 @@ const Testing = () => {
                         {[
                             {icon: "fa-cube", title: "Unit Testing", desc: "Individual component validation"},
                             {icon: "fa-plug", title: "Integration Testing", desc: "Component interaction validation"},
-                            {icon: "fa-desktop", title: "System Testing", desc: "End-to-end application validation"},
+                            // {icon: "fa-desktop", title: "System Testing", desc: "End-to-end application validation"},
                             {
                                 icon: "fa-user-check",
                                 title: "User Acceptance Testing",
@@ -180,17 +174,10 @@ const Testing = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Note */}
-            <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-5 mt-6 flex items-center">
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white/50 mr-4">
-                    <i className="fas fa-lightbulb text-blue-500 text-lg"></i>
-                </div>
-                <p className="text-blue-900 font-medium text-[16px]">
-                    Testing focuses on ATS compatibility, user experience, and performance to ensure the resume maker
-                    meets all requirements and delivers value to job seekers.
-                </p>
-            </div>
+            <NoteCard
+                icon={'fa-lightbulb'}
+                note={` Testing focuses on ATS compatibility, user experience, and performance to ensure the resume maker
+                    meets all requirements and delivers value to job seekers.`}/>
         </div>
     );
 };

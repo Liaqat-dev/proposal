@@ -1,0 +1,64 @@
+@layer components {
+    .slide {
+        @apply w-[1920px] h-[1080px] relative flex overflow-hidden origin-top-left;
+        background: var(--slideBg);
+    }
+
+    .sidebar {
+        @apply w-[300px] flex flex-col justify-center relative overflow-hidden px-[30px] py-[40px];
+        background: var(--sidebarBg);
+    }
+
+    .sidebar::before {
+        content: '';
+        @apply absolute top-0 left-0 right-0 bottom-0 opacity-30;
+        background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='none'/><path d='M0,0 L100,100 M100,0 L0,100' stroke='rgba(59,130,246,0.2)' stroke-width='1'/></svg>");
+    };
+
+    .sidebar-title {
+        @apply text-[24px] font-bold text-[#827c76] mb-[20px] relative z-[1];
+    }
+    .sidebar-nav {
+        @apply list-none relative z-[1];
+    }
+
+    .sidebar-nav-item {
+        @apply mb-[13px] px-[12px] py-[10px] rounded-[10px] flex items-center transition-all duration-300 ease-linear text-[#827c76];
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .sidebar-nav-item:hover {
+        @apply translate-x-[5px];
+        background: rgba(255, 255, 255, 0.6);
+    }
+
+    .sidebar-nav-item.active {
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar-nav-item i {
+        @apply  text-[18px] mr-[12px];
+    }
+
+    .sidebar-nav-item span {
+        @apply text-[16px] font-medium ;
+    }
+
+
+    .content {
+        @apply flex flex-col relative flex-1 px-[60px] py-[50px];
+    }
+    .slide-header {
+        @apply mb-[20px];
+    }
+
+    .slide-title {
+        @apply text-[42px] font-bold text-[#827c76] ;
+    }
+
+    .slide-subtitle {
+        @apply text-[18px] text-[#64748b] font-normal;
+    }
+
+}

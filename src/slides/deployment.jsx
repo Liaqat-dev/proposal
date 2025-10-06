@@ -1,18 +1,11 @@
 import React from "react";
 import NoteCard from "../components/noteCard.jsx";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 const DeploymentContent = () => {
     return (
         <div className="content">
-            {/* Header */}
-            <div className="mb-[30px]">
-                <h1 className="text-[42px] font-bold text-blue-900 mb-[10px]">
-                    Deployment Strategy
-                </h1>
-                <p className="text-[18px] text-gray-500 font-normal">
-                    Environment setup, pipeline, and maintenance for the ATS-Friendly Resume Maker
-                </p>
-            </div>
+            <SlideHeader title={'Deployment Strategy'} subtitle={'Environment setup, pipeline, and maintenance for the ATS-Friendly Resume Maker'}/>
 
             {/* Grid */}
             <div className="grid grid-cols-2 gap-[25px] flex-grow">

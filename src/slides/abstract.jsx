@@ -1,17 +1,10 @@
 import React from "react";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 function Abstract() {
     return (
-        <main className="content flex-1 flex flex-col px-14 py-12 relative font-poppins">
-            {/* Header */}
-            <header className="mb-10">
-                <h1 className="text-4xl font-bold text-blue-900 mb-2">
-                    Project Abstract
-                </h1>
-                <p className="text-lg text-slate-600">
-                    A concise overview of the ATS-Friendly Resume Maker web application
-                </p>
-            </header>
+        <main className="content">
+            <SlideHeader title={'Project Abstract'} subtitle={'A concise overview of the ATS-Friendly Resume Maker web application'} />
 
             {/* Cards */}
             <section className="cards-container flex flex-wrap gap-6 flex-grow">

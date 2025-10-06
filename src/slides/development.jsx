@@ -1,4 +1,5 @@
 import React from 'react';
+import SlideHeader from "../components/shared/slideHeader.jsx";
 
 function Development() {
     const implementationTopics = [
@@ -23,16 +24,8 @@ function Development() {
         {icon: "fa-users", label: "Code Reviews"},
     ];
     return (
-        <main className="content flex-1 flex flex-col px-14 py-12 relative">
-            {/* Header */}
-            <header className="mb-8">
-                <h1 className="text-4xl font-extrabold text-blue-900 mb-2">
-                    Development Phase
-                </h1>
-                <p className="text-lg text-slate-500">
-                    Implementation process, standards, testing, and deployment
-                </p>
-            </header>
+        <main className="content">
+            <SlideHeader title={'Development Phase'} subtitle={'Implementation process, standards, testing, and deployment'}/>
 
             {/* Grid with 4 cards */}
             <section className="grid grid-cols-2 gap-6 flex-grow">

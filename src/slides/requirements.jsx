@@ -1,147 +1,211 @@
 import React from "react";
+import SlideHeader from "../components/shared/slideHeader.jsx";
 import NoteCard from "../components/noteCard.jsx";
 
 const Requirements = () => {
+    const functionalRequirements = [
+        {
+            icon: "fa-user-circle",
+            title: "User Management",
+            priority: "High",
+            priorityClass: "high-priority",
+            desc: "Registration, login, profile creation",
+        },
+        {
+            icon: "fa-file-alt",
+            title: "Resume Builder",
+            priority: "High",
+            priorityClass: "high-priority",
+            desc: "ATS-optimized resume creation",
+        },
+        {
+            icon: "fa-search",
+            title: "Job Analysis",
+            priority: "Medium",
+            priorityClass: "medium-priority",
+            desc: "Keyword extraction from job descriptions",
+        },
+        {
+            icon: "fa-download",
+            title: "Export Functionality",
+            priority: "High",
+            priorityClass: "high-priority",
+            desc: "Multiple format downloads (PDF, Word)",
+        },
+    ];
+    const nonFunctionalRequirements = [
+        {
+            icon: "fa-bolt",
+            title: "Performance",
+            priority: "High",
+            priorityClass: "high-priority",
+            desc: "Response time < 2s, handle 1000+ users",
+        },
+        {
+            icon: "fa-mobile-alt",
+            title: "Usability",
+            priority: "High",
+            priorityClass: "high-priority",
+            desc: "Intuitive interface, minimal learning curve",
+        },
+        {
+            icon: "fa-shield-alt",
+            title: "Security",
+            priority: "High",
+            priorityClass: "high-priority",
+            desc: "Data encryption, secure authentication",
+        },
+        {
+            icon: "fa-expand-arrows-alt",
+            title: "Compatibility",
+            priority: "Medium",
+            priorityClass: "medium-priority",
+            desc: "Cross-browser, responsive design",
+        },
+    ];
+    const technicalRequirements = [
+        {
+            icon: "fa-laptop-code",
+            title: "Frontend",
+            priority: "High",
+            priorityClass: "high-priority",
+            desc: "React.js, HTML5, CSS3, responsive design",
+        },
+        {
+            icon: "fa-server",
+            title: "Backend",
+            priority: "High",
+            priorityClass: "high-priority",
+            desc: "Node.js, Express, REST API architecture",
+        },
+        {
+            icon: "fa-database",
+            title: "Database",
+            priority: "High",
+            priorityClass: "high-priority",
+            desc: "MongoDB for user data, file storage",
+        },
+        {
+            icon: "fa-brain",
+            title: "ATS Engine",
+            priority: "High",
+            priorityClass: "high-priority",
+            desc: "Custom keyword extraction algorithm",
+        },
+    ];
     return (
         <div className="content">
-            {/* Header */}
-            <div className="mb-8">
-                <h1 className="text-4xl font-bold text-blue-900 mb-2">
-                    Project Scope
-                </h1>
-                <p className="text-lg text-slate-500 font-normal">
-                    Defining boundaries and limitations of the ATS-Friendly Resume Maker
-                </p>
-            </div>
+            <SlideHeader title={'Requirement Analysis'}
+                         subtitle={'Functional, non-functional, and technical requirements'}/>
 
-            {/* Scope Container */}
-            <div className="flex gap-8 flex-grow">
-                {/* In Scope */}
-                <div className="flex-1 flex flex-col gap-6">
-                    <div
-                        className="bg-white rounded-2xl shadow-lg p-6 flex flex-col hover:shadow-xl hover:-translate-y-1 transition">
-                        <div className="flex items-center mb-5">
-                            <div
-                                className="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-blue-200 mr-4">
-                                <i className="fas fa-check-circle text-3xl text-blue-500"></i>
-                            </div>
-                            <h2 className="text-2xl font-bold text-blue-500">In Scope</h2>
+            {/* Requirements Container */}
+            <div className="grid grid-cols-2 gap-8">
+                {/* Functional Requirements */}
+
+                <div className="card card-blue col-span-1">
+                    <div className="card-header">
+                        <div className="card-header-icon ">
+                            <i className="fas fa-cogs"></i>
                         </div>
-
-                        <div className="flex flex-col gap-4 flex-grow">
-                            {[
-                                {
-                                    icon: "fas fa-user-circle",
-                                    title: "User Management",
-                                    desc: "Registration, login, profile creation",
-                                },
-                                {
-                                    icon: "fas fa-file-alt",
-                                    title: "Resume Builder",
-                                    desc: "ATS-optimized resume creation",
-                                },
-                                {
-                                    icon: "fas fa-search",
-                                    title: "Job Description Analysis",
-                                    desc: "Keyword extraction and optimization",
-                                },
-                                {
-                                    icon: "fas fa-palette",
-                                    title: "Template Library",
-                                    desc: "ATS-friendly professional templates",
-                                },
-                                {
-                                    icon: "fas fa-download",
-                                    title: "Export Functionality",
-                                    desc: "Multiple format downloads (PDF, Word)",
-                                },
-                            ].map((item, i) => (
-                                <div
-                                    key={i}
-                                    className="flex items-start bg-slate-50 rounded-xl p-4 hover:translate-x-1 transition"
-                                >
-                                    <div
-                                        className="w-10 h-10 flex items-center justify-center rounded-md bg-blue-100 mr-4">
-                                        <i className={`${item.icon} text-blue-500 text-lg`}></i>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-semibold text-blue-900 mb-1">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-sm text-slate-500">{item.desc}</p>
-                                    </div>
+                        <h3 className="card-header-title">
+                            Functional Requirements
+                        </h3>
+                    </div>
+                    <div className="card-body">
+                        {functionalRequirements.map((req, idx) => (
+                            <div key={idx} className="card-item">
+                                <div className="card-item-icon ">
+                                    <i className={`fas ${req.icon}`}></i>
                                 </div>
-                            ))}
-                        </div>
+                                <div className={'flex-1'}>
+                                    <div className="card-item-title flex justify-between items-center">
+                                        {req.title}
+                                        <span
+                                            className={`card-item-title bg-blue-100 text-xs mb-0 px-3 py-1 rounded-full ${req.priorityClass}`}
+                                        >
+                        {req.priority}
+                      </span>
+                                    </div>
+                                    <p className="card-item-subtitle">{req.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
-                {/* Out of Scope */}
-                <div className="flex-1 flex flex-col gap-6">
-                    <div
-                        className="bg-white rounded-2xl shadow-lg p-6 flex flex-col hover:shadow-xl hover:-translate-y-1 transition">
-                        <div className="flex items-center mb-5">
-                            <div
-                                className="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-red-100 to-red-200 mr-4">
-                                <i className="fas fa-times-circle text-3xl text-red-500"></i>
-                            </div>
-                            <h2 className="text-2xl font-bold text-red-500">Out of Scope</h2>
-                        </div>
+                {/* Non-Functional Requirements */}
 
-                        <div className="flex flex-col gap-4 flex-grow">
-                            {[
-                                {
-                                    icon: "fas fa-briefcase",
-                                    title: "Job Board Integration",
-                                    desc: "Direct application to job platforms",
-                                },
-                                {
-                                    icon: "fas fa-envelope",
-                                    title: "Cover Letter Generator",
-                                    desc: "Automated cover letter creation",
-                                },
-                                {
-                                    icon: "fas fa-comments",
-                                    title: "Interview Preparation",
-                                    desc: "Mock interviews and coaching",
-                                },
-                                {
-                                    icon: "fas fa-mobile-alt",
-                                    title: "Mobile Application",
-                                    desc: "Native iOS and Android apps",
-                                },
-                                {
-                                    icon: "fas fa-chart-line",
-                                    title: "Advanced Analytics",
-                                    desc: "Detailed application tracking",
-                                },
-                            ].map((item, i) => (
-                                <div
-                                    key={i}
-                                    className="flex items-start bg-slate-50 rounded-xl p-4 hover:translate-x-1 transition"
-                                >
-                                    <div
-                                        className="w-10 h-10 flex items-center justify-center rounded-md bg-red-100 mr-4">
-                                        <i className={`${item.icon} text-red-500 text-lg`}></i>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-semibold text-red-700 mb-1">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-sm text-slate-500">{item.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
+                <div className="card card-green col-span-1">
+                    <div className="card-header">
+                        <div className="card-header-icon ">
+                            <i className="fas fa-tachometer-alt"></i>
                         </div>
+                        <h3 className="card-header-title ">
+                            Non-Functional Requirements
+                        </h3>
+                    </div>
+                    <div className="card-body">
+                        {nonFunctionalRequirements.map((req, idx) => (
+                            <div key={idx} className="card-item">
+                                <div className="card-item-icon">
+                                    <i className={`fas ${req.icon}`}></i>
+                                </div>
+                                <div className={'flex-1'}>
+                                    <div className="card-item-title flex justify-between items-center">
+                                        {req.title}
+                                        <span
+                                            className={`card-item-title bg-green-100 text-xs mb-0 px-3 py-1 rounded-full ${req.priorityClass}`}
+                                        >
+                        {req.priority}
+                      </span>
+                                    </div>
+                                    <p className="card-item-subtitle">{req.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+
+                {/* Technical Requirements */}
+
+                <div className="card card-yellow col-span-2">
+                    <div className="card-header">
+                        <div className="card-header-icon ">
+                            <i className="fas fa-microchip"></i>
+                        </div>
+                        <h3 className="card-header-title ">
+                            Technical Requirements
+                        </h3>
+                    </div>
+                    <div className="card-body grid grid-cols-2 gap-3">
+                        {technicalRequirements.map((req, idx) => (
+                            <div key={idx} className="card-item col-span-1">
+                                <div className="card-item-icon">
+                                    <i className={`fas ${req.icon}`}></i>
+                                </div>
+                                <div className="flex-1">
+                                    <div className="card-item-title flex justify-between items-center">
+                                        {req.title}
+                                        <span
+                                            className={`card-item-title bg-yellow-100 text-xs mb-0 px-3 py-1 rounded-full ${req.priorityClass}`}
+                                        >
+                        {req.priority}
+                      </span>
+                                    </div>
+                                    <p className="card-item-subtitle">{req.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
 
             <NoteCard
                 icon={'fa-info-circle'}
-                title={"Project Boundaries"}
-                note={"Features outside the defined scope may be considered for future development phases based on user feedback and resource availability."}
+                note={`Requirements prioritized based on impact to core functionality. High-priority items will be addressed first in development sprints.`}
             />
+
         </div>
     );
 };
