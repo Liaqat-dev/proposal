@@ -3,7 +3,44 @@ import NoteCard from "../components/noteCard.jsx";
 import SlideHeader from "../components/shared/slideHeader.jsx";
 
 function DesignPhase() {
-    return (<main className="content">
+    const  systemArchitecture = [{
+        icon: "fas fa-desktop",
+        title: "Client Layer",
+        tech: "Web Browser",
+        color: "text-blue-500 bg-blue-100/40",
+    }, {
+        icon: "fas fa-code",
+        title: "Frontend Layer",
+        tech: "React.js, Tailwind CSS",
+        color: "text-green-500 bg-green-100/40",
+    }, {
+        icon: "fas fa-server",
+        title: "Backend Layer",
+        tech: "Node.js, Express, REST API",
+        color: "text-purple-500 bg-purple-100/40",
+    }, {
+        icon: "fas fa-database",
+        title: "Data Layer",
+        tech: "MongoDB, File Storage",
+        color: "text-yellow-500 bg-yellow-100/40",
+    }];
+
+    let DBDesign=[{
+        title: "Users Collection",
+        fields: ["_id", "email", "password", "name", "created_at"],
+        pk: ["_id"],
+    }, {
+        title: "Resumes Collection",
+        fields: ["_id", "user_id", "title", "content", "template_id", "ats_score",],
+        pk: ["_id"],
+        fk: ["user_id"],
+    }, {
+        title: "Templates Collection",
+        fields: ["_id", "name", "structure", "category"],
+        pk: ["_id"],
+    }];
+
+    return <div className="content">
         <SlideHeader title={'Design Phase'} subtitle={'System architecture, UI/UX design, and database structure'}/>
 
         {/* Design Grid */}
@@ -21,27 +58,7 @@ function DesignPhase() {
                     </h3>
                 </div>
                 <div className="flex flex-col gap-4">
-                    {[{
-                        icon: "fas fa-desktop",
-                        title: "Client Layer",
-                        tech: "Web Browser",
-                        color: "text-blue-500 bg-blue-100/40",
-                    }, {
-                        icon: "fas fa-code",
-                        title: "Frontend Layer",
-                        tech: "React.js, Tailwind CSS",
-                        color: "text-green-500 bg-green-100/40",
-                    }, {
-                        icon: "fas fa-server",
-                        title: "Backend Layer",
-                        tech: "Node.js, Express, REST API",
-                        color: "text-purple-500 bg-purple-100/40",
-                    }, {
-                        icon: "fas fa-database",
-                        title: "Data Layer",
-                        tech: "MongoDB, File Storage",
-                        color: "text-yellow-500 bg-yellow-100/40",
-                    },].map((layer, idx) => (<div
+                    {systemArchitecture.map((layer, idx) => (<div
                         key={idx}
                         className="flex items-center bg-slate-50 rounded-xl p-3 hover:translate-x-2 transition"
                     >
@@ -105,20 +122,7 @@ function DesignPhase() {
                     </h3>
                 </div>
                 <div className="flex flex-col gap-4">
-                    {[{
-                        title: "Users Collection",
-                        fields: ["_id", "email", "password", "name", "created_at"],
-                        pk: ["_id"],
-                    }, {
-                        title: "Resumes Collection",
-                        fields: ["_id", "user_id", "title", "content", "template_id", "ats_score",],
-                        pk: ["_id"],
-                        fk: ["user_id"],
-                    }, {
-                        title: "Templates Collection",
-                        fields: ["_id", "name", "structure", "category"],
-                        pk: ["_id"],
-                    },].map((table, idx) => (<div
+                    {DBDesign.map((table, idx) => (<div
                         key={idx}
                         className="bg-slate-50 rounded-xl p-4 hover:-translate-y-1 transition"
                     >
@@ -148,7 +152,7 @@ function DesignPhase() {
 
         <NoteCard
             note={"Design prioritizes user experience, ATS compatibility, and system scalability with modular architecture for future enhancements."}/>
-    </main>);
+    </div>;
 }
 
 export default DesignPhase;

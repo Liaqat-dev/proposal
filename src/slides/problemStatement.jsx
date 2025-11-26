@@ -12,20 +12,20 @@ const ProblemStatement = () => {
                 {/* Left Panel */}
                 <div className="left-panel flex-3 flex flex-col gap-6">
                     {/* ATS Rejection Factors */}
-                    <div className="card bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-all">
-                        <div className="card-header flex items-center mb-4">
+                    <div className="card ">
+                        <div className="card-header">
                             <div
-                                className="card-icon w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 mr-4">
-                                <i className="fas fa-filter text-blue-500 text-xl"></i>
+                                className="card-header-icon">
+                                <i className="fas fa-filter "></i>
                             </div>
-                            <h3 className="card-title text-xl font-semibold text-blue-900">
+                            <h3 className="card-header-title ">
                                 ATS Rejection Factors
                             </h3>
                         </div>
 
-                        <div className="rejection-factors grid grid-cols-2 gap-4">
+                        <div className="card-body grid grid-cols-2 gap-4">
                             <div
-                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-4 border-red-500">
+                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-3 border-red-500">
                                 <div
                                     className="factor-icon w-10 h-10 flex items-center justify-center rounded-lg bg-red-100 mr-3">
                                     <i className="fas fa-table text-red-500"></i>
@@ -35,7 +35,7 @@ const ProblemStatement = () => {
                                 </div>
                             </div>
                             <div
-                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-4 border-red-500">
+                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-3 border-red-500">
                                 <div
                                     className="factor-icon w-10 h-10 flex items-center justify-center rounded-lg bg-red-100 mr-3">
                                     <i className="fas fa-search text-red-500"></i>
@@ -45,7 +45,7 @@ const ProblemStatement = () => {
                                 </div>
                             </div>
                             <div
-                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-4 border-red-500">
+                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-3 border-red-500">
                                 <div
                                     className="factor-icon w-10 h-10 flex items-center justify-center rounded-lg bg-red-100 mr-3">
                                     <i className="fas fa-font text-red-500"></i>
@@ -55,7 +55,7 @@ const ProblemStatement = () => {
                                 </div>
                             </div>
                             <div
-                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-4 border-red-500">
+                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-3 border-red-500">
                                 <div
                                     className="factor-icon w-10 h-10 flex items-center justify-center rounded-lg bg-red-100 mr-3">
                                     <i className="fas fa-tags text-red-500"></i>
@@ -68,13 +68,13 @@ const ProblemStatement = () => {
                     </div>
 
                     {/* Key Statistics */}
-                    <div className="card bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-all">
-                        <div className="card-header flex items-center mb-4">
+                    <div className="card ">
+                        <div className="card-header ">
                             <div
-                                className="card-icon w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 mr-4">
-                                <i className="fas fa-chart-line text-blue-500 text-xl"></i>
+                                className="card-header-icon">
+                                <i className="fas fa-chart-line "></i>
                             </div>
-                            <h3 className="card-title text-xl font-semibold text-blue-900">
+                            <h3 className="card-header-title">
                                 Key Statistics
                             </h3>
                         </div>

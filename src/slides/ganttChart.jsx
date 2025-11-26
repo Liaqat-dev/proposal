@@ -25,7 +25,7 @@ const GanttContent = () => {
     ];
 
     return (
-        <div className="content">
+        <div className="content ">
             <SlideHeader title={'Project Timeline'} subtitle={'Gantt chart showing project phases, tasks, and milestones'}/>
 
             <div className="flex justify-between mb-5">

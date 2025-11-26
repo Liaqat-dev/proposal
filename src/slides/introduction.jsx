@@ -5,14 +5,15 @@ import SlideHeader from "../components/shared/slideHeader.jsx";
 function Introduction() {
     return (
         <main className="content">
-            <SlideHeader title={'Understanding ATS Systems'} subtitle={'How applicant tracking systems work and why they matter'}/>
+            <SlideHeader title={'Understanding ATS Systems'}
+                         subtitle={'How applicant tracking systems work and why they matter'}/>
 
             {/* Stats */}
-            <section className="flex gap-6 mb-10">
+            <section className="flex gap-6 mb-10 ">
                 {[
-                    {number: 98,unit:"%", label: "Fortune 500 companies use ATS"},
-                    {number: 75,unit:"%", label: "Resumes rejected by ATS"},
-                    {number: 6,unit:"s", label: "Average recruiter review time"},
+                    {number: 98, unit: "%", label: "Fortune 500 companies use ATS"},
+                    {number: 75, unit: "%", label: "Resumes rejected by ATS"},
+                    {number: 6, unit: "s", label: "Average recruiter review time"},
                 ].map((stat, idx) => (
                     <div
                         key={idx}
@@ -20,7 +21,7 @@ function Introduction() {
                     >
                         <div
                             className="text-5xl font-extrabold bg-gradient-to-r from-[#827c76] to-[#8D7F76] bg-clip-text text-transparent mb-2">
-                            {AnimatedCounter({start:0,end:stat.number})}{stat.unit}
+                            {AnimatedCounter({start: 0, end: stat.number})}{stat.unit}
                         </div>
                         <p className="text-slate-500 font-medium text-center">
                             {stat.label}
@@ -32,7 +33,8 @@ function Introduction() {
             {/* Info Cards */}
             <section className="flex gap-6 flex-grow ">
                 {/* How ATS Works */}
-                <div className="flex-1 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition flex flex-col h-fit">
+                <div
+                    className="flex-1 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition flex flex-col h-fit">
                     <div className="flex items-center mb-6">
                         <div
                             className="w-12 h-12 rounded-xl flex items-center justify-center mr-4 bg-gradient-to-br from-blue-100 to-blue-200">
@@ -61,7 +63,8 @@ function Introduction() {
                 </div>
 
                 {/* The Growing Need */}
-                <div className="flex-1 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition flex flex-col h-fit">
+                <div
+                    className="flex-1 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition flex flex-col h-fit">
                     <div className="flex items-center mb-6">
                         <div
                             className="w-12 h-12 rounded-xl flex items-center justify-center mr-4 bg-gradient-to-br from-blue-100 to-blue-200">

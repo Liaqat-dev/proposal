@@ -1,7 +1,8 @@
 @layer components {
     .card {
         @apply bg-white rounded-2xl p-6 shadow-md transition-transform;
-        --card-color: 59 130 246; /* Default: blue-500 */
+        /*--card-color: 59 130 246; !* Default: blue-500 *!*/
+        --card-color:90 95 95;
 
         /* Color variants as modifiers */
 
@@ -35,6 +36,9 @@
 
         &.card-yellow {
             --card-color: 234 179 8;
+        }
+        &.card-warm-grey {
+            --card-color:90 95 95;
         }
 
     }

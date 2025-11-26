@@ -99,7 +99,7 @@ function Home() {
                         className="flex items-center bg-white rounded-2xl shadow-md p-5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <div
                             className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#f0ede9] to-[#e1dcd7] mr-4">
-                            <i className="fas fa-file-download text-[#827c76] text-2xl"></i>
+                            <i className="fas fa-download text-[#827c76] text-2xl"></i>
                         </div>
                         <div className="text-base font-semibold text-slate-700">
                             Easy Export

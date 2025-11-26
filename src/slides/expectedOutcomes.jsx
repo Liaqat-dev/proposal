@@ -157,7 +157,6 @@ const ExpectedOutcomesContent = () => {
 
             <NoteCard
                 icon={'fa-info-circle'}
-                title={"Title here"}
                 note={`Success metrics will be tracked through user feedback, application
                     analytics, and post-launch surveys to measure the impact on job
                     seekers' success rates.`}/>
