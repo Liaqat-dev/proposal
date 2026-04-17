@@ -8,7 +8,7 @@ function Methodology() {
         <main
             className="content">
 
-            <SlideHeader title={'Methodology'} subtitle={'Development approach and processes for the ATS-Friendly Resume Maker'}/>
+            <SlideHeader title={'Methodology'} subtitle={'Agile development process, research methods, and evaluation strategy followed during development'}/>
 
             {/* Methodology Grid */}
             <section className="grid grid-cols-2 gap-6 flex-grow">
@@ -24,10 +24,10 @@ function Methodology() {
                         </h3>
                     </div>
                     {[
-                        "Agile methodology with 2-week sprints",
-                        "User-centered design with job seeker feedback",
-                        "Iterative development with continuous testing",
-                        "MVP first approach with feature expansion",
+                        "Followed Agile methodology with 2-week sprints",
+                        "Gathered feedback from job seekers throughout development",
+                        "Iterated continuously with testing at each sprint",
+                        "Delivered core MVP first, then expanded all features",
                     ].map((item, idx) => (
                         <div key={idx} className="flex items-start mb-3">
                             <i className="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
@@ -145,7 +145,7 @@ function Methodology() {
 
             <NoteCard
                 icon={'fa-lightbulb'}
-                note={"Success will be measured by ATS compatibility scores, user adoption rates, and feedback from both job seekers and recruitment professionals."}/>
+                note={"Success was measured through ATS compatibility scores, usability testing feedback, and performance benchmarks — all targets were met or exceeded."}/>
         </main>
     );
 }

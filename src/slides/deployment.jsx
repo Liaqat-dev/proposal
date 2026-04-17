@@ -5,7 +5,7 @@ import SlideHeader from "../components/shared/slideHeader.jsx";
 const DeploymentContent = () => {
     return (
         <div className="content">
-            <SlideHeader title={'Deployment Strategy'} subtitle={'Environment setup, pipeline, and maintenance for the ATS-Friendly Resume Maker'}/>
+            <SlideHeader title={'Deployment'} subtitle={'Multi-environment CI/CD pipeline, Docker containers, and cloud deployment on AWS — live and running'}/>
 
             {/* Grid */}
             <div className="grid grid-cols-2 gap-[25px] flex-grow">
@@ -177,7 +177,7 @@ const DeploymentContent = () => {
             {/* Note */}
             <NoteCard
                 icon={'fa-lightbulb'}
-                note={`Deployment strategy focuses on reliability, scalability, and security to ensure the ATS-Friendly Resume Maker is always available and performing optimally.`}
+                note="ResuCraft is deployed on AWS EC2 with MongoDB Atlas and S3. GitHub Actions handles the full CI/CD pipeline — automated tests run on every commit before deployment to production. Zero-downtime rolling updates are in place."
             />
         </div>
     );

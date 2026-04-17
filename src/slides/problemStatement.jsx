@@ -1,178 +1,91 @@
 import React from "react";
-import AnimatedCounter from "../components/animatedCounter.jsx";
 import SlideHeader from "../components/shared/slideHeader.jsx";
+import NoteCard from "../components/noteCard.jsx";
 
 const ProblemStatement = () => {
+    const subProblems = [
+        {
+            icon: "fa-filter",
+            color: "red",
+            title: "ATS Invisible Barrier",
+            desc: "75% of resumes rejected by ATS before human review. 43% of visually formatted resumes suffer serious parsing degradation.",
+        },
+        {
+            icon: "fa-file-alt",
+            color: "orange",
+            title: "Generic Resume Content",
+            desc: "Existing AI tools produce non-contextualised text not tailored to specific job descriptions — low semantic depth.",
+        },
+        {
+            icon: "fa-paint-brush",
+            color: "yellow",
+            title: "Design–ATS Conflict",
+            desc: "General design tools (Canva, Word) create visually appealing resumes with zero ATS compliance awareness.",
+        },
+        {
+            icon: "fa-puzzle-piece",
+            color: "blue",
+            title: "Fragmented Pipeline",
+            desc: "No unified tool connects resume building, ATS scoring, and interview preparation around the same job description.",
+        },
+        {
+            icon: "fa-universal-access",
+            color: "purple",
+            title: "Accessibility Barriers",
+            desc: "Existing platforms lack speech-to-text input, screen-reader support, and WCAG 2.1 AA compliance.",
+        },
+        {
+            icon: "fa-store",
+            color: "green",
+            title: "No Community Templates",
+            desc: "No resume-specific community template ecosystem with ATS-aware validation — templates are either proprietary or design-only.",
+        },
+    ];
+
+    const colorMap = {
+        red:    {bg: "bg-red-100",    icon: "text-red-500",    border: "border-red-400",    badge: "bg-red-50 text-red-700"},
+        orange: {bg: "bg-orange-100", icon: "text-orange-500", border: "border-orange-400", badge: "bg-orange-50 text-orange-700"},
+        yellow: {bg: "bg-yellow-100", icon: "text-yellow-600", border: "border-yellow-400", badge: "bg-yellow-50 text-yellow-700"},
+        blue:   {bg: "bg-blue-100",   icon: "text-blue-500",   border: "border-blue-400",   badge: "bg-blue-50 text-blue-700"},
+        purple: {bg: "bg-purple-100", icon: "text-purple-500", border: "border-purple-400", badge: "bg-purple-50 text-purple-700"},
+        green:  {bg: "bg-green-100",  icon: "text-green-500",  border: "border-green-400",  badge: "bg-green-50 text-green-700"},
+    };
+
     return (
         <div className="content">
-            <SlideHeader title={'Problem Statement'} subtitle={'Key challenges in creating ATS-compatible resumes'}/>
+            <SlideHeader
+                title={"Problem Statement"}
+                subtitle={"Six interconnected sub-problems ResuCraft is designed to solve"}
+            />
 
-            {/* Main Content */}
-            <div className="main-content flex gap-8 flex-grow">
-                {/* Left Panel */}
-                <div className="left-panel flex-3 flex flex-col gap-6">
-                    {/* ATS Rejection Factors */}
-                    <div className="card ">
-                        <div className="card-header">
-                            <div
-                                className="card-header-icon">
-                                <i className="fas fa-filter "></i>
+            <div className="grid grid-cols-3 gap-5 ">
+                {subProblems.map((p, idx) => {
+                    const c = colorMap[p.color];
+                    return (
+                        <div
+                            key={idx}
+                            className={`bg-white rounded-2xl p-5 shadow-md hover:shadow-xl hover:-translate-y-1 transition flex flex-col border-l-4 ${c.border}`}
+                        >
+                            <div className="flex items-center mb-3">
+                                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mr-3 ${c.bg}`}>
+                                    <i className={`fas ${p.icon} ${c.icon}`}></i>
+                                </div>
+                                <span className={`text-xs font-bold px-2 py-1 rounded-full ${c.badge}`}>
+                                    SP-{idx + 1}
+                                </span>
                             </div>
-                            <h3 className="card-header-title ">
-                                ATS Rejection Factors
-                            </h3>
+                            <h3 className={`text-base font-semibold mb-2 ${c.icon}`}>{p.title}</h3>
+                            <p className="text-sm text-slate-500 leading-relaxed">{p.desc}</p>
                         </div>
-
-                        <div className="card-body grid grid-cols-2 gap-4">
-                            <div
-                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-3 border-red-500">
-                                <div
-                                    className="factor-icon w-10 h-10 flex items-center justify-center rounded-lg bg-red-100 mr-3">
-                                    <i className="fas fa-table text-red-500"></i>
-                                </div>
-                                <div className="factor-text font-medium text-gray-700">
-                                    Complex formatting
-                                </div>
-                            </div>
-                            <div
-                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-3 border-red-500">
-                                <div
-                                    className="factor-icon w-10 h-10 flex items-center justify-center rounded-lg bg-red-100 mr-3">
-                                    <i className="fas fa-search text-red-500"></i>
-                                </div>
-                                <div className="factor-text font-medium text-gray-700">
-                                    Missing keywords
-                                </div>
-                            </div>
-                            <div
-                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-3 border-red-500">
-                                <div
-                                    className="factor-icon w-10 h-10 flex items-center justify-center rounded-lg bg-red-100 mr-3">
-                                    <i className="fas fa-font text-red-500"></i>
-                                </div>
-                                <div className="factor-text font-medium text-gray-700">
-                                    Unconventional fonts
-                                </div>
-                            </div>
-                            <div
-                                className="factor flex items-center bg-gray-50 rounded-xl p-3 border-l-3 border-red-500">
-                                <div
-                                    className="factor-icon w-10 h-10 flex items-center justify-center rounded-lg bg-red-100 mr-3">
-                                    <i className="fas fa-tags text-red-500"></i>
-                                </div>
-                                <div className="factor-text font-medium text-gray-700">
-                                    Improper section labels
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Key Statistics */}
-                    <div className="card ">
-                        <div className="card-header ">
-                            <div
-                                className="card-header-icon">
-                                <i className="fas fa-chart-line "></i>
-                            </div>
-                            <h3 className="card-header-title">
-                                Key Statistics
-                            </h3>
-                        </div>
-
-                        <div className="stats flex flex-col gap-4">
-                            <div
-                                className="stat flex items-center bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl p-5">
-                                <div className="stat-number text-3xl font-bold text-blue-900 mr-4">
-                                    {AnimatedCounter({start:0,end:75})}%
-                                </div>
-                                <div className="stat-text font-medium text-gray-700">
-                                    Resumes rejected by ATS before human review
-                                </div>
-                            </div>
-                            <div
-                                className="stat flex items-center bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl p-5">
-                                <div className="stat-number text-3xl font-bold text-blue-900 mr-4">
-                                    {AnimatedCounter({start:0,end:10})}s
-                                </div>
-                                <div className="stat-text font-medium text-gray-700">
-                                    Average time ATS scans a resume
-                                </div>
-                            </div>
-                            <div
-                                className="stat flex items-center bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl p-5">
-                                <div className="stat-number text-3xl font-bold text-blue-900 mr-4">
-                                    {AnimatedCounter({start:0,end:3})}x
-                                </div>
-                                <div className="stat-text font-medium text-gray-700">
-                                    Higher interview rates with ATS-optimized resumes
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Right Panel */}
-                <div className="right-panel flex-2 flex flex-col gap-6 h-fit">
-                    <div className="gap-card bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-6 flex-grow">
-                        <div className="gap-title flex items-center text-xl font-semibold text-blue-900 mb-4">
-                            <i className="fas fa-puzzle-piece text-blue-500 mr-2"></i>
-                            Gap in Current Solutions
-                        </div>
-                        <div className="gap-list flex flex-col gap-3">
-                            <div className="gap-item flex items-center">
-                                <i className="fas fa-times-circle text-blue-500 mr-2"></i>
-                                <span className="text-gray-700 font-medium">
-                  Resume builders focus on{" "}
-                                    <span className="highlight font-semibold text-blue-900">
-                    visual appeal
-                  </span>{" "}
-                                    over ATS compatibility
-                </span>
-                            </div>
-                            <div className="gap-item flex items-center">
-                                <i className="fas fa-times-circle text-blue-500 mr-2"></i>
-                                <span className="text-gray-700 font-medium">
-                  Lack of{" "}
-                                    <span className="highlight font-semibold text-blue-900">
-                    job description analysis
-                  </span>{" "}
-                                    for keyword optimization
-                </span>
-                            </div>
-                            <div className="gap-item flex items-center">
-                                <i className="fas fa-times-circle text-blue-500 mr-2"></i>
-                                <span className="text-gray-700 font-medium">
-                  No{" "}
-                                    <span className="highlight font-semibold text-blue-900">
-                    real-time feedback
-                  </span>{" "}
-                                    on ATS compatibility
-                </span>
-                            </div>
-                            <div className="gap-item flex items-center">
-                                <i className="fas fa-times-circle text-blue-500 mr-2"></i>
-                                <span className="text-gray-700 font-medium">
-                  Limited{" "}
-                                    <span className="highlight font-semibold text-blue-900">
-                    education
-                  </span>{" "}
-                                    on ATS requirements
-                </span>
-                            </div>
-                            <div className="gap-item flex items-center">
-                                <i className="fas fa-times-circle text-blue-500 mr-2"></i>
-                                <span className="text-gray-700 font-medium">
-                  Templates not{" "}
-                                    <span className="highlight font-semibold text-blue-900">
-                    tested
-                  </span>{" "}
-                                    against actual ATS systems
-                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    );
+                })}
             </div>
+
+            <NoteCard
+                icon="fa-exclamation-circle"
+                variant="red"
+                note="All six sub-problems are interconnected — no single existing platform addresses more than two simultaneously. ResuCraft is the first to tackle all six in one unified interface."
+            />
         </div>
     );
 };

@@ -4,99 +4,45 @@ import SlideHeader from "../components/shared/slideHeader.jsx";
 
 const ConclusionContent = () => {
     const problems = [
-        {
-            icon: "fa-filter",
-            title: "ATS Rejection",
-            desc: "75% of resumes rejected before human review",
-        },
-        {
-            icon: "fa-puzzle-piece",
-            title: "Gap in Solutions",
-            desc: "Existing tools lack ATS optimization",
-        },
-        {
-            icon: "fa-user-times",
-            title: "Job Seeker Frustration",
-            desc: "Qualified candidates overlooked",
-        },
+        {icon: "fa-filter",           title: "ATS Invisible Barrier",    desc: "75% of resumes rejected before any human sees them"},
+        {icon: "fa-puzzle-piece",     title: "Fragmented Pipeline",      desc: "No single tool covers resume + scoring + interview prep"},
+        {icon: "fa-store",            title: "No Community Ecosystem",   desc: "Zero resume-specific community template marketplace with ATS validation"},
     ];
-    const futurePotential = [
-        {
-            icon: "fa-brain",
-            title: "AI Enhancements",
-            desc: "Advanced content suggestions and optimization",
-        },
-        {
-            icon: "fa-briefcase",
-            title: "Job Board Integration",
-            desc: "Direct application to job platforms",
-        },
-        {
-            icon: "fa-mobile-alt",
-            title: "Mobile Application",
-            desc: "On-the-go resume creation and editing",
-        },
-    ];
-    const benefits = [
-        {
-            icon: "fa-chart-line",
-            title: "Higher Interview Rates",
-            desc: "3x increase in interview calls",
-        },
-        {
-            icon: "fa-clock",
-            title: "Time Efficiency",
-            desc: "60% reduction in resume creation time",
-        },
-        {
-            icon: "fa-smile",
-            title: "Improved Experience",
-            desc: "Reduced frustration with job search process",
-        },
-    ];
+
     const solutions = [
-        {
-            icon: "fa-file-alt",
-            title: "ATS-Optimized Builder",
-            desc: "Web application for creating compatible resumes",
-        },
-        {
-            icon: "fa-search",
-            title: "Keyword Analysis",
-            desc: "Job description integration for optimization",
-        },
-        {
-            icon: "fa-tachometer-alt",
-            title: "Real-Time Feedback",
-            desc: "ATS compatibility scoring and suggestions",
-        },
+        {icon: "fa-robot",           title: "AI Resume Generation",    desc: "Google Gemini NLP pipeline: JD parse → keyword match → content generation → ATS score"},
+        {icon: "fa-paint-brush",     title: "Drag-and-Drop Builder",   desc: "Canvas-based template designer with dynamic field binding — unique in the market"},
+        {icon: "fa-microphone",      title: "Live Mock Interview",      desc: "Gemini Live WebSocket real-time voice interview tied to the same job description"},
     ];
+
+    const achievements = [
+        {icon: "fa-clock",       title: "≈ 60%",  desc: "Reduction in resume creation time"},
+        {icon: "fa-chart-line",  title: "~95%",   desc: "Target ATS compatibility pass rate"},
+        {icon: "fa-users",       title: "3×",     desc: "Increase in interview call rates"},
+        {icon: "fa-mobile-alt",  title: "iOS+Android", desc: "Mobile companion via Expo / React Native"},
+    ];
+
+    const futureWork = [
+        {icon: "fa-envelope",       title: "Cover Letter Generator",    desc: "AI-generated cover letters tied to JD and profile — planned v2.0"},
+        {icon: "fa-linkedin",       title: "LinkedIn Optimisation",     desc: "Profile alignment and keyword enrichment for LinkedIn"},
+        {icon: "fa-briefcase",      title: "Direct Job Application",    desc: "One-click apply to partner job boards"},
+    ];
+
     return (
         <div className="content">
-            <SlideHeader title={'Project Conclusion'} subtitle={'Key takeaways and future potential of the ATS-Friendly Resume Maker'}/>
+            <SlideHeader title={"Conclusion"} subtitle={"Problems solved, system delivered, key achievements, and roadmap for future development"}/>
 
-            {/* Conclusion Grid */}
-            <div className="grid grid-cols-2 gap-6 flex-grow">
+            <div className="grid grid-cols-2 gap-5 flex-grow">
                 {/* Problem Recap */}
-                <div
-                    className="card">
-                    <div className="card-header ">
-                        <div
-                            className="card-header-icon">
-                            <i className="fas fa-exclamation-triangle "></i>
-                        </div>
-                        <h3 className="card-header-title">Problem Recap</h3>
+                <div className="card">
+                    <div className="card-header">
+                        <div className="card-header-icon"><i className="fas fa-exclamation-triangle"></i></div>
+                        <h3 className="card-header-title">Problems Solved</h3>
                     </div>
-
                     <div className="card-body">
                         {problems.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className="card-item"
-                            >
-                                <div className="card-item-icon">
-                                    <i className={`fas ${item.icon} `}></i>
-                                </div>
+                            <div key={idx} className="card-item">
+                                <div className="card-item-icon"><i className={`fas ${item.icon}`}></i></div>
                                 <div>
                                     <div className="card-item-title">{item.title}</div>
                                     <div className="card-item-subtitle">{item.desc}</div>
@@ -107,25 +53,15 @@ const ConclusionContent = () => {
                 </div>
 
                 {/* Our Solution */}
-                <div
-                    className="card card-green">
-                    <div className="card-header ">
-                        <div
-                            className="card-header-icon">
-                            <i className="fas fa-lightbulb "></i>
-                        </div>
-                        <h3 className="card-header-title">Our Solution</h3>
+                <div className="card card-green">
+                    <div className="card-header">
+                        <div className="card-header-icon"><i className="fas fa-lightbulb"></i></div>
+                        <h3 className="card-header-title">ResuCraft Solution</h3>
                     </div>
-
                     <div className="card-body">
                         {solutions.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className="card-item"
-                            >
-                                <div className="card-item-icon">
-                                    <i className={`fas ${item.icon} `}></i>
-                                </div>
+                            <div key={idx} className="card-item">
+                                <div className="card-item-icon"><i className={`fas ${item.icon}`}></i></div>
                                 <div>
                                     <div className="card-item-title">{item.title}</div>
                                     <div className="card-item-subtitle">{item.desc}</div>
@@ -135,57 +71,35 @@ const ConclusionContent = () => {
                     </div>
                 </div>
 
-                {/* Key Benefits */}
-                <div
-                    className="card card-yellow">
+                {/* Key Achievements */}
+                <div className="card card-yellow">
                     <div className="card-header">
-                        <div
-                            className="card-header-icon">
-                            <i className="fas fa-star "></i>
-                        </div>
-                        <h3 className="card-header-title">Key Benefits</h3>
+                        <div className="card-header-icon"><i className="fas fa-trophy"></i></div>
+                        <h3 className="card-header-title">Key Achievements</h3>
                     </div>
+                    <div className="card-body grid grid-cols-2 gap-3">
+                        {achievements.map((item, idx) => (
+                            <div key={idx} className="card-item">
+                                <div className="card-item-icon"><i className={`fas ${item.icon}`}></i></div>
+                                <div>
+                                    <div className="card-item-title">{item.title}</div>
+                                    <div className="card-item-subtitle">{item.desc}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
+                {/* Future Work */}
+                <div className="card card-purple">
+                    <div className="card-header">
+                        <div className="card-header-icon"><i className="fas fa-rocket"></i></div>
+                        <h3 className="card-header-title">Future Work — v2.0+</h3>
+                    </div>
                     <div className="card-body">
-                        {benefits.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className="card-item"
-                            >
-                                <div className="card-item-icon">
-                                    <i className={`fas ${item.icon}`}></i>
-                                </div>
-                                <div>
-                                    <div className="card-item-title">{item.title}</div>
-                                    <div className="card-item-subtitle">{item.desc}</div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Future Potential */}
-                <div
-                    className="card card-purple">
-                    <div className="card-header">
-                        <div
-                            className="card-header-icon">
-                            <i className="fas fa-rocket "></i>
-                        </div>
-                        <h3 className="card-header-title">
-                            Future Potential
-                        </h3>
-                    </div>
-
-                    <div className="flex flex-col gap-4">
-                        {futurePotential.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className="card-item"
-                            >
-                                <div className="card-item-icon">
-                                    <i className={`fas ${item.icon}`}></i>
-                                </div>
+                        {futureWork.map((item, idx) => (
+                            <div key={idx} className="card-item">
+                                <div className="card-item-icon"><i className={`fas ${item.icon}`}></i></div>
                                 <div>
                                     <div className="card-item-title">{item.title}</div>
                                     <div className="card-item-subtitle">{item.desc}</div>
@@ -197,8 +111,9 @@ const ConclusionContent = () => {
             </div>
 
             <NoteCard
-                icon={'fa-trophy'}
-                note={"The project bridges the gap between candidates and employers by ensuring resumes pass through automated screening systems,empowering candidates to showcase their skills effectively."}
+                icon="fa-flag-checkered"
+                variant="green"
+                note="ResuCraft is the first platform to unify AI resume generation, ATS scoring, drag-and-drop template building, a community marketplace, live voice mock interviews, and WCAG 2.1 AA accessibility — all in one interface."
             />
         </div>
     );

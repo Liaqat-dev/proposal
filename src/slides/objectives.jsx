@@ -3,185 +3,120 @@ import NoteCard from "../components/noteCard.jsx";
 import SlideHeader from "../components/shared/slideHeader.jsx";
 
 const Objectives = () => {
+    const objectives = [
+        {
+            num: "O1",
+            icon: "fa-robot",
+            color: "blue",
+            title: "AI Resume Generation Engine",
+            desc: "NLP-driven engine using Google Gemini API to parse JDs, extract keywords, match user profile, and generate ATS-optimised content.",
+            metric: "JD → tailored resume in < 50s",
+        },
+        {
+            num: "O2",
+            icon: "fa-tachometer-alt",
+            color: "green",
+            title: "ATS Optimisation Scoring",
+            desc: "Numeric 0–100 ATS score with categorical breakdown (keywords, format, structure) and actionable improvement suggestions.",
+            metric: "Achieved: 95% ATS pass rate",
+        },
+        {
+            num: "O3",
+            icon: "fa-paint-brush",
+            color: "yellow",
+            title: "Drag-and-Drop Template Builder",
+            desc: "Canvas-based visual designer with dynamic field binding, style customisation, and one-click template publishing.",
+            metric: "10+ ATS-validated templates",
+        },
+        {
+            num: "O4",
+            icon: "fa-store",
+            color: "purple",
+            title: "Community Template Marketplace",
+            desc: "Self-sustaining ecosystem for template creators to publish, users to discover and clone, with moderation workflow.",
+            metric: "Community-driven quality",
+        },
+        {
+            num: "O5",
+            icon: "fa-microphone",
+            color: "indigo",
+            title: "Live Mock Interview Module",
+            desc: "Real-time voice interview via Gemini Live WebSocket — 5 structured questions covering motivation, skills, STAR behavioural, and technical.",
+            metric: "Real-time voice streaming",
+        },
+        {
+            num: "O6",
+            icon: "fa-universal-access",
+            color: "orange",
+            title: "Universal Accessibility",
+            desc: "WCAG 2.1 Level AA compliance — speech-to-text input, full keyboard navigation, screen reader support, high-contrast design.",
+            metric: "WCAG 2.1 AA compliant",
+        },
+        {
+            num: "O7",
+            icon: "fa-shield-alt",
+            color: "red",
+            title: "Scalable, Secure Architecture",
+            desc: "1000+ concurrent users, bcrypt password hashing, JWT auth (15-min access / 30-day refresh), GDPR & CCPA compliance.",
+            metric: "< 2s response time",
+        },
+        {
+            num: "O8",
+            icon: "fa-mobile-alt",
+            color: "pink",
+            title: "Production-Ready Web + Mobile App",
+            desc: "First-time user creates a professional, ATS-optimised resume within 10 minutes of registration. iOS & Android companion via Expo.",
+            metric: "Complete resume in < 10 min",
+        },
+    ];
+
+    const colorMap = {
+        blue:   {bg: "bg-blue-100",   text: "text-blue-500",   dark: "text-blue-800",   badge: "bg-blue-100 text-blue-700"},
+        green:  {bg: "bg-green-100",  text: "text-green-500",  dark: "text-green-800",  badge: "bg-green-100 text-green-700"},
+        yellow: {bg: "bg-yellow-100", text: "text-yellow-600", dark: "text-yellow-800", badge: "bg-yellow-100 text-yellow-700"},
+        purple: {bg: "bg-purple-100", text: "text-purple-500", dark: "text-purple-800", badge: "bg-purple-100 text-purple-700"},
+        indigo: {bg: "bg-indigo-100", text: "text-indigo-500", dark: "text-indigo-800", badge: "bg-indigo-100 text-indigo-700"},
+        orange: {bg: "bg-orange-100", text: "text-orange-500", dark: "text-orange-800", badge: "bg-orange-100 text-orange-700"},
+        red:    {bg: "bg-red-100",    text: "text-red-500",    dark: "text-red-800",    badge: "bg-red-100 text-red-700"},
+        pink:   {bg: "bg-pink-100",   text: "text-pink-500",   dark: "text-pink-800",   badge: "bg-pink-100 text-pink-700"},
+    };
+
     return (
         <div className="content">
-            <SlideHeader title={'Project Objectives'} subtitle={'Primary and secondary goals with measurable outcomes'}/>
+            <SlideHeader
+                title={"Project Objectives"}
+                subtitle={"Eight primary objectives — all implemented and demonstrated in the final system"}
+            />
 
-            {/* Objectives Container */}
-            <div className="objectives-container flex gap-8 flex-grow">
-                {/* Primary Objectives */}
-                <div className="objectives-column flex flex-col gap-5 flex-1">
-                    <div
-                        className="objectives-card bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition">
-                        <div className="card-header flex items-center mb-5">
-                            <div
-                                className="card-icon w-16 h-16 rounded-full flex justify-center items-center mr-4 bg-gradient-to-br from-blue-100 to-blue-200">
-                                <i className="fas fa-bullseye text-blue-500 text-2xl"></i>
+            <div className="grid grid-cols-4 gap-4 ">
+                {objectives.map((obj, idx) => {
+                    const c = colorMap[obj.color];
+                    return (
+                        <div
+                            key={idx}
+                            className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition flex flex-col"
+                        >
+                            <div className="flex items-center mb-3">
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mr-3 ${c.bg}`}>
+                                    <i className={`fas ${obj.icon} ${c.text}`}></i>
+                                </div>
+                                <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${c.badge}`}>{obj.num}</span>
                             </div>
-                            <h2 className="card-title text-2xl font-bold text-blue-500">
-                                Primary Objectives
-                            </h2>
-                        </div>
-
-                        <div className="objectives-list flex flex-col gap-4 flex-grow">
-                            {/* Objective 1 */}
-                            <div
-                                className="objective-item flex items-start bg-gray-50 rounded-xl p-4 hover:translate-x-1 transition">
-                                <div
-                                    className="objective-icon w-10 h-10 flex justify-center items-center mr-4 rounded-lg bg-blue-100">
-                                    <i className="fas fa-file-alt text-blue-500 text-lg"></i>
-                                </div>
-                                <div className="objective-content flex-grow">
-                                    <h3 className="objective-title text-lg font-semibold text-blue-900 mb-1">
-                                        ATS-Optimized Resume Builder
-                                    </h3>
-                                    <p className="objective-desc text-sm text-gray-500 mb-2">
-                                        Create web application generating ATS-friendly resumes
-                                    </p>
-                                    <div
-                                        className="metric inline-flex items-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-900 font-semibold px-3 py-1 rounded-full text-sm">
-                                        <i className="fas fa-chart-line mr-1 text-xs"></i>
-                                        Target: 95% ATS compatibility
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Objective 2 */}
-                            <div
-                                className="objective-item flex items-start bg-gray-50 rounded-xl p-4 hover:translate-x-1 transition">
-                                <div
-                                    className="objective-icon w-10 h-10 flex justify-center items-center mr-4 rounded-lg bg-blue-100">
-                                    <i className="fas fa-search text-blue-500 text-lg"></i>
-                                </div>
-                                <div className="objective-content flex-grow">
-                                    <h3 className="objective-title text-lg font-semibold text-blue-900 mb-1">
-                                        Keyword Analysis
-                                    </h3>
-                                    <p className="objective-desc text-sm text-gray-500 mb-2">
-                                        Extract and recommend relevant keywords from job descriptions
-                                    </p>
-                                    <div
-                                        className="metric inline-flex items-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-900 font-semibold px-3 py-1 rounded-full text-sm">
-                                        <i className="fas fa-chart-line mr-1 text-xs"></i>
-                                        Target: 90% keyword match rate
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Objective 3 */}
-                            <div
-                                className="objective-item flex items-start bg-gray-50 rounded-xl p-4 hover:translate-x-1 transition">
-                                <div
-                                    className="objective-icon w-10 h-10 flex justify-center items-center mr-4 rounded-lg bg-blue-100">
-                                    <i className="fas fa-chart-line text-blue-500 text-lg"></i>
-                                </div>
-                                <div className="objective-content flex-grow">
-                                    <h3 className="objective-title text-lg font-semibold text-blue-900 mb-1">
-                                        Increase Interview Rates
-                                    </h3>
-                                    <p className="objective-desc text-sm text-gray-500 mb-2">
-                                        Help users secure more interviews with optimized resumes
-                                    </p>
-                                    <div
-                                        className="metric inline-flex items-center bg-gradient-to-br from-blue-100 to-blue-200 text-blue-900 font-semibold px-3 py-1 rounded-full text-sm">
-                                        <i className="fas fa-chart-line mr-1 text-xs"></i>
-                                        Target: 3x increase in interviews
-                                    </div>
-                                </div>
+                            <h3 className={`text-sm font-bold mb-2 ${c.dark}`}>{obj.title}</h3>
+                            <p className="text-xs text-slate-500 leading-relaxed flex-grow">{obj.desc}</p>
+                            <div className={`mt-3 text-xs font-semibold px-2 py-1 rounded-lg ${c.badge} flex items-center`}>
+                                <i className="fas fa-chart-line mr-1"></i>
+                                {obj.metric}
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                {/* Secondary Objectives */}
-                <div className="objectives-column flex flex-col gap-5 flex-1">
-                    <div
-                        className="objectives-card bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition">
-                        <div className="card-header flex items-center mb-5">
-                            <div
-                                className="card-icon w-16 h-16 rounded-full flex justify-center items-center mr-4 bg-gradient-to-br from-purple-100 to-purple-200">
-                                <i className="fas fa-star text-purple-500 text-2xl"></i>
-                            </div>
-                            <h2 className="card-title text-2xl font-bold text-purple-500">
-                                Secondary Objectives
-                            </h2>
-                        </div>
-
-                        <div className="objectives-list flex flex-col gap-4 flex-grow">
-                            {/* Objective 1 */}
-                            <div
-                                className="objective-item flex items-start bg-gray-50 rounded-xl p-4 hover:translate-x-1 transition">
-                                <div
-                                    className="objective-icon w-10 h-10 flex justify-center items-center mr-4 rounded-lg bg-purple-100">
-                                    <i className="fas fa-palette text-purple-500 text-lg"></i>
-                                </div>
-                                <div className="objective-content flex-grow">
-                                    <h3 className="objective-title text-lg font-semibold text-purple-700 mb-1">
-                                        Template Library
-                                    </h3>
-                                    <p className="objective-desc text-sm text-gray-500 mb-2">
-                                        Collection of professional, ATS-friendly templates
-                                    </p>
-                                    <div
-                                        className="metric inline-flex items-center bg-gradient-to-br from-purple-100 to-purple-200 text-purple-700 font-semibold px-3 py-1 rounded-full text-sm">
-                                        <i className="fas fa-chart-line mr-1 text-xs"></i>
-                                        Target: 10+ templates
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Objective 2 */}
-                            <div
-                                className="objective-item flex items-start bg-gray-50 rounded-xl p-4 hover:translate-x-1 transition">
-                                <div
-                                    className="objective-icon w-10 h-10 flex justify-center items-center mr-4 rounded-lg bg-purple-100">
-                                    <i className="fas fa-user-friends text-purple-500 text-lg"></i>
-                                </div>
-                                <div className="objective-content flex-grow">
-                                    <h3 className="objective-title text-lg font-semibold text-purple-700 mb-1">
-                                        User Experience
-                                    </h3>
-                                    <p className="objective-desc text-sm text-gray-500 mb-2">
-                                        Intuitive interface simplifying resume creation
-                                    </p>
-                                    <div
-                                        className="metric inline-flex items-center bg-gradient-to-br from-purple-100 to-purple-200 text-purple-700 font-semibold px-3 py-1 rounded-full text-sm">
-                                        <i className="fas fa-chart-line mr-1 text-xs"></i>
-                                        Target: &lt; 5 min to create resume
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Objective 3 */}
-                            <div
-                                className="objective-item flex items-start bg-gray-50 rounded-xl p-4 hover:translate-x-1 transition">
-                                <div
-                                    className="objective-icon w-10 h-10 flex justify-center items-center mr-4 rounded-lg bg-purple-100">
-                                    <i className="fas fa-download text-purple-500 text-lg"></i>
-                                </div>
-                                <div className="objective-content flex-grow">
-                                    <h3 className="objective-title text-lg font-semibold text-purple-700 mb-1">
-                                        Multi-format Export
-                                    </h3>
-                                    <p className="objective-desc text-sm text-gray-500 mb-2">
-                                        Enable downloading resumes in various formats
-                                    </p>
-                                    <div
-                                        className="metric inline-flex items-center bg-gradient-to-br from-purple-100 to-purple-200 text-purple-700 font-semibold px-3 py-1 rounded-full text-sm">
-                                        <i className="fas fa-chart-line mr-1 text-xs"></i>
-                                        Target: PDF, Word, TXT formats
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    );
+                })}
             </div>
 
             <NoteCard
-                icon={"fa-info-circle"}
-                title={"Measurable Outcomes"}
-                note={"Success measured through user testing, ATS compatibility scores and post-launch metrics including adoption rates and interview success."}/>
+                icon="fa-info-circle"
+                note="Success measured through ATS compatibility scores, user adoption rates, resume creation time benchmarks, and feedback from both job seekers and recruitment professionals."
+            />
         </div>
     );
 };

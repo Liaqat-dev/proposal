@@ -1,162 +1,100 @@
 import React from 'react';
 import SlideHeader from "../components/shared/slideHeader.jsx";
+import NoteCard from "../components/noteCard.jsx";
 
 function Development() {
     const implementationTopics = [
-        { icon: "fa-puzzle-piece", label: "Modular Development" },
-        { icon: "fa-calendar-alt", label: "Feature Sprints (2-week cycles)" },
-        { icon: "fa-star", label: "Core Features First" },
+        {icon: "fa-puzzle-piece", label: "Modular Architecture", sub: "Feature-based folder structure"},
+        {icon: "fa-calendar-alt", label: "Agile Sprints (2-week)", sub: "Core-first, iterative delivery"},
+        {icon: "fa-star",         label: "AI Pipeline First",     sub: "Gemini integration as core module"},
+    ];
+    const codingStandards = [
+        {icon: "fa-check-double",   label: "ESLint + Prettier",      sub: "Consistent JS/JSX formatting"},
+        {icon: "fa-file-alt",       label: "JSDoc / API Docs",        sub: "OpenAPI 3.0 spec for REST endpoints"},
+        {icon: "fa-users",          label: "GitHub Code Reviews",     sub: "PR-based merge workflow"},
     ];
     const testingTopics = [
-        {icon: "fa-bug", label: "Unit Testing with Jest"},
-        {icon: "fa-cubes", label: "Integration Testing"},
-        {icon: "fa-clipboard-check", label: "Automated QA"},
+        {icon: "fa-bug",            label: "Jest Unit Testing",        sub: "Service & utility layer coverage"},
+        {icon: "fa-cubes",          label: "Supertest Integration",    sub: "REST API endpoint testing"},
+        {icon: "fa-desktop",        label: "Cypress E2E",              sub: "Critical user flows automation"},
+    ];
+    const deploymentTopics = [
+        {icon: "fa-code-branch",    label: "GitHub Actions CI/CD",     sub: "Commit → Build → Test → Deploy"},
+        {icon: "fa-box",            label: "Docker Containers",        sub: "Consistent dev/prod environments"},
+        {icon: "fa-cloud",          label: "AWS EC2 + S3 + MongoDB Atlas", sub: "Cloud-native production stack"},
     ];
 
-    const deploymentTopics = [
-        {icon: "fa-server", label: "CI/CD Pipeline"},
-        {icon: "fa-cloud", label: "Cloud Deployment"},
-        {icon: "fa-lock", label: "Security Checks"},
+    const tools = [
+        {icon: "fab fa-git-alt",   label: "Git / GitHub"},
+        {icon: "fab fa-react",     label: "React 19"},
+        {icon: "fab fa-node-js",   label: "Node.js 18+"},
+        {icon: "fas fa-database",  label: "MongoDB Atlas"},
+        {icon: "fas fa-brain",     label: "Google Gemini API"},
+        {icon: "fas fa-file-pdf",  label: "Puppeteer"},
+        {icon: "fas fa-mobile-alt","label": "Expo / React Native"},
+        {icon: "fas fa-envelope",  label: "Nodemailer / Gmail SMTP"},
+        {icon: "fas fa-image",     label: "imgbb API"},
+        {icon: "fas fa-lock",      label: "JWT + bcrypt"},
     ];
-    const qualityCodeTopics = [
-        {icon: "fa-check-double", label: "ESLint for JavaScript"},
-        {icon: "fa-file-alt", label: "Documentation Standards"},
-        {icon: "fa-users", label: "Code Reviews"},
+
+    const cards = [
+        {title: "Implementation Process", color: "card-blue",   icon: "fa-code",           items: implementationTopics},
+        {title: "Coding Standards",       color: "card-green",  icon: "fa-book",           items: codingStandards},
+        {title: "Testing & QA",           color: "card-purple", icon: "fa-vial",           items: testingTopics},
+        {title: "Deployment",             color: "card-orange", icon: "fa-rocket",         items: deploymentTopics},
     ];
+
     return (
         <main className="content">
-            <SlideHeader title={'Development Phase'} subtitle={'Implementation process, standards, testing, and deployment'}/>
+            <SlideHeader title={"Development"} subtitle={"How ResuCraft was built — implementation process, coding standards, testing pipeline, and deployment"}/>
 
-            {/* Grid with 4 cards */}
-            <section className="grid grid-cols-2 gap-6 flex-grow">
-                {/* Implementation Process */}
-                <div className="card card-blue">
-                    <div className="card-header">
-                        <div
-                            className="card-header-icon">
-                            <i className="fas fa-code text-blue-500 text-xl"></i>
-                        </div>
-                        <h3 className="card-header-title">Implementation Process</h3>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        {implementationTopics.map((topic, i) => (
-                            <div key={i} className="card-item">
-                                <div className="card-item-icon ">
-                                    <i className={`fas ${topic.icon} `}></i>
-                                </div>
-                                <div className="card-item-title my-auto ">
-                                    {topic.label}
-                                </div>
+            <section className="grid grid-cols-2 gap-5 flex-grow">
+                {cards.map((card, ci) => (
+                    <div key={ci} className={`card ${card.color}`}>
+                        <div className="card-header">
+                            <div className="card-header-icon">
+                                <i className={`fas ${card.icon}`}></i>
                             </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Coding Standards */}
-                <div className="card card-green">
-                    <div className="card-header">
-                        <div
-                            className="card-header-icon">
-                            <i className="fas fa-book "></i>
+                            <h3 className="card-header-title">{card.title}</h3>
                         </div>
-                        <h3 className="card-header-title">Coding Standards</h3>
-                    </div>
-                    <div className="card-body">
-                        {qualityCodeTopics.map((topic, i) => (
-                            <div key={i} className="card-item">
-                                <div className="card-item-icon">
-                                    <i className={`fas ${topic.icon} `}></i>
+                        <div className="card-body">
+                            {card.items.map((topic, i) => (
+                                <div key={i} className="card-item">
+                                    <div className="card-item-icon">
+                                        <i className={`fas ${topic.icon}`}></i>
+                                    </div>
+                                    <div>
+                                        <div className="card-item-title">{topic.label}</div>
+                                        <div className="card-item-subtitle">{topic.sub}</div>
+                                    </div>
                                 </div>
-                                <div className="card-item-title my-auto">
-                                    {topic.label}
-                                </div>
-                            </div>
-                        ))}
-
-                    </div>
-                </div>
-
-                {/* Testing & QA */}
-                <div className="card card-purple">
-                    <div className="card-header">
-                        <div
-                            className="card-header-icon">
-                            <i className="fas fa-vial text-purple-500 text-xl"></i>
+                            ))}
                         </div>
-                        <h3 className="card-header-title">Testing & QA</h3>
                     </div>
-                    <div className="card-body">
-                        {testingTopics.map((topic, i) => (
-                            <div
-                                key={i}
-                                className="card-item"
-                            >
-                                <div className="card-item-icon">
-                                    <i className={`fas ${topic.icon} text-purple-500 text-sm`}></i>
-                                </div>
-                                <div className="card-item-title my-auto">
-                                    {topic.label}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Deployment */}
-                <div className="card card-orange">
-                    <div className="card-header">
-                        <div
-                            className="card-header-icon">
-                            <i className="fas fa-rocket "></i>
-                        </div>
-                        <h3 className="card-header-title">Deployment</h3>
-                    </div>
-                    <div className="card-body">
-                        {deploymentTopics.map((topic, i) => (
-                            <div
-                                key={i}
-                                className="card-item"
-                            >
-                                <div className="card-item-icon">
-                                    <i className={`fas ${topic.icon} `}></i>
-                                </div>
-                                <div className="card-item-title my-auto">
-                                    {topic.label}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                ))}
             </section>
 
             {/* Tools */}
-            <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-4 mt-6">
-                <div className="text-lg font-semibold text-blue-800 mb-2 flex items-center">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-4 mt-5">
+                <div className="text-base font-semibold text-blue-800 mb-3 flex items-center">
                     <i className="fas fa-tools text-blue-500 mr-2"></i>
-                    Development Tools
+                    Full Technology Stack
                 </div>
-                <div className="flex flex-wrap gap-3">
-                    <div
-                        className="bg-white rounded-lg px-4 py-1 text-sm font-medium text-blue-800 shadow flex items-center">
-                        <i className="fab fa-git-alt text-blue-500 mr-2"></i> Git
-                    </div>
-                    <div
-                        className="bg-white rounded-lg px-4 py-1 text-sm font-medium text-blue-800 shadow flex items-center">
-                        <i className="fab fa-js text-blue-500 mr-2"></i> React
-                    </div>
-                    <div
-                        className="bg-white rounded-lg px-4 py-1 text-sm font-medium text-blue-800 shadow flex items-center">
-                        <i className="fab fa-node-js text-blue-500 mr-2"></i> Node.js
-                    </div>
-                    <div
-                        className="bg-white rounded-lg px-3 py-1 text-sm font-medium text-blue-800 shadow flex items-center">
-                        <i className="fas fa-database text-blue-500 mr-2"></i> MongoDB
-                    </div>
+                <div className="flex flex-wrap gap-2">
+                    {tools.map((t, i) => (
+                        <div key={i} className="bg-white rounded-lg px-3 py-1.5 text-sm font-medium text-blue-800 shadow flex items-center">
+                            <i className={`${t.icon} text-blue-500 mr-2`}></i>
+                            {t.label}
+                        </div>
+                    ))}
                 </div>
             </div>
+
+            <NoteCard
+                icon="fa-lightbulb"
+                note="Google Gemini API integration is the core differentiator — handles NLP job description parsing, contextual resume content generation, and Gemini Live manages real-time WebSocket voice interview sessions."
+            />
         </main>
-
-
     );
 }
 

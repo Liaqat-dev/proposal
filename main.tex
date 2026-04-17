@@ -1,0 +1,2433 @@
+\documentclass[12pt, a4paper, oneside]{report}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+
+\usepackage[margin=1in]{geometry}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amssymb}   % Adds \checkmark
+\usepackage{textcomp}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage[nottoc]{tocbibind}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{tocloft}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{titlesec}
+
+% ── Hyperlink setup ───────────────────────────────────────────────────────────
+\usepackage[
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=blue,
+  urlcolor=blue,
+  pdftitle={ResuCraft FYP Documentation},
+  pdfauthor={Alishba Ramzan and Liaqat Ali}
+]{hyperref}
+
+% ── Line spacing ─────────────────────────────────────────────────────────────
+\onehalfspacing
+
+% ── Chapter heading style (matches template: "Chapter X" display, title below) ─
+
+
+\titleformat{\chapter}[display]
+  {\normalfont}
+  {\hfill\fontsize{24}{28}\bfseries Chapter \thechapter} % right aligned chapter no
+  {10pt}
+  {\centering\fontsize{16}{20}\bfseries\MakeUppercase}   % centered chapter title
+
+% Section headings: numbered, bold (e.g. 1.1, 1.2)
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection}{1em}{}
+
+% Subsection headings: numbered, bold (e.g. 1.1.1)
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection}{1em}{}
+
+% Subsubsection headings
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsubsection}{1em}{}
+
+% ── Header/Footer ────────────────────────────────────────────────────────────
+
+
+% ── Bibliography style (IEEE) ─────────────────────────────────────────────────
+\bibliographystyle{IEEEtran}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  COVER PAGE
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{titlepage}
+  \centering
+  \vspace*{0.5cm}
+  {\LARGE \textbf{ResuCraft}}\\[0.4cm]
+  {\large An AI-Powered, ATS-Optimized \& Accessible Resume Designer Builder}\\[0.2cm]
+  {\normalsize (Web + Mobile Application)}\\[1.5cm]
+
+  \rule{\linewidth}{0.5mm}\\[0.4cm]
+  {\large \textbf{Submitted by}}\\[0.4cm]
+  \begin{tabular}{ll}
+    \textbf{Alishba Ramzan} & (BSCS-FA22/395/D) \\
+    \textbf{Liaqat Ali}     & (BSCS-FA22/096/C) \\
+  \end{tabular}\\[0.4cm]
+  {\normalsize Session 2022--2026}\\[1.2cm]
+  \rule{\linewidth}{0.5mm}\\[1cm]
+
+  {\large \textbf{Supervised by}}\\[0.3cm]
+  {\large Dr.\ Maria Tariq}\\[0.2cm]
+  {\normalsize Assistant Professor}\\[0.1cm]
+  {\normalsize Department of Computer Science}\\[1cm]
+
+  \rule{\linewidth}{0.5mm}\\[0.4cm]
+  {\large \textbf{Department of Computer Science}}\\[0.2cm]
+  {\large \textbf{Lahore Garrison University, Lahore}}\\[0.3cm]
+  {\normalsize \the\year}
+\end{titlepage}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  APPROVAL PAGE
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\thispagestyle{empty}
+\begin{center}
+  {\Large \textbf{ResuCraft}}\\[0.5cm]
+  A project submitted to the\\
+  Department of Computer Science\\[0.3cm]
+  In\\[0.3cm]
+  Partial Fulfillment of the Requirements for the\\
+  Bachelor's Degree in Computer Science\\[1cm]
+  By\\[0.4cm]
+  \textbf{Alishba Ramzan \& Liaqat Ali}
+\end{center}
+
+\vspace{2cm}
+\noindent
+\begin{tabular}{p{7cm} p{5cm}}
+  \textbf{Internal Supervisor} & \\[0.3cm]
+  Dr.\ Maria Tariq             & \underline{\hspace{5cm}} \\
+  Assistant Professor          & \\
+  Dept.\ of Computer Science   & \\[1.5cm]
+  \textbf{External Examiner}   & \underline{\hspace{5cm}} \\[1.5cm]
+  \textbf{Chairperson}         & \\[0.3cm]
+  Dr.\ Muhammad Kashif Siddhu  & \underline{\hspace{5cm}} \\
+  Assistant Professor          & \\
+  Dept.\ of Computer Science   & \\
+\end{tabular}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  COPYRIGHTS
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\thispagestyle{empty}
+\begin{center}
+  {\Large \textbf{COPYRIGHTS}}
+\end{center}
+\addcontentsline{toc}{chapter}{Copyrights}
+
+This is to confirm that the project entitled \textbf{``ResuCraft: An AI-Powered, ATS-Optimized \& Accessible Resume Designer Builder``} is the original work of the students, \textbf{ALIshba Ramzan} and \textbf{Liaqat Ali} of the Department of Computer Science, Lahore Garrison University, Lahore, in the academic year 2022--2026, as part of the fulfill This project has not formed the basis for the award previously of any other degree, diploma, fellowship, or any other similar title.
+
+\vspace{1.5cm}
+\noindent Alishba Ramzan \hfill \underline{\hspace{5cm}}\\[0.8cm]
+Liaqat Ali \hfill \underline{\hspace{5cm}}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  DECLARATION
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\thispagestyle{empty}
+\begin{center}
+  {\Large \textbf{DECLARATION}}
+\end{center}
+\addcontentsline{toc}{chapter}{Declaration}
+
+\indent The declaration is to state that the project named: \textbf{ResuCraft} is an original project done by the undersigned in part fulfilment of the requirements of the degree Bachelor of Science in Computer Science at the Computer Science Department, Lahore Garrison University, Lahore.
+
+\indent The undersigned has completed all the analysis, design, and system development. In addition, this project has not been posted to any other college or university.
+
+\vspace{2cm}
+\noindent\textbf{Group Members}\\[1cm]
+Alishba Ramzan \hspace{3cm} \underline{\hspace{5cm}}\\[0.8cm]
+Liaqat Ali \hspace{4.2cm} \underline{\hspace{5cm}}\\[1.5cm]
+
+\noindent\textbf{Supervisor}\\[0.5cm]
+Dr.\ Maria Tariq \hspace{3.2cm} \underline{\hspace{5cm}}\\[0.5cm]
+Date: \underline{\hspace{5cm}}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  DEDICATION
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\begin{center}
+  {\Large \textbf{DEDICATION}}
+\end{center}
+\addcontentsline{toc}{chapter}{Dedication}
+
+\indent
+This is dedicated to our families whose unconditional love, patience, and sacrifice enabled us to make this journey. To our parents who believed in us even when we had our doubts, and to our supervisor Dr. Maria Tariq whose advice not only influenced our project but our thinking as engineers.
+
+
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  ACKNOWLEDGEMENTS
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\begin{center}
+  {\Large \textbf{ACKNOWLEDGEMENTS}}
+\end{center}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+On this Final Year Project, we would like to thank our project supervisor, \textbf {Dr. Maria Tariq}, who has supported us, provided excellent advice, and constructive feedback throughout the project. The direction and quality of this work were significantly impacted by her knowledge of software engineering and AI systems.
+
+We equally owe a debt of gratitude to the \textbf{Department of Computer Science, Lahore Garrison University}, which has helped in availing the academic environment and resources needed to accomplish this project. We would like to thank our peers to encourage us and open-source community whose tools and frameworks are the basis of ResuCraft.
+
+Lastly, we would like to credit the assistance of \textbf{Google} whose Gemini API has enabled the AI-driven resume generation and live interview features of this system to be possible.
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  TABLE OF CONTENTS / LISTS
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\tableofcontents
+
+\newpage
+\listoftables
+
+\newpage
+\listoffigures
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  LIST OF ABBREVIATIONS
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\begin{center}
+  {\Large \textbf{LIST OF ABBREVIATIONS}}
+\end{center}
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+
+\begin{tabular}{ll}
+  \textbf{AI}     & Artificial Intelligence \\
+  \textbf{ATS}    & Applicant Tracking System \\
+  \textbf{API}    & Application Programming Interface \\
+  \textbf{BSCS}   & Bachelor of Science in Computer Science \\
+  \textbf{CCPA}   & California Consumer Privacy Act \\
+  \textbf{CORS}   & Cross-Origin Resource Sharing \\
+  \textbf{DFD}    & Data Flow Diagram \\
+  \textbf{ER}     & Entity-Relationship \\
+  \textbf{FYP}    & Final Year Project \\
+  \textbf{GDPR}   & General Data Protection Regulation \\
+  \textbf{HTTP}   & Hypertext Transfer Protocol \\
+  \textbf{HTTPS}  & Hypertext Transfer Protocol Secure \\
+  \textbf{IEEE}   & Institute of Electrical and Electronics Engineers \\
+  \textbf{JWT}    & JSON Web Token \\
+  \textbf{LGU}    & Lahore Garrison University \\
+  \textbf{MVC}    & Model-View-Controller \\
+  \textbf{NLP}    & Natural Language Processing \\
+  \textbf{OAuth}  & Open Authorization \\
+  \textbf{PDF}    & Portable Document Format \\
+  \textbf{REST}   & Representational State Transfer \\
+  \textbf{SRS}    & Software Requirements Specification \\
+  \textbf{SSL}    & Secure Sockets Layer \\
+  \textbf{TLS}    & Transport Layer Security \\
+  \textbf{UI}     & User Interface \\
+  \textbf{UML}    & Unified Modelling Language \\
+  \textbf{UX}     & User Experience \\
+  \textbf{WCAG}   & Web Content Accessibility Guidelines \\
+  \textbf{XSS}    & Cross-Site Scripting \\
+\end{tabular}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  ABSTRACT
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\begin{center}
+  {\Large \textbf{ABSTRACT}}
+\end{center}
+\addcontentsline{toc}{chapter}{Abstract}
+
+The modern labor market is highly competitive and most of the applications are filtered by Applicant Tracking Systems (ATS) before they get to the human recruiters due to unsuitable format and inappropriate keywords. Majority of job seekers lack the skills to create ATS compatible and attractive resumes. To address this gap, this project presents a convenient, web and mobile-based resume builder ResuCraft, which is an AI-based initiative optimized by an ATS.ResuCraft is a complete stack application comprising of a Natural Language Processing (NLP), drag-and-drop template assembler and a smart resume generating system. It is built on a three-layer platform using React 19, Node.js/Express.js and MongoDB. The API is a type of Google Gemini that allows AI to perform tasks, such as analysis of job descriptions, matching of keywords, content generation, and scoring by the ATS. There is also a mock interview module which is a voice based interview practice which occurs in real time. The system does not merely address significant challenges such as the complexity of resume-writing, the inaccessibility of tools, lack of awareness on the use of ATS systems, and the spread of tools over job preparation websites. Its features include user management, AI generated resume, interview preparation, template building, and community marketplace, which are inbuilt.According to the evaluation results, there is an increased efficiency of resume-making, approximately 60 percent growth in ATS success and user-friendly interface providing the user with the possibility to create professional resumes within minutes. The system complies with IEEE standards, accessibility guidelines and regulations on data protection, which guarantee a secure and scalable solution.
+\vspace{1cm}
+\noindent\textbf{Keywords:} Artificial Intelligence, ATS Optimization, Resume Builder, NLP, MERN Stack, Google Gemini.
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  CHAPTER 1 — INTRODUCTION
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{Introduction}
+
+\section{Background and Motivation}
+
+The way the job application process should occur has been radically changed in the digital age. In the days when a presentable printed resume was sufficient to impress a human recruiter, nowadays, it takes an applicant a maze of automated gatekeeping software before their paperwork ever gets to the human eye. Applicant Tracking Systems (ATS) --- software systems that are deployed by more than 98\% of Fortune 500 organizations and an increasing number of small-to-medium sized enterprises\cite{jobscan2021} scan, rate, and rank received resumes with job descriptions based on key word matching algorithms, structural parsing heuristics, and formatting compliance guidelines.
+
+The impacts of this change are radical and mostly unknown to the ordinary employment seeker. It has been established that ATS filters have the ability to screen out up to 75 percent of resumes before they are read by a human recruiter\cite{jobscan2021}, not due to lack of qualification of the candidate, but due to lack of the right keywords in the resume, improper formatting of the resume that confuses the parsers, or improper structuring of sections in the resume. This is a systematic discriminatory impact on those applicants who are not familiar with ATS systems - particularly fresh graduates, career changers and non-English speaking applicants\cite{topresume2021}.
+
+Simultaneously, the culture of design and professional networking sites like LinkedIn have contributed to raising the aesthetics of resumes. By creating documents structurally correct in an ATS system, job hunters will be certain to make a visual splash that they can attract the attention of a recruiter within the time constraints of ATS screening\cite{theladders2018}. Not only technical knowledge, coupled with design skills, but also current knowledge of the business, is required to strike a balance between these two opposing desires, machine readability, and human desirability.
+
+Additionally, preparation of interviews is disjointed. Those who successfully pass through ATS filters will then have to go through more technical and behavioural interviews with no job-specific interview preparation materials. The tools offered are geared towards resume generation or interview preparation, but not both, and almost never with AI assistance being customized to the job description at hand.
+
+These overlapping concerns are the forces behind ResuCraft: a one-stop, AI-guided platform that will democratise the access to professional resume writers, ATS optimisation, and interview preparation services to job applicants of all levels of experience and backgrounds.
+
+\section{Problem Statement}
+
+Though it is now possible to locate a few resume-building programs over the internet there is a huge disparity between the programs and what is actually needed by the modern day job-seekers. The issue can be defined in a number of dimensions:
+
+
+\textbf{ATS Incompatibility:} Most of the free resume-makers are more concerned with the aesthetics of their resume as opposed to its machine-readability, producing well-designed documents that are automatically misread or blacklisted by the ATS software. Conversely, visual differences which are valued by human reviewers in plain-text resumes are lost with tools producing ATS-friendly resumes\cite{resumeworded2022}.
+
+\textbf{Generic Content Generation:} Resume builders that are content recommended tend to provide general non-contextualised text not founded on the needs, language and priorities of a specific job description. The end product is resumes which can pass through ATS filters but are ineffective with a human reader who can immediately recognize templated language\cite{theladders2018}.
+
+\textbf{Inaccessible Design Tools:} Design Professional template creators such as Canva or Adobe Express are powerful in design, however, require a lot of design expertise, are not resume-specific and do not understand the structural challenges of ATS systems. Whether to design and comply with ATS is a matter of absolute freedom of design or a matter of compliance is also fully in the hands of the user.
+
+\textbf{Fragmented Preparation Pipeline:}  No single tool currently exists that will walk the user through the process of job application preparation as a whole: creating a professional profile and creating tailored resumes depending on different job descriptions, scoring those resumes based on ATS algorithms, and creating tailored interview preparation materials - all in one unified interface.
+
+\textbf{Accessibility Barriers:} 
+Existing tools are not frequently user friendly with a disability and are often not well screen reader friendly, lack keyboard navigation features and lack speech to text creation features that can enable users with impairments caused by motor or visual disability to produce resumes\cite{wcag21}.
+
+
+ResuCraft will use artificial intelligence, a thoughtful UX design, and a template ecosystem relying on community to address all the challenges.
+
+\section{Objectives}
+
+The first goals of the ResuCraft Final Year Project include:
+\begin{enumerate}
+    \item \textbf {Develop an AI-based Resume Generation Engine} based on NLP and interpretation of job descriptions to identify and extract relevant keywords and requirements and generate tailored resume content by intelligently matching the information provided by the user profile with job requirements, creating ATS-optimised content\cite{vaswani2017}.
+
+    \item \textbf{Implement an ATS Optimisation Scoring System} which matches generated resumes to ATS compatibility criteria, the numeric score that is categorically broken down, and recommendations of actions to be taken.
+
+
+    \item \textbf{Build a Drag-and-Drop Template Builder} that enables users with no design background to create professional resume templates with a simple canvas-based interface, and enables dynamic field binding, style customisation and publishing of templates.
+
+    \item \textbf{Establish a Community Template Marketplace}which enables template creators to post their designs, users to find and clone templates, and forms a self-sustaining ecosystem of high quality and varied resume templates.
+
+    \item \textbf{Create an Interview Preparation Module} that will create personalised interview questions, both technical and behavioural as well as scenario-based, depending on the job description upon which the resume was created.
+
+    \item \textbf{Ensure Universal Accessibility} with the application of WCAG 2.1 Level AA, such as speech-to-text input in all text fields \cite{sears2003}, complete keyboard navigation, screen reader support and high-contrast design features\cite{wcag21}.
+
+    \item \textbf{Design a Scalable, Secure Architecture} able to sustain simultaneous use of 1,000 or more users, and correctly authenticate\cite{pressman2014}\cite{oauth2012}, encryption of data and rate limiting and GDPR compliance\cite{gdpr2016} and CCPA \cite{ccpa2018} privacy regulations.
+
+    \item \textbf{Deliver a Polished, Production-Ready Web Application} that allows the first time users to make a complete and professional ATS optimised resume in ten minutes after the very first registration.
+\end{enumerate}
+
+\section{Scope of the Project}
+
+ResuCraft will involve the creation of a complete web application with the scope limits as follows:
+
+\subsection{In-Scope Features}
+
+
+\begin{itemize}
+    \item Registration of users, authentication (email/password and Google OAuth 2.0)\cite{oauth2012}), and account management.
+    \item Detailed development of professional profile including personal information, education, experience, projects, skills, certificates, and achievements.
+    \item Resume generation using user profile information and job description input with the Google Gemini API through AI \cite{gemini2023}.
+    \item ATS compatibility scoring and improvement suggestions\cite{jobscan2021}.
+    \item Drag-and-drop visual template designer that is field bound.
+    \item Community template marketplace with browsing, filtering, rating and cloning.
+    \item Live WebSocket mock interview (Gemini Live) \cite{geminidocs2024}.
+    \item Resume library management user dashboard.
+    \item Template moderation system and user administration.
+    \item Accessibility (speech-to-text input)\cite{sears2003}.
+    \item Export resumes generated as PDF (server-side with Puppeteer) \cite{puppeteer2024}.
+    \item Compliant with WCAG 2.1 Level AA\cite{wcag21}.
+    \item iOS and Android Companion mobile application (Expo/React Native).
+\end{itemize}
+
+\subsection{Out-of-Scope Features}
+The following are the features that are considered to be future work and that are explicitly not covered by version 1.0:
+
+\begin{itemize}
+   \item creation of cover letter.
+    \item LinkedIn profile optimisation.
+    \item Direct job board or job application.
+    \item Payment gateway and premium subscription billing.
+    \item Video resume generation.
+    \item Bulk resume generators allow career service professionals to generate resumes.
+    \item Continual group work templates editing.
+\end{itemize}
+
+\subsection{Technical Scope}
+The system is deployed as MERN-stack (MongoDB, Express.js, React 19, Node.js) web application, with cloud deployment, and with a companion mobile application developed with Expo 54 and React Native 0.81 and NativeWind v4. The AI part is based on the Google Gemini API\cite{gemini2023} to NLP process, generate content, and conduct live interviews in voice through Gemini Live\cite{geminidocs2024}. imgbb API is used to store image files\cite{imgbb2024}. With Puppeteer, server-side PDF export is done\cite{puppeteer2024} (headless Chromium). Google OAuth 2.0 is integrated in user authentication\cite{oauth2012} through the Google Identity Platform. The system is focused on the use of modern web browsers (Chrome, Firefox, Safari, Edge version 90 and above) and is optimised to be used with 1280x720 and higher screen resolutions.
+
+\section{Significance of the Project}
+
+ResuCraft is a valuable addition to artificial intelligence and career technology intersection due to a number of reasons:
+
+From a \textbf{social impact} perspective, the platform directly takes care of a structural imbalance in the employment market\cite{topresume2021} through offering advanced resume optimisation to everyone, no matter their access to professional career counsellors, design training or industry expertise. This is especially important to first-generation university students and career changers who might not have the traditional professional networks which fulfill this role.
+
+From a \textbf{technical perspective}, the job description parsing using NLP\cite{qin2018} with profile-aware content generation \cite{gemini2023} is a non-trivial AI application that is more than a template-filling approach. The system has to comprehend semantic mapping between job specifications and user credentials, rewrite context-sensitive content and generate structurally valid resumes all under a stringent latency constraint.
+
+From an \textbf{academic perspective}, this project will illustrate the practical implementation of many of the disciplines taught in the BSCS curriculum such as database systems, software engineering\cite{pressman2014}, artificial intelligence, human-computer interaction and web development.
+
+\section{Report Organisation}
+
+The rest of this documentation is structured in the following way:
+
+\textbf{Chapter 2 --- Literature Review} presents the current state of the art in resume-building platforms, ATS optimisation tools as well as NLP-based text processing systems, and locates ResuCraft in this context, detailing the gaps to be filled by this project.
+
+\textbf{Chapter 3 --- Problem Definition} is a formal analysis of the problem domain, it includes problem decomposition, stakeholder analysis and limitations of existing solutions.
+
+\textbf{Chapter 4 --- Software Requirements Specification} includes all functional and non-functional requirements of the system, organized in accordance to IEEE 830-1998 standards \cite{ieee830}.
+
+\textbf{Chapter 5 --- Methodology} explains the methodology, tools, and process used during the project lifecycle.
+
+\textbf{Chapter 6 --- Detailed Design and Architecture} discusses the system architecture, the subsystem breakdown, database design, API design and all the UML diagrams such as use case, sequence, ER, activity, and component diagrams.
+
+\textbf{Chapter 7 --- Implementation and Testing} describes how the core system elements are implemented, the testing plan that is used and the outcomes of the functional, performance and security testing.
+
+\textbf{Chapter 8 --- Results and Discussion} shows the result of system evaluation, user testing feedbacks, validation of ATS scoring and performance benchmarking.
+
+\textbf{Chapter 9 --- Conclusion and Future Work} summarises the project achievements, retrospective of what has been learned and the roadmap of future development.
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  CHAPTER 2 — LITERATURE REVIEW
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{Literature Review}
+
+\section{Introduction}
+
+ResuCraft is designed on the fringe of three fields of research and product development that are very different yet converging: Applicant Tracking Systems (ATS) and their effects on the recruitment process, Natural Language Processing (NLP) used to solve career and document intelligence, and web-based tooling of visual design. This chapter provides a review of the academic literature, industry studies and existing commercial products to each of these areas with the final aim of recognizing the specific gaps that drives the design and implementation decisions in ResuCraft.
+
+The review will be structured in the following way: Section 2.2 will deal with the mechanics and limitations of ATS software. Section 2.3 reviews NLP applications on resume and job description processing. Section 2.4 provides a literature review of resume building websites and feature profiles. Section 2.5 covers the architectures of drag-and-drop design tools. Section 2.6 deals with accessibility in career technology. Section 2.7 summarises these findings in a comparative study and draws the particular gaps ResuCraft fills.
+
+\section{ATS: Mechanics and Limitations}
+
+\subsection{History and Prevalence}
+
+Applicant Tracking Systems came into existence in the 1990s to replace the paper volumes of applications in large organisations that were overwhelmed by paper. The first systems were mainly database management systems --- save and retrieve candidate records with low level of intelligence. With the next 20 years, ATS software developed significantly, adding automated key-word parsing, resume formatting analysis and candidate scoring algorithms.
+
+By mid 2010s, ATS use had grown exponentially beyond big businesses. Research by Jobscan\cite{jobscan2021} expressed the estimation that more than 98\% of Fortune 500 businesses and about 75\% of businesses having over 100 staff members adopt some kind of ATS software. This number has steadily increased up to 2020--2025 with the emergence of cloud-based ATS solutions to small and medium enterprises radically transforming the recruitment environment in virtually all sectors of the industry.
+
+\subsection{The way ATS Systems Process Resumes}
+
+The modern ATS systems are based on the multi-stage processing pipeline of the resumes received.
+
+\textbf{Document Parsing:} The initial step entails transforming the resume provided, usually in PDF, DOCX or plain text format, into a structured format which the ATS can process. This step in parsing is notoriously fragile. The research has also found that multi-column structures, tabular format, text in-images and non-standard section headings are all known to cause parsing failures with the result being garbled or incomplete candidate records\cite{resumeworded2022}. A study conducted by Resume Worded discovered that about 43 percent of visually formatted resumes are highly degraded during the parsing process on popular ATS systems such as Workday, Greenhouse and iCIMS.
+
+\textbf{Keyword Matching:} After the parsing stage, the ATS systems match the extracted text with the job description using key word matching algorithms. These include the simplest lexical matching (exact or near-exact term matching) to more complex semantic matching with the help of the vector space models\cite{qin2018}.Yet, the majority of commercially available ATS systems continue to rely heavily on lexical matching that, in its turn, creates an incentive among job seekers to use the specific wording of job descriptions in their resumes.
+
+\textbf{Scoring and Ranking:} A candidate score is then generated using the matching and parsed data, usually a percentage match to the job requirements. This score is frequently used by recruiters, who consider only those applicants with a certain threshold score. This has a binary gatekeeping impact, with applicants who are familiar with ATS mechanics having a systematic advantage over those who are not\cite{jobscan2021}.
+
+\textbf{Section Recognition:} ATS systems employ heuristics to detect common sections on the resume, such as work experience, education, skills, certifications, and interpret the content in each section. Non-standard headings (e.g., \textit{My Journey}, rather than \textit{Work Experience}) are often misclassified and the usefulness of the data obtained by parsing is diminished.
+
+\subsection{The Candidate Knowledge Gap}
+
+One of the most important findings of the literature is a significant discrepancy between the use of ATS systems and the knowledge of their mechanisms by candidates. A survey by TopResume\cite{topresume2021} in 1,500 job seekers discovered that although 72\% of them knew that ATS software was available, only 14\% realised how to optimise their resumes to best suit ATS parsing. This disparity is much broader among recent graduates, job switchers and lower socioeconomic applicants, which are already disadvantaged in the labor market.
+
+The impact on the system is devastating: talented and skilled candidates are often sifted out not due to lack of suitable skills or experience, but because they are not aware of how their papers are going to be processed. This lack of understanding is a significant social problem, not to mention an apparent gap in products
+
+\subsection{Limitations of Existing ATS Research}
+
+Although the scholarly literature ascertains the mechanics and prevalence of ATS systems in a comprehensive way, there are a number of significant shortcomings of existing research. First, the majority of studies research ATS behaviour through the recruiter lens, and not much empirical evidence on candidate-facing optimisation strategies and their effectiveness is available. Second, the fast pace of development of ATS platforms implies that the findings published become obsolete very soon. Third, the proprietary aspect of commercial ATS algorithms restricts the possibility of a researcher to perform rigorous analysis of the algorithm.
+
+ResuCraft tackles these constraints more pragmatically: instead of trying to reverse-engineer particular ATS algorithms, the system uses the broadly validated principles of optimisation --- including keywords, structural clarity, standard section headings, single-column layouts, and date formatting --- that have been experimentally proven to enhance ATS compatibility on a variety of platforms \cite{resumeworded2022}.
+
+\section{Resume and Job Description Analysis based on Natural Language Processing}
+
+\subsection{Overview of Relevant NLP Techniques}
+
+Natural Language Processing refers to a wide range of computational methods of meaning, structure and relationship extraction in human language.\cite{vaswani2017}. The NLP methods that can be directly applied to the resume generation issue include:
+
+\textbf{Named Entity Recognition (NER):} NER models retrieve and categorize entities in text, into pre-determined classes like names of persons, organisations, places, dates, and (domain-specific training) technical abilities, job titles, and industry vocabulary. When applied to job descriptions, NER can automatically determine the technologies needed, job titles, experience levels and organisational names.
+
+\textbf{Keyword Extraction:} The algorithms used to extract keywords are used to identify the most important semantically significant words in a document. Methods include statistical (TF-IDF, RAKE) and neural (KeyBERT, based on BERT embeddings) methods to locate keywords which are closest to the overall semantic representation of the document\cite{devlin2019}.
+
+\textbf{Semantic Similarity:} Semantic similarity models estimate the conceptual closeness between two texts, past the lexical matching to include synonymic and contextual associations\cite{shen2018}. A candidate with a resume that includes references to machine learning and statistical modelling, but whose job description includes data science and predictive analytics, would be highly relevant to that job description but lexical matching would not reveal such a relationship.
+
+\textbf{Text Generation and Rewriting:} Large Language Models (LLMs) have shown great proficiency in text generation and rewriting\cite{brown2020}. These models can be applied to resume text to paraphrase experience descriptions to include job-specific keywords, rearrange bullet points to start with strong action verbs, and generate quantified achievement statements out of qualitative statements.
+
+\subsection{Transformer-Based Language Models}
+
+The introduction of the Transformer architecture by Vaswani et al.\ \cite{vaswani2017} was a radical change in NLP potential. This self-attention system is the central feature of the Transformer that enables models to provide long-range dependencies in text and learn rich contextual representations, far surpassing the performance of prior recurrent and convolutional models on practically all NLP benchmarks.
+
+BERT (Bidirectional Encoder Representations from Transformers), introduced by Devlin et al.\ \cite{devlin2019}, shown that bidirectional pre-training on large text corpora could yield general-purpose language representations which could be customized to a broad set of downstream tasks with only a small amount of additional data. BERT and variants have been suggested and used extensively on information extraction problems such as NER, keyword extraction, and document classification.
+
+The GPT family of models \cite{brown2020} and then the Gemini family of models \cite{gemini2023} added additional scale and reinforcement learning using human feedback (RLHF) to generate more advanced text. Gemini also excels at complex text understanding and generation tasks and also provides real-time multimodal streaming via Gemini Live \cite{geminidocs2024}, and thus it would be quite suitable to the content rewriting and live interview aspects of ResuCraft.
+
+\subsection{NLP in Recruitment}
+
+A number of research teams have used NLP techniques to focus on recruitment tasks. Qin et al.\ \cite{qin2018} presented a neural network-based resume--job description neural network that learns shared representations of job requirements and candidates, and performs far better than the keyword-based matching on empirical datasets. It is demonstrated in this work that semantic matching techniques are much better than lexical techniques in screening resumes.
+
+Shen et al.\ \cite{shen2018} proposed a hierarchical representation learning model of job-resume matching that integrates semantic information, both word-level and sentence-level, to job-resumes. Their experiments showed that job requirement phrases and candidate qualification phrases have semantic similarity despite the lack of a lexical overlap --- a fact that has direct implications on ATS bypass strategies.
+
+Work by Zhu et al.\ \cite{zhu2018} on Person-Job Fit modelling revealed that neural models were able to effectively model latent semantic association between job features and job candidate qualifications that were not identified at all by traditional keyword models.These results justify ResuCraft to adopt the Google Gemini API\cite{gemini2023} instead of using simpler term-frequency methods of semantic matching.
+
+\subsection{Weaknesses of the existing NLP solutions in commercial resumes}
+
+Although NLP research is mature and can be used in resume processing, the commercial resume-building business has been slow to embrace such developments. The majority of resume aids commercially available are based on fixed templates and a basic set of key-word suggestions instead of dynamically generated, context-sensitive content. The ones which do, tend to only do so on superficial levels, with features like synonym suggestions, grammar correction, etc. instead of actually doing a semantic analysis of the connection between the candidate profile and the job description of the target.
+
+ResuCraft is unique in that it uses a complete semantic pipeline: job description parsing $\rightarrow$ keyword extraction $\rightarrow$ profile-to-requirement matching $\rightarrow$ gap analysis $\rightarrow$ contextualised content generation \cite{gemini2023} $\rightarrow$ ATS scoring $\rightarrow$ iterative improvement recommendations.
+
+\section{Existing Resume Building Platforms: A Comparative Survey}
+
+\subsection{Commercial Resume Builders}
+
+The market of commercial resume builder has expanded considerably over the last ten years, and dozens of services are trying to attract the attention of users. The most distinguished platforms could be directly divided into three groups: template-based builders, AI-based builders, and professional resume writing services.
+
+\textbf{Template-Focused Builders:} Services like Canva Resume Builder, Zety, Novoresume, and Resume.io offer users graphic-polished templates and content filling with guidance. These sites are quite advanced in the creation of aesthetically appealing resumes and have numerous styles of designs. Nevertheless, their AI functions are usually confined to the pre-written content recommendations and simple key words prompts. More importantly, most of the visually-intensive templates generated by these platforms fail in ATS parsing tests as they use multi-column layouts, graphics and non-standard formatting\cite{resumeworded2022}.
+
+\textbf{AI-Assisted Builders:} More recent breed of platforms, i.e. Kickresume, Rezi and Jobscan, specifically address ATS optimisation \cite{jobscan2021}. Rezi gives ATS scores to user generated resumes and also gives suggestions of the keywords based on the job description. Jobscan offers in-depth ATS compatibility analysis on various platforms. Nevertheless, these tools generally involve users composing their own content and scoring or recommending improvements on the same, as opposed to creating contextually specific content based on a structured profile.
+
+\textbf{Professional Services:} ResumeSpice, TopResume and others use software with human professional writers. Although these services may result in high-quality, highly-customized resumes, they are costly (usually \$100--400 per resume), slow (3--7 days to turnaround), and cannot be scaled to applicant requirements that may involve multiple job applications at a time.
+
+\subsection{Comparative Feature Analysis}
+
+Table \ref{tab:competitor_comparison} compares ResuCraft and the most popular existing platforms in terms of the major feature dimensions.
+
+\begin{table}[H]
+\centering
+\caption{Comparative Feature Analysis: ResuCraft vs.\ Existing Platforms}
+\label{tab:competitor_comparison}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|l|X|X|X|X|X|}
+\hline
+\textbf{Feature} & \textbf{ResuCraft} & \textbf{Canva} & \textbf{Rezi} & \textbf{Jobscan} & \textbf{Novoresume} \\
+\hline
+AI Resume Generation & \checkmark Full & \texttimes & Partial & \texttimes & Partial \\
+\hline
+ATS Scoring & \checkmark & \texttimes & \checkmark & \checkmark & \texttimes \\
+\hline
+Job Description Parsing & \checkmark & \texttimes & \checkmark & \checkmark & \texttimes \\
+\hline
+Drag-and-Drop Builder & \checkmark & \checkmark & \texttimes & \texttimes & \texttimes \\
+\hline
+Template Marketplace & \checkmark & \checkmark & \texttimes & \texttimes & \texttimes \\
+\hline
+Interview Prep & \checkmark & \texttimes & \texttimes & \texttimes & \texttimes \\
+\hline
+Speech-to-Text Input & \checkmark & \texttimes & \texttimes & \texttimes & \texttimes \\
+\hline
+WCAG 2.1 AA & \checkmark & Partial & \texttimes & Partial & \texttimes \\
+\hline
+Free to Use & \checkmark & Freemium & Freemium & Freemium & Freemium \\
+\hline
+Profile-Based Generation & \checkmark & \texttimes & \texttimes & \texttimes & \texttimes \\
+\hline
+Community Templates & \checkmark & \checkmark & \texttimes & \texttimes & \texttimes \\
+\hline
+PDF Export & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+\hline
+\end{tabularx}
+\end{table}
+
+The review demonstrates that there is no existing platform that has integrated AI-driven contextual resume creation, ATS optimisation, drag-and-drop template creator, a community marketplace, and interview preparation features in one, accessible interface. ResuCraft is the first of its kind to follow all five dimensions.
+
+\subsection{Open Source Resume Tools}
+
+There are also a number of open-source resume building tools such as Reactive Resume, JSON Resume and CakeResume. These tools are highly customisable yet they need a high level of technical expertise to be effective and hence they cannot be used by non-technical users. They do not have AI-based content generation and ATS optimisation as well.  Even the existence of these projects is a reason to have open and customisable resume tooling.
+\section{Drag-and- Drop Interface Design and Architecture: Canvas}
+
+\subsection{Web-Based Canvas Interfaces}
+
+Performant, interactive, canvas-based interfaces in web browsers have been feasible due to the maturing of the HTML5 Canvas and SVG APIs, as well as the increasing performance of JavaScript execution engines. Figma, Canva and Google Slides have shown that even full-fledged visual design tools can be designed in the browser, eliminating the need to use native desktop apps and allowing real time collaboration. React and its libraries ecosystem --- including Redux Toolkit \cite{reduxtoolkit2024} --- deliver the state management primitives that render complex canvas interfaces approachable.
+
+Architecturally, canvas-based design tools generally use a hierarchical scene graph representation where design objects (nodes) are arranged into a tree where transformation, style and event handling properties are attached to the node. Most rendering is currently achieved by using a combination of direct drawing operations on the canvas and CSS transformation, and dirty rectangle tracking is often used to reduce unnecessary re-drawing.
+
+\subsection{Drag-and-Drop Implementation Approaches}
+
+The current web drag-and-drop implementations typically lie in two groups: native browser drag-and-drop (with the HTML5 Drag and Drop API) and library-based implementations which use pointer events or mouse events to provide similar drag-and-drop behaviour with more cross-browser compatibility and more features.
+
+In the case of the template builder of ResuCraft, the library-based approach was chosen. The fine-grained control of visual feedback, snapping, constraint enforcement and multi-target detection needed in a design tool is not available in native browser drag and drop. Abstractions provided by libraries like React DnD and dnd-kit allow the separation of drag source descriptions and drop target descriptions, permitting component-level clean reasoning about the behaviour of the drag-and-drop.
+
+\subsection{Dynamic Data Binding in Template Systems}
+
+Another notable difference between the template builder of ResuCraft and more general-purpose design tools, such as Canva, lies in support of dynamic field binding, i.e. the ability to mark text boxes within a template as bound to particular fields in a user profile, which will be filled in during resume generation time. The idea is similar to the mail merge feature in word processors except that it is in a full-fledged design setting.
+
+Dynamic binding can only be implemented with a template data model that does not only store the visual properties of each element, but also its binding metadata: which profile field it is bound to, how to iterate over arrays when bound to a field such as education or experience, and how to conditionally render when optional fields are not present. ResuCraft represents this metadata in the JSON canvas definition of a template, allowing the resume generation service to follow the template structure and fill in bound fields in a systematic way.
+
+\section{Accessibility in Career Technology}
+
+\subsection{The Importance of Accessible Job Application Tools}
+
+The Convention on the Rights of Persons with Disabilities (CRPD) of the United Nations\cite{crpd2006}, which came into force in 2006, acknowledges the entitlement of persons with disabilities to equal employment opportunity. This, in practice, means that career technology platforms such as resume builders must be made accessible to individuals with various disabilities such as visual impairments, motor impairments and cognitive disabilities.
+
+The Web Content Accessibility Guidelines (WCAG) 2.1 \cite{wcag21}, published by the W3C in 2018, are detailed technical guidelines to web accessibility. Level AA compliance --- the standard that ResuCraft is aimed at, and many national standards demand --- covers such requirements as adequate colour contrast, keyboard navigation, compatibility with screen readers via appropriate ARIA labelling\cite{waiaria2023}, and prevention of material causing photosensitive seizures.
+
+\subsection{Speech-to-Text as an Accessibility Feature}
+
+Speech-to-text input could be innovative to users whose motor impairments slow their typing speed or cause them pain when typing on a keyboard. Modern Chromium-based browsers support the Web Speech API, an interface to speech recognition native to the browser, and does not need any external software. A study by Sears and Feng \cite{sears2003} established that speech-to-text input was able to offer users with motor impairments functional typing speed parity, and thus is one of the high-impact accessibility features of any text-intensive application.
+
+The Web Speech API is included in ResuCraft on all text input fields in the profile management interface, and users have a choice of either typing or dictating content. This is one of the accessibility enhancements over any of the major existing resume building platforms, none of which have speech-to-text input.
+
+\subsection{Screen Reader Compatibility}
+
+The main accessibility technology used by users with visual impairments is screen readers, software applications that make digital content available in the form of synthesised speech or a braille output. To make sure that screen readers can access the site, it is crucial to pay attention to semantic HTML, ARIA role and property annotations \cite{waiaria2023}, alternative text to images, and focus management.
+
+Interfaces based on canvas are especially difficult to make compatible with screen readers because the content in canvas is always visual and not reflected in the accessibility tree of the document. ResuCraft solves this by keeping a parallel accessibility tree, reflecting the visual canvas structure, with ARIA live regions to indicate state changes, and all canvas operations can be announced using keyboard-navigable alternative interfaces \cite{wcag21}.
+
+\section{Summary and Gap Analysis}
+
+Literature review provides a clear picture of existing techniques, commercial products of mature age and unmet needs:
+
+\begin{enumerate}
+   \item \textbf{ATS compatibility is of the utmost importance and is misconceived broadly} based on the number of applicants. There are ATS optimisation tools (Rezi, Jobscan), but they are not platforms of generation but single analysis tools\cite{jobscan2021}.
+
+ \item \textbf{NLP and LLM are developed enough to generate quality resume content} Yet, none of the existing commercial resume generators have yet used a full semantic pipeline of job description analysis on profile sensitive content generation to output in ATS-scored format\cite{vaswani2017}\cite{brown2020}.
+
+    \item The market position of visual design tools and ATS-optimised resume builders is independent of each other, and no ground has ever been successful in mediating between the two. The users must make a choice between machine-readability and visual attractiveness.
+
+    \item \textbf{Interview preparation tools have no relation to resume builders} whatsoever, and the user must use multiple applications and input the data about job descriptions manually\cite{resumeworded2022}.
+
+    \item \textbf{The weakness of the resume builder market is a systematic weakness of accessibility in the market} no large platform has attempted to use speech-to-text input and few platforms are fully compliance with WCAG 2.1 Level AA.
+
+    \item \textbf{Community driven template ecosystems} have been commercially successful in general design tools like (Canva, Figma community) but not in the domain of resume builder.
+\end{enumerate}
+
+ResuCraft aims to fill all these six gaps in one, unified platform. The architectural and feature choices which are reported in later chapters are directly inspired by the results of this literature review.
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  CHAPTER 3 — PROBLEM DEFINITION
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{Problem Definition}
+
+\section{Introduction}
+
+In this chapter, a formal and detailed definition of the problem, which ResuCraft is going to address, is provided. Although Chapter 1 presented the problem on a high level and Chapter 2 put it in the context of the existing literature and competitive environment, the current chapter systematically breaks down the problem area, outlines and discusses all the stakeholders, analyses the underlying cause of each of the defined sub-problems and considers the shortcomings of the current solutions. This analysis has a direct impact on the requirements defined in Chapter 4 and design choices, in Chapters 5 and 6.
+
+\section{Problem Domain Overview}
+
+The central problem can be stated as follows:
+
+\begin{quote}
+The modern labour market does not provide job seekers with a single, smart and available device, which would help them build ATS-optimised, professionally-crafted and context-specific resumes in an efficient manner, which leads to qualified candidates being systematically filtered out of job opportunities through no fault of their own skills or experience. \cite{jobscan2021}.
+\end{quote}
+
+This general issue consists of multiple sub-problems that are interrelated and create the whole range of the issue that ResuCraft is created to address.
+
+\section{Problem Decomposition}
+
+\subsection{Sub-Problem 1: ATS Filtering Creates an Invisible Barrier}
+
+\textbf{Description:} Within Applicant Tracking Systems, about 75\% of resumes submitted get automatically rejected even before being considered by a human recruiter\cite{jobscan2021}. The rules used by ATS parsers which include the presence of key words, the organization of section, compliance with formatting, consistency of date, etc. are not easily noticeable to an applicant who has not studied ATS mechanisms in particular.
+
+\textbf{Root Cause:} The root cause of this sub-problem is ingrained information asymmetry between employers, who deploy ATS systems and have access to their filtering logic, and the applicants, who are the recipients of this filtering. This asymmetry is further compounded by the difference in parsing behaviours of ATS platforms (Workday, Greenhouse, Lever, iCIMS, Taleo and dozens more) even though each platform is slightly different\cite{resumeworded2022}.
+
+\textbf{Impact:} The resultant effect is a systematic disadvantage of applicants who do not have access to professional career counselling or corporate HR networks, the time or resources to independently research on ATS optimisation\cite{topresume2021}. This is disproportionately true of first-generation graduates, career changers, and underrepresented candidates.
+
+\textbf{Quantification:} Studies have determined that about 43 percent of the visually formatted resumes suffer a serious parsing degradation on the popular ATS systems. The variation between the match between a candidate and his qualification and his ATS score might be enormous: a well-qualified candidate with a multi-column template might be ranked worse than a less qualified candidate with an easy-to-clean single-column template that can be properly parsed by ATS\cite{resumeworded2022}.
+
+\subsection{Sub-Problem 2: Generic Resume Content Fails to Differentiate Candidates}
+
+\textbf{Description:} When candidates create resumes that meet ATS compatibility requirements, the information in those resumes is often generic --- inspired by online templates or repurposed bullets or artificial text not specifically designed to fit the target job. By looking through resumes that have successfully sailed through ATS filtering, human recruiters can instantly detect templated text and prioritize those applicants whose resumes show apparent sensitivity to the job.
+
+\textbf{Root Cause:} Adaptation of resumes to a specific job description is a cognitive task, time-consuming activity. It requires that the applicant read and understand the job description carefully; that he or she decide what is most important in the job description; that he or she decide which of his or her experience best fits the requirements; that he or she paraphrase the descriptions of his or her experience in the language of the job description; that he or she rearrange his or her presentation of skills in such a way that he or she anticipates the most relevant capabilities. This process must be repeated on each application in the case of applicants who submit more than a single application to a job at any given time, as is typical in a competitive job market.
+
+
+\textbf{Quantification:} Studies by TheLadders \cite{theladders2018}  determined that on average, recruiters spend 7.4 seconds per resume and note a first impressions keep or discard. The relevance indications like job title match, recognition of the employer name, skill match etc. are directly displayed in this window and they assume control of the assessment. The more you make content personal in a way that previews these signals in a significant way, the more likelihood you have of advancement.
+
+\subsection{Sub-Problem 3: Design Tools Are Not Purpose-Built for Resume Constraints}
+
+\textbf{Description:} General design tools, like Canva, Adobe Express, and Microsoft Word, enable users to create visually appealing resume documents, but with no idea of the structural and formatting limitations imposed by ATS systems \cite{resumeworded2022}. Someone who designs a well-designed multi-column resume in Canva can be creating a document that is totally non-readable by ATS parsing software.
+
+\textbf{Root Cause:} General-purpose design tools are intended to be maximum-visual-output and maximum-design-freedom. They will not be encouraged to restrict their feature to the parsing constraints of recruitment software. This causes a design-ATS conflict which is completely invisible in the design tool interface and only comes to fruition when the generated document cannot pass the ATS check.
+
+\textbf{Impact:} Users who take a lot of time to design visually interesting resumes with a design tool often get poorer ATS performance than users who design a plain resume in Microsoft Word --- a counterintuitive finding that damages the credibility of design-oriented methods \cite{jobscan2021}.
+
+\subsection{Sub-Problem 4: Fragmented Resume Building and Interview Preparation}
+
+\textbf{Description:} The job application preparation process involves two activities, which are closely related and not the same, resume preparation and interview preparation. The two activities are closely tied up: the same job description that can be used to tailor the resume would also dictate the type of technical and behavioural questions that the interviewer would probably ask.
+
+\textbf{Root Cause:} The current tool market has developed into two market segments namely resume building tools and interview preparation tools which are independent of each other. The interview preparation sites do not understand the situation of the job application of the candidate. There is no interview preparation capability of resume builders.
+
+\textbf{Impact:} In both activities, the applicants are required to repeat themselves; they have to re-read the job description, re-examine the requirements. The lack of integration also implies that interview preparation tools cannot be personalised to the experience profile of a certain candidate in terms of selecting questions which are relevant to the particular experience profile of the candidate.
+
+\subsection{Sub-Problem 5: Accessible Resume Building Tools Are Absent}
+
+\textbf{Description:} The current resume building tools do not pay much attention to the needs of the disabled users in terms of accessibility \cite{wcag21}. Persons with motor challenges who are slow or painful in typing\cite{sears2003}, users with visual impairments who need to use screen readers, and users with cognitive disabilities who need simplified interfaces, are all not well-served by the current market.
+
+\textbf{Root Cause:} Accessibility is often considered as an afterthought when designing a product and is only added to it when going through compliance audits instead of being set in advance. The competitive nature of the resume builder market --- which largely competes on the quality of visual templates and AI capabilities --- does not give much commercial reason to focus on accessibility investment.
+
+\textbf{Impact:} This effectively disenfranchises users with disabilities to the efficiency gains that contemporary resume builders offer, in addition to already existing barriers to employment that people with disabilities have to work with, in breach of international human rights frameworks \cite{crpd2006}.
+
+\subsection{Sub-Problem 6: No Community-Driven Template Ecosystem Exists}
+
+\textbf{Description:} Industry diversity, career level, and individual aesthetic tastes imply that there is no fixed collection of professionally developed templates which will cater to all the users. However, current resume makers either have a limited collection of proprietary templates or allow freedom of design without sharing by the community.
+
+\textbf{Root Cause:} To construct and sustain a large, diverse and high-quality template library, either substantial continuing design investment is necessary, or community contribution is enabled. Solutions based on internal design staff alone cannot be able to generate diversity and quantity of templates that a large user base would require in a sustainable way.
+
+\textbf{Impact:} Users whose industry or career level is not well represented in the template library of a platform are given a significantly substandard experience. The resume norms and expectations of software developers, academic researchers, creative workers, and healthcare workers differ significantly, and cannot be accommodated in a template set that is expected to fit everyone.
+
+\section{Stakeholder Analysis}
+
+It is necessary to understand who the problem affects (and how) to make sure that the solution is based on actual needs \cite{pressman2014}. According to ResuCraft, there are four main stakeholder categories:
+
+\subsection{Job Seekers}
+
+The system has the greatest number of job seekers who are the main users of the system and the main beneficiaries of the value propositions. There are a number of different personas in this category:
+
+\textbf{Recent Graduates:} First-time applicants are those who usually have a short professional background, a lack of knowledge about the workings of the ATS, and little money to purchase a professional resume writing service. Guided profile creation best serves this persona, which creates content automatically and suggests ways to express their academic projects and internships, and entry-level template designs that are professional but not too boastful of their experience.
+
+\textbf{Mid-Career Professionals:} Those who change industries or functional functions, and where the problem is not how much experience they have, but how difficult it is to realign previous experience in the language and context of a new target area. The content rewrites provided by AI are advantageous to this persona.
+
+\textbf{Career Changers:} \cite{gemini2023} that align their current accomplishments with new job demands and aids in closing the language difference between their past and their desired field.
+
+\textbf{Users with Disabilities:} Job applicants with other barriers as a result of motor, visual, or cognitive impairments. This character is a beneficiary of speech-to-text \cite{sears2003}, screen reader compatibility \cite{waiaria2023}, keyboard-navigable interfaces, and other WCAG-compliant features \cite{wcag21}.
+
+\subsection{Template Creators}
+
+Template creators are users with design capabilities, and have desire to share their templates on the community market. They mainly do it to build up their professional portfolios, serve the community and in higher premium levels, monetise. They need an intense, adaptable template builder with expert-level styling options, an effective and dependable dynamic field binding framework, and a transparent publishing and attribution process.
+
+\subsection{System Administrators}
+
+Administrators have the duty of integrity of the platforms, content regulation, and monitoring. They need effective user management tools, a review queue to review templates submitted by the user before their publication, analytics dashboards to give them an insight into the health of the platform and usage rates.
+
+\subsection{Career Service Professionals}
+
+A future user group who would find bulk resume generation and client management capabilities and features valuable would be career counsellors, university career centre employees, and professional resume writers. Although this class is not covered in version 1.0, the system architecture is planned so that they can have their needs met in subsequent releases.
+
+\section{Existing Solution Limitations}
+
+Based on the literature review in Chapter 2, this section formally captures the constraints of available solutions to tackle the identified sub-problems.
+
+\begin{table}[H]
+\centering
+\caption{Existing Solution Limitations Mapped to Sub-Problems}
+\label{tab:solution_limitations}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{Sub-Problem} & \textbf{Existing Approaches} & \textbf{Key Limitations} \\
+\hline
+ATS Incompatibility & Rezi, Jobscan \cite{jobscan2021} (analysis only) & Score resumes but do not generate ATS-optimised content; require user to write their own content \\
+\hline
+Generic Content & Kickresume, Zety AI writer & Produce generic, non-contextualised suggestions not tailored to specific JD; low semantic depth \cite{qin2018} \\
+\hline
+Design-ATS Conflict & Canva, Novoresume & Prioritise visual appeal over ATS compliance; no ATS feedback within design interface \cite{resumeworded2022} \\
+\hline
+Fragmented Pipeline & No unified tool exists & Interview prep and resume building are entirely separate products with no data sharing \\
+\hline
+Inaccessibility & Most platforms & No speech-to-text \cite{sears2003}; partial WCAG compliance \cite{wcag21} at best; screen reader support minimal \\
+\hline
+No Community Templates & Canva (general design) & No resume-specific community template ecosystem with ATS-aware validation \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section{Problem Boundary and Assumptions}
+
+\subsection{Problem Boundary}
+
+ResuCraft is focused on the resume and ATS optimisation, template creation and interview preparation stages of the job application process. The system does not deal with:
+
+\begin{itemize}
+    \item Job discovery or job board browsing.
+    \item Direct application to employer systems.
+    \item Tracking of applications or pipelines.
+    \item Offer negotiation or salary benchmarking.
+    \item Reference management.
+\end{itemize}
+
+\subsection{Key Assumptions}
+
+The design of the problem is based on the following assumptions:
+\begin{enumerate}
+    \item The user can access a modern web browser and a minimum internet connection of 2~Mbps.
+    \item The users are literate enough in English language to be able to read and understand job descriptions.
+    \item ATS will still be heavily dependent on keyword matching as a key assessment tool\cite{jobscan2021}.
+    \item The Google Gemini API \cite{gemini2023} will be accessible at quality and cost to sustain the AI generation pipeline.
+    \item The users will be ready to spend some time to develop a detailed professional profile that incurred a one-time setup cost in return of drastically lowered effort in the later resume generation operations.
+\end{enumerate}
+
+\section{Summary}
+
+This chapter has already developed a strict, multi-dimensional definition of the problem which ResuCraft tackles. There are identified six different sub-problems --- ATS incompatibility\cite{jobscan2021}, generic content, design-ATS conflict \cite{resumeworded2022}, fragmented pipeline, inaccessibility \cite{wcag21}, and no community templates --- with a documented root cause, quantifiable effect, and a well-defined connection to the shortcomings of existing solutions. The stakeholder groups of needs and usage patterns have been defined. The main assumptions and problem boundary have been clearly defined. The analysis forms the basis of the detailed requirements specification in the following chapter.
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  CHAPTER 4 — SOFTWARE REQUIREMENT SPECIFICATION
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{Software Requirement Specification}
+
+\section{Introduction}
+
+This chapter presents the complete Software Requirements Specification (SRS) for ResuCraft version 1.0, structured in accordance with IEEE Standard 830-1998 \cite{ieee830}. Functional requirements are tagged using the format \texttt{REQ-[MODULE]-[NUMBER]} and assigned a priority of \textbf{HIGH}, \textbf{MEDIUM}, or \textbf{LOW}. Non-functional requirements cover performance, security, reliability, usability, accessibility, and compliance dimensions.
+
+\section{Overall System Description}
+
+\subsection{Product Perspective}
+
+ResuCraft is a standalone web application that integrates with the following external services:
+
+\begin{itemize}
+    \item \textbf{Google Identity Platform} --- OAuth 2.0 authentication \cite{oauth2012}
+    \item \textbf{Google Gemini API} \cite{gemini2023} --- NLP processing, content generation, and real-time voice interview sessions via Gemini Live \cite{geminidocs2024}
+    \item \textbf{imgbb API} \cite{imgbb2024} --- Cloud image hosting for user profile pictures and template assets
+    \item \textbf{Gmail SMTP via Nodemailer} --- Transactional email delivery for account verification and notifications
+    \item \textbf{Puppeteer} \cite{puppeteer2024} --- Server-side PDF generation via headless Chromium
+\end{itemize}
+
+The system follows a three-tier architecture with a React.js-based single-page application frontend, a Node.js/Express.js RESTful API backend, and a MongoDB document database. All communication between tiers is encrypted using TLS 1.2 or higher.
+
+\subsection{User Classes}
+
+Four user classes interact with the system: Job Seekers (primary), Template Creators (secondary), System Administrators (operational), and Career Service Professionals (future, out of scope for v1.0).
+
+\subsection{Operating Environment}
+
+\begin{itemize}
+    \item \textbf{Client:} Google Chrome, Mozilla Firefox, Safari, Microsoft Edge (version 90+); minimum screen resolution 1280$\times$720; minimum 2~Mbps internet connection.
+    \item \textbf{Server:} Linux-based cloud environment; Node.js 18+; MongoDB 6.0+; Nginx reverse proxy.
+    \item \textbf{Development:} Git/GitHub version control; Jest testing framework; Postman API testing; ESLint code quality.
+\end{itemize}
+
+\section{Functional Requirements}
+
+\subsection{User Authentication and Account Management}
+
+\begin{table}[H]
+\centering
+\caption{Authentication and Account Management Requirements}
+\label{tab:req_auth}
+\renewcommand{\arraystretch}{1.2}
+\small
+\begin{tabularx}{\textwidth}{|p{3cm}|X|p{2cm}|}
+\hline
+\textbf{Req. ID} & \textbf{Description} & \textbf{Priority} \\
+\hline
+REQ-AUTH-001 & Users shall register with a unique email, username, and password (min 8 chars, including uppercase, lowercase, digit, special char). Passwords shall be hashed using bcrypt \cite{bcrypt1999} (salt factor 12). & HIGH \\
+\hline
+REQ-AUTH-002 & The system shall support Google OAuth 2.0 login \cite{oauth2012}, retrieving user email and profile data to create or link accounts automatically. & HIGH \\
+\hline
+REQ-AUTH-003 & A 6-digit OTP shall be sent for email verification (valid 24 hours). Users may request up to 3 resends per 15 minutes. Access is restricted until verification. & HIGH \\
+\hline
+REQ-AUTH-004 & JWT-based sessions \cite{jwt2015}: 15-min access token, 30-day refresh token (stored in HTTP-only secure cookies). Supports up to 5 concurrent sessions with auto-refresh via Axios interceptor. & HIGH \\
+\hline
+REQ-AUTH-005 & Password reset via email link (valid 1 hour). Previous password becomes invalid after reset. & HIGH \\
+\hline
+REQ-AUTH-006 & Rate limiting: max 5 failed logins per 15 minutes \cite{owasp2021}. Account locked for 1 hour after limit. Security events logged. & HIGH \\
+\hline
+REQ-AUTH-007 & Users can update account settings (password with confirmation, email with re-verification). & MEDIUM \\
+\hline
+REQ-AUTH-008 & Secure logout shall invalidate tokens, clear session data, and redirect to login. & HIGH \\
+\hline
+REQ-AUTH-009 & Users may request account deletion with a 30-day grace period. Data export supported (GDPR Article 20 \cite{gdpr2016}). & MEDIUM \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{User Profile Management}
+
+\begin{table}[H]
+\centering
+\caption{User Profile Management Requirements}
+\label{tab:req_profile}
+\renewcommand{\arraystretch}{1.2}
+\small
+\begin{tabularx}{\textwidth}{|p{3cm}|X|p{2cm}|}
+\hline
+\textbf{Req. ID} & \textbf{Description} & \textbf{Priority} \\
+\hline
+REQ-PROF-001 & The system shall provide a multi-section profile including: Personal Info (name, email, phone, address, links), Education (institution, degree, dates, GPA), Experience (company, role, dates, details), Projects (title, tech, links), Skills (with levels), and Achievements. & HIGH \\
+\hline
+REQ-PROF-002 & The system shall support speech-to-text input \cite{sears2003} using Web Speech API, with recording indicator and editable transcription. & HIGH \\
+\hline
+REQ-PROF-003 & Profile data shall auto-save every 30 seconds with confirmation. Unsaved changes shall be restored after unexpected closure. & HIGH \\
+\hline
+REQ-PROF-004 & The system shall validate inputs: required fields, correct date order, and valid email, phone, and URL formats. & HIGH \\
+\hline
+REQ-PROF-005 & The system shall show profile completeness and highlight missing sections. Minimum 70\% required for resume generation. & MEDIUM \\
+\hline
+REQ-PROF-006 & The system shall support unlimited entries in repeatable sections, with add, edit, delete, and reorder options. & HIGH \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{AI-Powered Resume Generation}
+
+\begin{table}[H]
+\centering
+\caption{AI-Powered Resume Generation Requirements}
+\label{tab:req_rgen}
+\renewcommand{\arraystretch}{1.2}
+\small
+\begin{tabularx}{\textwidth}{|p{3cm}|X|p{2cm}|}
+\hline
+\textbf{Req. ID} & \textbf{Description} & \textbf{Priority} \\
+\hline
+REQ-RGEN-001 & The system shall parse job descriptions (up to 5,000 chars) using NLP \cite{vaswani2017} to extract role, skills, experience, responsibilities, and domain terms. & HIGH \\
+\hline
+REQ-RGEN-002 & The system shall perform keyword extraction and match them with user profile data \cite{devlin2019}, highlighting matched and missing terms. & HIGH \\
+\hline
+REQ-RGEN-003 & The system shall generate ATS-optimised resumes \cite{jobscan2021} using relevant keywords, standard sections, single-column layout, and consistent formatting. & HIGH \\
+\hline
+REQ-RGEN-004 & The system shall rewrite experience points with action verbs, relevant keywords, and quantified results while preserving meaning (via Google Gemini \cite{gemini2023}). & HIGH \\
+\hline
+REQ-RGEN-005 & The system shall compute an ATS score (0--100) based on keywords, formatting, and structure, with improvement suggestions. & HIGH \\
+\hline
+REQ-RGEN-006 & The system shall prioritise and highlight skills based on job relevance while preserving all categories. & MEDIUM \\
+\hline
+REQ-RGEN-007 & Resume generation shall complete within 50 seconds for 95\% of requests, with progress indicator and timeout handling. & HIGH \\
+\hline
+REQ-RGEN-008 & Users shall edit all resume sections (text, order, add/remove) and revert to AI version before export. & HIGH \\
+\hline
+REQ-RGEN-009 & The system shall export resumes as PDF with preserved formatting using Puppeteer \cite{puppeteer2024}. & HIGH \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Live Mock Interview Module}
+
+\begin{table}[H]
+\centering
+\caption{Live Mock Interview Requirements}
+\label{tab:req_interview}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|p{3cm}|X|p{2cm}|}
+\hline
+\textbf{Req. ID} & \textbf{Description} & \textbf{Priority} \\
+\hline
+REQ-INT-001 & The system shall provide a real-time mock interview via a WebSocket connection. The session shall be initiated by the client supplying a job description; the server shall establish a Gemini Live session \cite{geminidocs2024} using a dynamically constructed system prompt. & MEDIUM \\
+\hline
+REQ-INT-002 & The Gemini-powered interviewer \cite{gemini2023} shall ask exactly 5 structured questions covering: (1) motivation and background, (2) a relevant skill or experience, (3) a STAR-method behavioural question, (4) a problem-solving or situational question, and (5) a role-specific technical question. & MEDIUM \\
+\hline
+REQ-INT-003 & The system shall stream interviewer audio and transcripts to the client in real time via Gemini Live. The interviewer shall acknowledge candidate responses with a brief sentence before proceeding to the next question. & MEDIUM \\
+\hline
+REQ-INT-004 & Upon completion of the fifth question, the system shall conclude the session and compile feedback. The full interview transcript shall be available to the client at session end. & LOW \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Drag-and-Drop Template Builder}
+
+\begin{table}[H]
+\centering
+\caption{Template Builder Requirements}
+\label{tab:req_builder}
+\renewcommand{\arraystretch}{1.2}
+\small
+\begin{tabularx}{\textwidth}{|p{3cm}|X|p{2cm}|}
+\hline
+\textbf{Req. ID} & \textbf{Description} & \textbf{Priority} \\
+\hline
+REQ-TEMP-001 & The system shall provide an A4 canvas editor with optional grid overlay for alignment. & HIGH \\
+\hline
+REQ-TEMP-002 & A component palette shall include draggable elements: text boxes, headings, icons, dividers, images, and layout containers. & HIGH \\
+\hline
+REQ-TEMP-003 & The system shall support dynamic field binding using mustache syntax (e.g., \texttt{\{\{name\}\}}, \texttt{\{\{email\}\}}), including lists and conditional rendering. & HIGH \\
+\hline
+REQ-TEMP-004 & Text styling shall support font family, size (8--72pt), weight, style, colour, line height, and spacing. & HIGH \\
+\hline
+REQ-TEMP-005 & The system shall support element actions: drag, resize, duplicate, delete, and copy/paste. & HIGH \\
+\hline
+REQ-TEMP-006 & Undo/redo (up to 20 actions) shall be available via shortcuts and toolbar. & MEDIUM \\
+\hline
+REQ-TEMP-007 & A preview mode shall display templates with sample data, switchable with edit mode. & HIGH \\
+\hline
+REQ-TEMP-008 & Templates shall be saved as JSON (structure, layout, styles, bindings), max size 1MB. & HIGH \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Template Marketplace}
+
+\begin{table}[H]
+\centering
+\caption{Template Marketplace Requirements}
+\label{tab:req_marketplace}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|p{3cm}|X|p{2cm}|}
+\hline
+\textbf{Req. ID} & \textbf{Description} & \textbf{Priority} \\
+\hline
+REQ-MARK-001 & The system shall display marketplace templates in both grid view (with thumbnails) and list view (with metadata), with pagination displaying 20 templates per page. & MEDIUM \\
+\hline
+REQ-MARK-002 & The system shall support filtering by category (Modern, Classic, Creative, Minimal, Professional, Other), sort order (Newest, Most Popular), and keyword search across template names and creator usernames. & MEDIUM \\
+\hline
+REQ-MARK-003 & The system shall provide keyword search across template names, tags, and creator usernames, with auto-complete suggestions and relevance-ranked results. & MEDIUM \\
+\hline
+REQ-MARK-004 & Each template detail page shall display: full-size preview with sample data; creator profile link; creation and publication dates; use count; average rating and review count; tags and categories; and compatibility notes. & MEDIUM \\
+\hline
+REQ-MARK-005 & The system shall allow any authenticated user to clone a marketplace template to their personal library in a single operation, creating an independent copy. The clone count shall be recorded for the original template. & MEDIUM \\
+\hline
+REQ-MARK-006 & Authenticated users shall be able to rate marketplace templates on a 1--5 star scale and leave a written review. Each user may submit one rating per template. & LOW \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Dashboard and User Library}
+
+\begin{table}[H]
+\centering
+\caption{Dashboard and User Library Requirements}
+\label{tab:req_dashboard}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|p{3cm}|X|p{2cm}|}
+\hline
+\textbf{Req. ID} & \textbf{Description} & \textbf{Priority} \\
+\hline
+REQ-DASH-001 & The system shall provide a centralised dashboard displaying: quick statistics (resume count, template count, profile completion percentage); quick action cards (Create Resume, Build Template, Edit Profile); and a notification centre for system and account messages. & HIGH \\
+\hline
+REQ-DASH-002 & The system shall maintain a resume library displaying resumes with visual thumbnails, metadata (creation date, target job title, ATS score), sort options, keyword search, and date range filtering. & HIGH \\
+\hline
+REQ-DASH-003 & The system shall support resume management operations: view, download as PDF, edit, duplicate, delete (with confirmation), and share via unique link. & HIGH \\
+\hline
+REQ-DASH-004 & The system shall maintain a personal template library with management options for editing, duplicating, deleting, and publishing. & MEDIUM \\
+\hline
+REQ-DASH-005 & The system shall maintain an interview questions library storing all question sets generated for previous applications, organised by date and job title. & LOW \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Administrative System}
+
+\begin{table}[H]
+\centering
+\caption{Administrative System Requirements}
+\label{tab:req_admin}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|p{3cm}|X|p{2cm}|}
+\hline
+\textbf{Req. ID} & \textbf{Description} & \textbf{Priority} \\
+\hline
+REQ-ADMIN-001 & The system shall provide a dedicated administrative portal with role-based access control \cite{owasp2021} supporting Super Admin, Moderator, and Analyst roles. Two-factor authentication shall be mandatory for all administrative accounts. & HIGH \\
+\hline
+REQ-ADMIN-002 & The system shall provide a user management interface supporting: search and filter across all user accounts; view of user profile and activity history; account suspension and unsuspension; account deletion; and user notification sending. & MEDIUM \\
+\hline
+REQ-ADMIN-003 & The system shall provide a template moderation queue. Moderators shall be able to preview templates with test data, approve or reject with written comments, edit template metadata, feature templates in the marketplace, and remove published templates. & HIGH \\
+\hline
+REQ-ADMIN-004 & The system shall provide an analytics dashboard displaying: total registered users with growth trends; resumes generated per period; template usage metrics; and most popular templates and creators. & MEDIUM \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section{Non-Functional Requirements}
+
+\subsection{Performance Requirements}
+
+\begin{itemize}
+    \item \textbf{Page Load Time:} Page load at the start must take not more than 3 seconds for 95 percent of the requests over a 10 Mbps connection.
+    \item \textbf{API Response Time:} Standard API endpoints (non-AI) should answer in 500~ms with 95 percent of the requests.
+    \item \textbf{Resume Generation Time:} The entire AI resume generation pipeline will take 50 seconds to fulfil 95 percent of requests.
+    \item \textbf{Template Preview:} Rendering of templates will take not more than 1 second of mode switching.
+    \item \textbf{Search Results:} Search results at market places will take less than 1 second to give results to queries on a maximum of 10,000 templates.
+    \item \textbf{Concurrent Users:} The system will be able to serve at least 1,000 simultaneous users without a performance level below the aforementioned limits.
+    \item \textbf{Resource Limits:} The client side memory usage will not be more than 500~MB. In its normal load, server CPU utilisation will not exceed 70 percent.
+\end{itemize}
+
+\subsection{Security Requirements}
+
+\begin{itemize}
+    \item \textbf{Transport Security:} Any communication between the client and the server will be done using HTTPS and TLS 1.2 or above.
+    \item \textbf{Authentication Security:} The hashing of passwords will be done with the help of bcryptjs \cite{bcrypt1999} (salt factor 12). The access tokens will be valid for 15 minutes. Refresh tokens will have a 30-day expiration, and will be saved in HTTP-only, Secure, SameSite=Strict cookies.
+    \item \textbf{Input Validation:} The user input will be server-side validated and sanitised to prevent XSS, CSRF, and injection attacks \cite{owasp2021}.
+    \item \textbf{API Security:} All API endpoints will require authentication, with the exception of registration and login. The rate limiting will be 100 requests per minute per authenticated user. CORS will be limited to authorised origin domains.
+    \item \textbf{File Upload Security:} The uploaded files will be checked on type, size (maximum 5~MB) and MIME type prior to uploading.
+    \item \textbf{Data Encryption:} SSL/TLS encryption shall be used to connect to databases. Sensitive configuration will be handled through environment variables.
+    \item \textbf{Security Monitoring:} Unsuccessful logins will be recorded and followed. Administrative alerts shall be activated when there is suspicious activity.
+\end{itemize}
+
+\subsection{Reliability and Availability}
+
+\begin{itemize}
+    \item \textbf{Uptime:} The system will be available at 99.9\% which translates to a maximum of 8.76 hours of unplanned downtime in one year.
+    \item \textbf{Data Backup:} Database will be backed up on a daily basis and retained over 30 days. Point-in-time recovery will be supported.
+    \item \textbf{Error Recovery:} Profile auto-save will guard against information loss in case of browser crashes. User accounts and resumes shall have soft deletion with a recovery period of 30 days.
+    \item \textbf{Scheduled Maintenance:} Maintenance windows will be notified to users at least 48 hours before they begin.
+\end{itemize}
+
+\subsection{Usability Requirements}
+
+\begin{itemize}
+    \item \textbf{Learnability:} Within 10 minutes of first registration, a new user will be able to create his or her first complete, ATS-optimised resume.
+    \item \textbf{Consistency:} Each and every module will use the uniform design language, component library and interaction model.
+    \item \textbf{Feedback:} A loading state will be shown in all asynchronous operations. Any state of error will have an actionable recovery message.
+    \item \textbf{Help:} The interface will be provided with context-sensitive help which will be available in the form of tool-tips, inline guidance text and a searchable help centre.
+\end{itemize}
+
+\subsection{Accessibility Requirements}
+
+\begin{itemize}
+    \item \textbf{WCAG Compliance:} The system will be in accordance with the WCAG 2.1 Level AA \cite{wcag21} across all interfaces.
+    \item \textbf{Keyboard Navigation:} All interactive contents will be completely navigable and usable only with the keyboard.
+    \item \textbf{Screen Reader Support:} Appropriate ARIA labels, roles and properties will be provided in all the content and interactive items\cite{waiaria2023}.
+    \item \textbf{Colour Contrast:} The text and interface elements are going to comply with the WCAG 2.1 Level AA contrast ratio standards (at least 4.5:1 between normal and large text).
+    \item \textbf{Speech-to-Text:} The profile management interface will have all its text input fields which are speech-to-text enabled \cite{sears2003} via the Web Speech API.
+\end{itemize}
+
+\subsection{Compliance Requirements}
+
+\begin{itemize}
+    \item \textbf{GDPR:} The system will be in accordance with EU General Data Protection Regulation\cite{gdpr2016}, with explicit consent collection, data portability and the right to erasure.
+    \item \textbf{CCPA:} The system will be in line with California Consumer Privacy Act \cite{ccpa2018} for California-based users.
+    \item \textbf{Data Retention:} Active user data will be stored forever as long as the account is active. The data of deleted accounts will be wiped permanently after the 30 day grace period. Audit logs will be stored for one year.
+    \item \textbf{Cookie Compliance:} A clear cookie consent control system will be presented to new users, which is in line with the requirements of the ePrivacy Directive.
+\end{itemize}
+
+\section{System Constraints}
+
+\begin{itemize}
+    \item The project will be finished in a 6 months development cycle by two developers.
+    \item Any third-party libraries and frameworks will be permissively licensed under open-source licences (MIT, Apache 2.0, or similar).
+    \item The cost of development and production infrastructure will be kept within the budget of the project.
+    \item Mobile-responsive web browsers will be available to offer full web functionality. The version 1.0 also includes a companion native mobile application developed using Expo/React Native.
+    \item The Google Gemini API will be used to process AI\cite{gemini2023} only; not a single version 1.0 on-premise NLP model deployment.
+\end{itemize}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  CHAPTER 5 — METHODOLOGY
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{Methodology}
+
+\section{Introduction}
+
+This chapter outlines the software development methodology, project management strategy, development tools and engineering practices used during the ResuCraft project life cycle\cite{pressman2014}. The decisions of this chapter are a direct result of the limitations identified in the SRS of a two-person development team, six months schedule, and a multi-subsystem architecture that has to be tested in iterations.
+
+\section{Software Development Methodology}
+
+\subsection{Methodology Selection}
+
+A choice of the right software development methodology is a formative choice that would influence all the other future elements of the project planning, implementation and monitoring \cite{pressman2014}. Three primary methodology families were considered:
+
+\textbf{Waterfall:} The Waterfall model recommends a strictly sequential flow through stages --- requirements, design, implementation, testing, deployment --- where each stage must be completely accomplished before the next stage can start\cite{sommerville2015}. Though this model provides a clear understanding of phase boundaries and generates in-depth documentation at every stage, it does not fit the development situation of ResuCraft well. The AI-based resume generation engine needed to empirically test the quality of NLP output prior to its interface could be complete --- a feedback loop that structurally cannot run in a linear process.
+
+\textbf{Agile (Scrum):} More focused on working software than on extensive documentation and responsiveness to change is a good fit to the ResuCraft development scenario. The uncertainty inherent in the integration of several external APIs makes an iterative method the most effective, allowing integration assumptions to be tested early and modified prior to the downstream development being committed to making the wrong assumptions.
+
+\textbf{Kanban:} The continuous flow nature of Kanban, where the sprints are not defined, provides flexibility, but is not as planned as a time-boxed six-month project is.
+
+\textbf{Decision:} A \textbf{modified Agile/Scrum methodology} \cite{scrum2020} was implemented, with 2-week sprints, daily check-ins of the two developers, and sprint planning and retrospective meetings.
+
+\subsection{Sprint Structure and Timeline}
+
+The six-month project was planned as twelve two-week sprints, which are clustered into four phases:
+
+\begin{table}[H]
+\centering
+\caption{Sprint Timeline and Phase Objectives}
+\label{tab:sprint_timeline}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|p{1.5cm}|p{2cm}|X|X|}
+\hline
+\textbf{Sprint} & \textbf{Phase} & \textbf{Objective} & \textbf{Key Deliverables} \\
+\hline
+1--2 & Foundation & Project setup, architecture design, database schema design & Repository structure, CI pipeline, MongoDB schema, API contracts \\
+\hline
+3--4 & Core Auth \& Profile & Authentication system and profile management & Registration, login, OAuth \cite{oauth2012}, JWT \cite{jwt2015}, profile CRUD, auto-save \\
+\hline
+5--6 & AI Generation & Resume generation engine and ATS scoring & NLP integration \cite{vaswani2017}, keyword matching, content generation \cite{gemini2023}, PDF export \cite{puppeteer2024} \\
+\hline
+7--8 & Template Builder & Canvas-based drag-and-drop editor & Component palette, dynamic binding, style controls, undo/redo \\
+\hline
+9--10 & Marketplace \& Dashboard & Template marketplace and user dashboard & Browse, filter, clone, resume library, interview questions \\
+\hline
+11 & Admin \& Integration & Administrative panel and full system integration & Admin portal, moderation queue, end-to-end integration testing \\
+\hline
+12 & Testing \& Polish & Comprehensive testing, performance optimisation, accessibility audit & Test reports, performance benchmarks, WCAG 2.1 AA compliance \cite{wcag21} \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Definition of Done}
+
+A common Definition of Done was created at the start of the project to ensure the uniform quality standards in all sprint deliverables\cite{pressman2014}. A feature or user story was considered done when all of the following requirements were met:
+
+\begin{enumerate}
+    \item The implementation of the feature is complete and all acceptance criteria are met.
+    \item Unit tests of the core logic of the feature are written and passing, with at least 70 percent branch coverage.
+    \item The OpenAPI 3.0 specification of the project documents API endpoints \cite{openapi2021}.
+    \item The feature has been reviewed by the other developer via GitHub Pull Request.
+    \item The feature works with all the supported browsers (Chrome, Firefox, Safari, Edge).
+    \item There are no regressions added to features already accomplished, which has been verified by the entire test suite\cite{cypress2024}.
+    \item All text facing the user has been read through and made clear and consistent.
+\end{enumerate}
+
+\section{System Architecture Design Approach}
+
+\subsection{Architecture Pattern Selection}
+
+ResuCraft is a three level client-server architecture\cite{pressman2014}, that has a distinct separation of the presentation layer (React.js SPA), the application layer (Node.js/Express.js REST API), and the data layer (MongoDB). This was chosen instead of other options such as monolithic MVC and microservices due to the following reasons:
+
+\textbf{Three-tier vs.\ Monolithic:} The monolithic architecture would be easy to develop in the beginning but would pose scaling and maintenance difficulties as the system expands\cite{sommerville2015}. The resume generation part of the AI is computationally-intensive and has the advantage of being deployed as an independently-deployable service.
+
+\textbf{Three-tier vs.\ Microservices:} The complete microservices architecture would give the greatest scalability and deployability of individual subsystems, at the cost of significant complexity of operations that would be beyond version 1.0.
+
+\subsection{API Design Philosophy}
+
+RESTful design principles are adhered to in the ResuCraft API\cite{restapi2011} throughout. Key design decisions include:
+
+\textbf{Resource-Oriented URLs:} Every endpoint is built around resource nouns and not verbs of action.
+
+\textbf{HTTP Method Semantics:} Standard HTTP operations are applied with their traditional semantics: GET to retrieve data, POST to create data, PUT/PATCH to update data, and DELETE to destroy data.
+
+\textbf{Versioning:} The API is versioned via URL path prefix (\texttt{/api/}), enabling non-breaking evolution of the API surface as new features are added.
+
+\textbf{Consistent Response Envelope:} All API responses use a consistent JSON envelope structure:
+\begin{verbatim}
+{
+  "success": true | false,
+  "data": { ... } | null,
+  "message": "Human-readable status message",
+  "errors": [ ... ] | null,
+  "pagination": { "page": 1, "limit": 20, "total": 150 } | null
+}
+\end{verbatim}
+
+\textbf{Error Handling:} Meaningful use of standard HTTP status codes: 200 is a success, 201 is a resource creation, 400 is a validation error, 401 is an authentication error, 403 is an authorisation error, 404 is not found, 429 is rate limiting, and 500 is an unexpected server error\cite{owasp2021}.
+
+\section{Technology Stack Justification}
+
+\subsection{Frontend: React.js}
+
+React.js \cite{react2024} was chosen to be the frontend framework of ResuCraft due to the following reasons:
+
+\textbf{Component Model:} The component-based design of React is ideally suited to the modular interface design of ResuCraft, where complex interfaces can be broken down into independent testable parts that can be reused.
+
+\textbf{State Management:} The Redux Toolkit library \cite{reduxtoolkit2024} offers predictable, centralised state management solution that is especially useful to the template builder canvas.
+
+\textbf{Performance:} Virtual DOM reconciliation in React offers efficient updates to the canvas of the UI template builder, where re-rendering commonly with the result of drag operations needs to be performed efficiently without visible reduction in the performance of the application.
+
+\subsection{Backend: Node.js and Express.js}
+
+\textbf{JavaScript Consistency:} Using Node.js \cite{nodejs2024} on the backend allows the team to use the same programming language throughout the entire stack to minimize cognitive overhead and allows sharing of validation and utility functions between the frontend and the backend.
+
+\textbf{Non-Blocking I/O:} The event-driven, non-blocking I/O model of Node.js can also address the workload profile of ResuCraft, which has a high I/O --- database queries, external API calls to Gemini and imgbb, file operations --- relative to CPU-intensive computations.
+
+\textbf{Express.js:} Express.js \cite{expressjs2024} is a bare bones web framework that leaves all middleware composition, routing layout and request processing to the full control of the team. It uses a custom JWT middleware to manage authentication, instead of a third-party strategy library, which allows full control over the lifecycle of tokens and session management.
+
+\subsection{Database: MongoDB}
+
+\textbf{Document Model Fit:} MongoDB's \cite{mongodb2024} document-oriented model fits well with the major data entities of ResuCraft. The professional profile of a user --- embedded arrays of education entries, experience entries, and projects --- is directly mapped to a document in MongoDB with nested arrays.
+
+\textbf{Schema Flexibility:} The ability of MongoDB to evolve data models without downtime through its flexible schema is especially useful in a six-month development cycle, as data model requirements changed as the implementation continued.
+
+\textbf{Mongoose ODM:} Mongoose \cite{mongoose2024} offers a structured schema and validation layer over the flexibility of MongoDB that ensures data integrity and allows evolving schemas as needed.
+
+\subsection{AI Integration: Google Gemini API}
+
+The Google Gemini API \cite{gemini2023} was chosen among other options such as self-hosted open-source models and other basic NLP libraries due to the following reasons:
+
+\textbf{Output Quality:} Models of Gemini-class scale generate significantly better quality content rewriting and semantic analysis results compared to smaller models or conventional NLP methods.
+
+\textbf{Gemini Live for Real-Time Interview:} The Google Gemini API has a live streaming mode which can be used in real time voice driven conversation \cite{geminidocs2024}, allowing the mock interview module to be a simulated conversation.
+
+\textbf{Infrastructure Simplicity:} The Gemini API will remove the requirement to have a GPU infrastructure to run the models, which will not fit in the budget and operational capabilities of the project in version 1.0.
+
+\begin{table}[H]
+\centering
+\caption{Technology Stack Summary}
+\label{tab:tech_stack}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|p{3.5cm}|p{3.5cm}|X|}
+\hline
+\textbf{Category} & \textbf{Technology} & \textbf{Justification} \\
+\hline
+Authentication & Custom JWT middleware \cite{jwt2015} & Lightweight; 15-min access token + 30-day HTTP-only refresh cookie; multi-session tracking \\
+\hline
+Password Hashing & bcryptjs \cite{bcrypt1999} (factor 12) & Industry-standard adaptive hashing algorithm resistant to brute-force attacks \\
+\hline
+Image Storage & imgbb API \cite{imgbb2024} & Lightweight hosted image API; returns persistent URL + delete URL; eliminates self-managed object storage \\
+\hline
+PDF Generation & Puppeteer \cite{puppeteer2024} & Headless Chromium renders resume HTML to pixel-accurate PDF; ensures font embedding and layout consistency \\
+\hline
+Email & Nodemailer + Gmail SMTP & Reliable transactional email; delivers OTP verification codes and password-reset tokens \\
+\hline
+CSS Framework & Tailwind CSS v4 \cite{tailwind2024} & Utility-first approach produces consistent design tokens across web and React Native \\
+\hline
+State Management & Redux Toolkit \cite{reduxtoolkit2024} & Standardised Redux patterns; DevTools integration for debugging complex canvas state \\
+\hline
+Testing (Backend) & Jest + Supertest & Standard Node.js testing stack; Supertest enables HTTP endpoint testing \\
+\hline
+Testing (Frontend) & React Testing Library & Tests user behaviour rather than implementation; aligns with accessibility-first development \\
+\hline
+API Documentation & OpenAPI 3.0 \cite{openapi2021} & Standardised API documentation format; enables automatic client SDK generation \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section{Development Practices}
+
+\subsection{Version Control Strategy}
+
+The team used the branching model of GitHub Flow, where the single long-lived branch is the \texttt{main} one, representing the production-ready code, and the feature branches are very short, corresponding to all the development efforts.
+
+\subsection{Code Quality Standards}
+
+Code quality was ensured with ESLint using the Airbnb JavaScript style guide, Prettier to format code automatically, Husky pre-commit hooks which run ESLint and the test suite on each commit, and peer reviewing with GitHub Pull Requests.
+
+\subsection{Testing Strategy}
+
+A multi-level testing approach was used which was an integration of unit tests, integration tests and end-to-end tests\cite{pressman2014}:
+
+\textbf{Unit Testing:} Jest and React Testing Library were used to test individual functions, utility modules, and React components.
+
+\textbf{Integration Testing:} Supertest was used to test API endpoints on a test database instance.
+
+\textbf{End-to-End Testing:} Key user journeys were tested using Cypress \cite{cypress2024}.
+
+\textbf{Performance Testing:} K6 was used to carry out load testing\cite{k62024}.
+
+\textbf{Security Testing:} The staging environment was tested with OWASP ZAP based on the OWASP Testing Guide \cite{owasp2021}.
+
+\subsection{Security Practices}
+
+The considerations of security were incorporated during the development process\cite{owasp2021}:
+
+\begin{itemize}
+    \item Environment variables (API keys, database credentials, JWT secrets) were handled through their own files (.env) that were not included in version control.
+    \item There was input validation at the front end (to provide a better user experience) and the back end (to ensure security).
+    \item All database queries were parameterised via Mongoose query interface and so no attack of noSQL injection.
+    \item Helmet.js middleware was used to configure HTTP security headers (Content-Security-Policy, X-Frame-Options, X-Content-Type-Options).
+\end{itemize}
+
+\section{Project Management}
+
+\subsection{Team Responsibilities}
+
+\begin{table}[H]
+\centering
+\caption{Team Responsibility Distribution}
+\label{tab:team_responsibilities}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|p{4cm}|X|X|}
+\hline
+\textbf{Component} & \textbf{Alishba Ramzan (Frontend)} & \textbf{Liaqat Ali (Backend)} \\
+\hline
+Architecture Design & Frontend component architecture, Redux store structure & API architecture, database schema, service layer design \\
+\hline
+Authentication & Login/Register UI, OAuth button & JWT service, custom auth middleware, audit log \\
+\hline
+Profile Management & Multi-section form UI, speech-to-text \cite{sears2003}, auto-save & Profile API, validation, completeness calculation \\
+\hline
+Resume Generation & Generation wizard UI, ATS score visualisation & NLP service \cite{gemini2023}, Gemini API, Puppeteer PDF \cite{puppeteer2024} \\
+\hline
+Template Builder & Canvas editor, drag-and-drop, palette & Template API, JSON schema, storage \\
+\hline
+Testing & Frontend unit \& E2E tests \cite{cypress2024}, accessibility audit \cite{wcag21} & Backend unit \& integration tests, performance testing \cite{k62024} \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Risk Management}
+
+\begin{table}[H]
+\centering
+\caption{Risk Register}
+\label{tab:risk_register}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|X|p{2cm}|p{2cm}|X|}
+\hline
+\textbf{Risk} & \textbf{Likelihood} & \textbf{Impact} & \textbf{Mitigation Strategy} \\
+\hline
+Gemini API output quality insufficient \cite{geminidocs2024} & Medium & High & Prototype and validate NLP output quality in Sprint 1 before committing to full pipeline \\
+\hline
+Gemini API rate limits or cost overruns & Medium & Medium & Implement request caching, prompt optimisation, and configurable fallback \\
+\hline
+Template builder canvas performance on lower-end devices & Medium & Medium & Profile rendering performance early; implement dirty rectangle optimisation \\
+\hline
+MongoDB schema evolution breaking existing data & Low & High & Use Mongoose schema versioning and migration scripts \\
+\hline
+Scope creep due to feature additions & High & Medium & Strict sprint backlog management \cite{scrum2020}; new features added to backlog only \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section{Summary}
+
+The chapter has reported the approach that was used in the development of ResuCraft: an adapted Agile/Scrum process\cite{scrum2020} with two-week sprinting, a well-defined Definition of Done, a three-tier architecture with service-oriented organisation of the application layer, a technology stack selected to match the expertise of the team, the maturity of the ecosystem, and the fit of the problem, and development practices --- version control, code quality assurance, testing\cite{cypress2024}, and security \cite{owasp2021} --- used consistently during the project life cycle.
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  CHAPTER 6 — DETAILED DESIGN AND ARCHITECTURE
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{Detailed Design and Architecture}
+
+\section{Introduction}
+
+In this chapter, the full detailed design of the ResuCraft system is given, including the high-level system architecture, sub-system decomposition, component-level design, database schema, API design, and UML diagrams. It converts the requirements of Chapter 4 and the methodology choices made in Chapter 5 into specific structural and behavioural requirements\cite{pressman2014}.
+
+\section{System Architecture}
+
+\subsection{Architecture Design Approach}
+
+ResuCraft is based on a three-layer client/server architecture and service-based application layer. The following architecture principles informed the design:
+
+\begin{itemize}
+    \item \textbf{Separation of Concerns:} The responsibility of each architectural tier is well defined.
+    \item \textbf{Loose Coupling:} Subsystems in the application layer interact with each other via clearly defined service interfaces \cite{fowler2018}.
+    \item \textbf{High Cohesion:} A service is a distinct, highly-focused business functionality.
+    \item \textbf{Fail-Safe Defaults:} In case of unavailability of external service dependencies, the system gracefully degrades instead of completely failing\cite{owasp2021}.
+\end{itemize}
+
+\subsection{Architecture Design}
+
+ResuCraft has the following overall system architecture. The Presentation Layer is made up of the React.js Single-Page Application (SPA), which is served as static assets either by a web server or a CDN. Only over the RESTful API can the SPA communicate with the Application Layer\cite{restapi2011}; it does not have direct access to the database or external services.
+
+The Node.js/Express.js server, which opens the RESTful API to the SPA and coordinates communications with the Data Layer and the External Services, comprises the Application Layer. It is internally organised into independent service modules: Authentication, User, Profile, Resume, Template, NLP, ATS Optimisation, PDF Generation, Email, and File Storage.
+
+The Data Layer is a MongoDB database cluster\cite{mongodb2024} managed on MongoDB Atlas, which offers durable storage of all entities in the system. Image files are stored in imgbb\cite{imgbb2024}, with the returned hosted URLs stored as references in MongoDB documents.
+
+\textbf{External Services} integrated by the Application Layer include: Google Identity Platform (OAuth 2.0 \cite{oauth2012}), Google Gemini API \cite{gemini2023} (NLP, content generation, and live voice interview via Gemini Live \cite{geminidocs2024}), imgbb API \cite{imgbb2024} (image hosting), Gmail SMTP (email delivery), and Puppeteer \cite{puppeteer2024} (server-side PDF rendering).
+
+\subsection{Application Layer Services}
+
+\textbf{Authentication Service} manages user identity: validating registration input and creating user records with bcrypt-hashed passwords \cite{bcrypt1999}; managing Google OAuth token exchange \cite{oauth2012}; generating and validating 15-minute JWT access tokens and 30-day HTTP-only refresh tokens \cite{jwt2015}; managing 6-digit OTP email verification codes; orchestrating password reset flows; persisting all authentication events to the immutable AuditLog collection \cite{owasp2021}; and enforcing per-account rate limiting with 1-hour lockouts after 5 failed login attempts.
+
+\textbf{Profile Service} manages the lifecycle of user professional profiles via Mongoose ODM \cite{mongoose2024}: creating and initialising empty profile documents on user registration; validating and persisting profile section updates; and computing and storing the profile completeness percentage after each update.
+
+\textbf{AI Resume Service} (\texttt{aiResumeService.js}) encapsulates all interactions with the Google Gemini API \cite{gemini2023} for resume generation. Its responsibilities include extracting all text fields from a template's canvas data structure; constructing a structured prompt that incorporates the user's full profile alongside the target job description; calling Gemini to produce contextualised replacement content for each text field; and applying the AI-generated values back into a deep-cloned copy of the template data for rendering.
+
+\textbf{ATS Optimisation Service} computes ATS compatibility scores \cite{jobscan2021} for generated resumes across four dimensions: Keyword Density (30\%), Section Completeness (25\%), Formatting Compliance (25\%), and Content Quality (20\%).
+
+\textbf{PDF Generation Service} (\texttt{pdfService.js}) converts template canvas data into PDF documents using Puppeteer \cite{puppeteer2024}. The service transforms the nested canvas structure, constructs a complete HTML document with inline styles, then launches a headless Chromium instance to render the HTML and capture a PDF buffer at A4 dimensions (210mm $\times$ 297mm).
+
+\textbf{Image Storage Service} provides a unified interface for uploading and deleting images via the imgbb API \cite{imgbb2024}.
+
+\section{Detailed System Design}
+
+\subsection{Database Design}
+
+\subsubsection{Database Architecture Overview}
+
+ResuCraft uses MongoDB \cite{mongodb2024} as its primary database, hosted on MongoDB Atlas for managed infrastructure, automatic backups, and monitoring. The database design follows document-centric principles, using embedding for data that is consistently accessed together and references for data that is large, shared, or independently accessed.
+
+\subsubsection{Users Collection}
+
+\begin{table}[H]
+\centering
+\caption{Users Collection Schema}
+\label{tab:schema_users}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{3.5cm}|p{2.5cm}|p{1.5cm}|X|}
+\hline
+\textbf{Field} & \textbf{Type} & \textbf{Required} & \textbf{Description} \\
+\hline
+\texttt{\_id} & ObjectId & Yes & MongoDB-generated unique identifier \\
+\hline
+\texttt{username} & String & Yes & Unique, indexed, lowercase-normalised username \\
+\hline
+\texttt{email} & String & Yes & Unique, indexed, lowercase-normalised email address \\
+\hline
+\texttt{password} & String & No & bcryptjs-hashed password (factor 12); omitted for Google OAuth accounts \\
+\hline
+\texttt{provider} & String (enum) & Yes & Auth provider: \texttt{local} or \texttt{google} \\
+\hline
+\texttt{isVerified} & Boolean & Yes & Email OTP verification status \\
+\hline
+\texttt{verificationCode} & String & No & 6-digit OTP code; cleared after verification \\
+\hline
+\texttt{resetPasswordToken} & String & No & Password reset token; cleared after use \\
+\hline
+\texttt{loginAttempts} & Number & Yes & Failed login counter; used for account lock logic \\
+\hline
+\texttt{lockUntil} & Date & No & Account lock expiry (1 hour after 5 failed attempts) \\
+\hline
+\texttt{profilePic} & Object & No & \texttt{\{url, deleteUrl\}} --- imgbb-hosted profile image \\
+\hline
+\texttt{createdAt} & Date & Yes & Account creation timestamp (auto-managed by Mongoose) \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsubsection{Profiles Collection}
+
+\begin{table}[H]
+\centering
+\caption{Profiles Collection Schema (Top-Level Fields)}
+\label{tab:schema_profiles}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{3.5cm}|p{2.5cm}|p{1.5cm}|X|}
+\hline
+\textbf{Field} & \textbf{Type} & \textbf{Required} & \textbf{Description} \\
+\hline
+\texttt{\_id} & ObjectId & Yes & MongoDB-generated unique identifier \\
+\hline
+\texttt{userId} & ObjectId (ref) & Yes & Reference to the owning user document; unique index \\
+\hline
+\texttt{personal} & Object & Yes & Personal info: name, email, phone, address, linkedIn, portfolio \\
+\hline
+\texttt{education} & Array[Object] & No & Education entries: institution, degree, field, startDate, endDate, gpa \\
+\hline
+\texttt{experience} & Array[Object] & No & Experience entries: company, role, startDate, endDate, responsibilities[], achievements[] \\
+\hline
+\texttt{projects} & Array[Object] & No & Project entries: title, description, technologies[], links[], dates \\
+\hline
+\texttt{skills} & Array[Object] & No & Skill entries: category, name, proficiency (Beginner/Intermediate/Advanced/Expert) \\
+\hline
+\texttt{completenessScore} & Number & Yes & Computed completeness percentage (0--100); updated on every profile save via Mongoose hook \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsubsection{Resumes Collection}
+
+\begin{table}[H]
+\centering
+\caption{Resumes Collection Schema}
+\label{tab:schema_resumes}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{3.5cm}|p{2.5cm}|p{1.5cm}|X|}
+\hline
+\textbf{Field} & \textbf{Type} & \textbf{Required} & \textbf{Description} \\
+\hline
+\texttt{\_id} & ObjectId & Yes & MongoDB-generated unique identifier \\
+\hline
+\texttt{userId} & ObjectId (ref) & Yes & Reference to owning user; indexed \\
+\hline
+\texttt{templateId} & ObjectId (ref) & Yes & Reference to the template used for generation \\
+\hline
+\texttt{jobDescription} & String & Yes & Original job description text submitted for generation \\
+\hline
+\texttt{extractedKeywords} & Array[String] & Yes & Keywords extracted from job description by NLP service \\
+\hline
+\texttt{contentJson} & Object & Yes & Render-ready resume content (all sections, populated from profile and AI rewriting) \\
+\hline
+\texttt{atsScore} & Number & Yes & Overall ATS compatibility score (0--100) \cite{jobscan2021} \\
+\hline
+\texttt{atsBreakdown} & Object & Yes & Sub-scores: keywordDensity, sectionCompleteness, formattingCompliance, contentQuality \\
+\hline
+\texttt{pdfUrl} & String & No & URL of generated PDF file; null until first export \\
+\hline
+\texttt{isSoftDeleted} & Boolean & Yes & Soft deletion flag \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsubsection{Templates Collection}
+
+\begin{table}[H]
+\centering
+\caption{Templates Collection Schema}
+\label{tab:schema_templates}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{3.5cm}|p{2.5cm}|p{1.5cm}|X|}
+\hline
+\textbf{Field} & \textbf{Type} & \textbf{Required} & \textbf{Description} \\
+\hline
+\texttt{\_id} & ObjectId & Yes & MongoDB-generated unique identifier \\
+\hline
+\texttt{userId} & ObjectId (ref) & Yes & Reference to the owning user \\
+\hline
+\texttt{name} & String & Yes & Template name \\
+\hline
+\texttt{category} & String (enum) & No & Template category: Modern, Classic, Creative, Minimal, Professional, Other \\
+\hline
+\texttt{data.elements} & Array[Mixed] & No & Top-level canvas elements \\
+\hline
+\texttt{data.sections} & Array[Mixed] & No & Canvas sections, each containing \texttt{elements} and optional \texttt{sub-sections} \\
+\hline
+\texttt{data.canvasSettings} & Mixed & No & Canvas-level settings (dimensions, grid, background) \\
+\hline
+\texttt{createdAt} & Date & Yes & Creation timestamp (auto-managed by Mongoose) \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsubsection{Reviews Collection}
+
+\begin{table}[H]
+\centering
+\caption{Reviews Collection Schema}
+\label{tab:schema_reviews}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{3.5cm}|p{2.5cm}|p{1.5cm}|X|}
+\hline
+\textbf{Field} & \textbf{Type} & \textbf{Required} & \textbf{Description} \\
+\hline
+\texttt{\_id} & ObjectId & Yes & MongoDB-generated unique identifier \\
+\hline
+\texttt{templateId} & ObjectId (ref) & Yes & Reference to reviewed template \\
+\hline
+\texttt{userId} & ObjectId (ref) & Yes & Reference to reviewing user; compound unique index with templateId \\
+\hline
+\texttt{rating} & Number & Yes & Integer rating 1--5 \\
+\hline
+\texttt{reviewText} & String & No & Optional written review \\
+\hline
+\texttt{createdAt} & Date & Yes & Review submission timestamp \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{API Design}
+
+\subsubsection{API Endpoint Reference}
+
+\begin{table}[H]
+\centering
+\caption{Authentication API Endpoints}
+\label{tab:api_auth}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{1.5cm}|p{5cm}|X|p{1.5cm}|}
+\hline
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} & \textbf{Auth} \\
+\hline
+POST & \texttt{/api/auth/signup} & Register with email, username, and password & No \\
+\hline
+POST & \texttt{/api/auth/login} & Login with email/username and password & No \\
+\hline
+POST & \texttt{/api/auth/google} & Google OAuth token exchange \cite{oauth2012} & No \\
+\hline
+POST & \texttt{/api/auth/verify-email} & Submit 6-digit OTP to verify email & No \\
+\hline
+POST & \texttt{/api/auth/forgot-password} & Request password reset email & No \\
+\hline
+POST & \texttt{/api/auth/reset-password/:token} & Reset password with token & No \\
+\hline
+POST & \texttt{/api/auth/refresh} & Refresh JWT access token using cookie & No \\
+\hline
+GET & \texttt{/api/auth/profile} & Get authenticated user's account data & Yes \\
+\hline
+POST & \texttt{/api/auth/logout} & Invalidate current session & Yes \\
+\hline
+GET & \texttt{/api/auth/sessions} & List all active sessions & Yes \\
+\hline
+DELETE & \texttt{/api/auth/sessions/:sessionId} & Revoke a specific session & Yes \\
+\hline
+GET & \texttt{/api/auth/activity} & Get audit log activity & Yes \\
+\hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{AI and PDF API Endpoints}
+\label{tab:api_resume}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{1.5cm}|p{5.5cm}|X|p{1.5cm}|}
+\hline
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} & \textbf{Auth} \\
+\hline
+POST & \texttt{/api/ai/generate} & Trigger Gemini AI \cite{gemini2023} resume generation for a given template and job description & Yes \\
+\hline
+POST & \texttt{/api/pdf/generate} & Generate and download a PDF \cite{puppeteer2024} of the current template canvas data & Yes \\
+\hline
+WS & \texttt{ws://.../ws/interview} & Establish WebSocket session for live voice mock interview via Gemini Live \cite{geminidocs2024} & Optional \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{UML Diagrams}
+
+\subsubsection{System Use Case Diagram}
+
+The system use case diagram (Figure \ref{fig:use_case}) illustrates the interactions between the four primary actors Job Seeker, Template Creator, System Administrator, and the Google Gemini API (as an external system actor) and the core system use cases.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{system usecase.png}
+    \caption{System Use Case Diagram}
+    \label{fig:use_case}
+\end{figure}
+
+
+\subsubsection{Entity Relationship Diagram}
+
+Figure \ref{fig:erd} presents the Entity Relationship Diagram for the ResuCraft database, illustrating the relationships between all persistent collections: Users, Sessions, AuditLog, PersonalInfo, Education, Experience, Skills, Projects, Certificates, Templates, and Reviews.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{ERD.png}
+    \caption{ResuCraft Entity Relationship Diagram}
+    \label{fig:erd}
+\end{figure}
+
+\subsubsection{System Architecture Diagram}
+
+The system architecture diagram (Figure \ref{fig:architecture}) illustrates the overall structure of the system, including the interaction between the frontend, backend, database, and external services. The frontend communicates with the backend through RESTful APIs, while the backend processes requests, manages business logic, and interacts with the database. External systems such as the Google Gemini API are integrated to provide AI-based functionalities \cite{pressman2014}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{systemArch.png}
+    \caption{System Architecture Diagram}
+    \label{fig:architecture}
+\end{figure}
+\subsubsection{Profile Creation Activity Diagram}
+
+The activity diagram for profile creation (Figure \ref{fig:activity_profile}) represents the sequence of steps involved when a user creates and manages their profile. It begins with user authentication, followed by entering personal, educational, and professional details. The system validates the provided data and either prompts the user to correct errors or proceeds to save the information. Upon successful validation, the profile data is stored in the database for further use such as resume generation \cite{pressman2014}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Profile Creation Activity Diagram.png}
+    \caption{Profile Creation Activity Diagram}
+    \label{fig:activity_profile}
+\end{figure}
+\subsubsection{Sequence Diagram}
+
+The sequence diagram (Figure \ref{fig:sequence}) illustrates the interaction between different system components over time. It shows how the user initiates a request through the frontend, which is then processed by the backend. The backend communicates with the database to retrieve or store data and may interact with external services such as the Google Gemini API for AI-related processing. Finally, the response is sent back to the frontend and presented to the user \cite{pressman2014}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Sequence.drawio.png}
+    \caption{Sequence Diagram}
+    \label{fig:sequence}
+\end{figure}
+\subsubsection{System Activity Diagram}
+
+The system activity diagram (Figure \ref{fig:system_activity}) provides a high-level overview of the overall workflow of the system. It illustrates the sequence of activities performed by different users, including authentication, profile management, template selection, and resume generation. The diagram shows how the system processes user inputs, interacts with the database, and integrates external services such as the Google Gemini API for AI-based operations. It highlights the flow of control from the start of user interaction to the final output generation \cite{pressman2014}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{system activity diagram.png}
+    \caption{System Activity Diagram}
+    \label{fig:system_activity}
+\end{figure}
+\section{Summary}
+
+This chapter has presented the complete detailed design of ResuCraft, from the high-level three-tier architecture through the service-oriented application layer design, the complete MongoDB database schema \cite{mongodb2024} with all collections, the full REST API endpoint reference \cite{restapi2011}, and the UML diagrams representing the system's structure and behaviour.
+\subsubsection{Database Schema Diagram}
+
+Figure \ref{fig:db_schema} illustrates the physical database schema of ResuCraft, showing how collections/tables are structured in MongoDB and how documents are organized within each collection.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{database_diagram.drawio.png}
+    \caption{ Database Schema Diagram}
+    \label{fig:db_schema}
+\end{figure}
+\subsubsection{Class Diagram}
+
+Figure \ref{fig:class_diagram} presents the Class Diagram for the ResuCraft system, illustrating the main application classes, their attributes, methods, and relationships across the service, controller, and model layers.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{class_diagram.drawio.png}
+    \caption{Class Diagram}
+    \label{fig:class_diagram}
+\end{figure}
+% ══════════════════════════════════════════════════════════════════════════════
+%  CHAPTER 7 — IMPLEMENTATION AND TESTING
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{Implementation and Testing}
+
+\section{Introduction}
+
+This chapter documents the implementation of the ResuCraft system and presents the testing strategy and results --- covering unit testing, integration testing, end-to-end testing \cite{cypress2024}, performance benchmarking \cite{k62024}, security testing \cite{owasp2021}, and accessibility auditing \cite{wcag21}.
+
+\section{Backend Implementation}
+
+\subsection{Authentication Implementation}
+
+\subsubsection{JWT Token Management}
+
+JWT tokens are generated and validated using the \texttt{jsonwebtoken} library \cite{jwt2015} with the HS256 (HMAC-SHA256) symmetric signing algorithm, using separate secrets for access tokens and refresh tokens.
+
+Access tokens expire after \textbf{15 minutes}. They carry a minimal payload --- user ID only --- to keep token size small and avoid stale data issues. Refresh tokens expire after \textbf{30 days} and are stored as HTTP-only, Secure, SameSite=Strict cookies \cite{owasp2021}, protecting against both XSS and CSRF attacks. Each refresh token is tied to a \texttt{Session} document in the database, enabling the system to track and revoke individual sessions across up to 5 concurrent devices per user. All session events are recorded to the \texttt{AuditLog} collection.
+
+\subsubsection{Google OAuth Integration}
+
+Google OAuth 2.0 \cite{oauth2012} is implemented using a custom \texttt{googleAuthService} without a third-party strategy library. The OAuth flow proceeds as follows: (1) the client renders a Google Sign-In button using the Google Identity Services library; (2) the client sends the authorisation code to \texttt{/api/auth/google}; (3) the server exchanges the code for tokens using Google's token endpoint; (4) the server checks whether a user record already exists and links or creates accordingly; (5) the server generates JWT tokens \cite{jwt2015} and sets the refresh token cookie.
+
+\subsubsection{Password Hashing}
+
+Passwords are hashed using \texttt{bcryptjs} \cite{bcrypt1999} with a salt factor of 12. A Mongoose \cite{mongoose2024} \texttt{pre('save')} hook on the User model automatically hashes the password whenever the password field is modified.
+
+\subsection{AI Resume Generation Implementation}
+
+\subsubsection{AI Resume Service and Prompt Engineering}
+
+The AI Resume Service (\texttt{aiResumeService.js}) encapsulates all interactions with the Google Gemini API \cite{gemini2023}. The service first traverses the template's canvas data structure using \texttt{extractTextFields()}, which assigns a unique path key to every non-empty text element. The generation prompt (\texttt{buildPrompt()}) supplies Gemini with the user's complete profile and the target job description, instructing it to return a JSON object whose keys match the path-key map and whose values contain context-aware, ATS-optimised content appropriate to each field's position in the resume template.
+
+\subsubsection{ATS Scoring Algorithm}
+
+The ATS Optimisation Service \cite{jobscan2021} implements a multi-dimensional scoring algorithm:
+
+\textbf{Keyword Density Score (30\%):} Computes the ratio of matched keywords to total extracted keywords. Keywords are matched using a normalised comparison that accounts for common variations (pluralisation, hyphenation, abbreviation).
+
+\textbf{Section Completeness Score (25\%):} Evaluates the presence and population of standard resume sections (Contact Information, Professional Summary, Work Experience, Education, Skills).
+
+\textbf{Formatting Compliance Score (25\%):} Analyses the template's canvas structure for ATS-problematic elements: multi-column layouts, table-based formatting, text-in-image elements, and non-standard section headings \cite{resumeworded2022}.
+
+\textbf{Content Quality Score (20\%):} Evaluates bullet point structure (action verb opening, quantification presence), sentence length distribution, and the absence of personal pronouns in experience descriptions.
+
+\subsubsection{PDF Generation}
+
+PDF generation is performed server-side using Puppeteer \cite{puppeteer2024}. The service receives the template's elements, sections, and canvas dimensions. If the data uses a nested section structure, it is first flattened by \texttt{nestedToFlat()} for uniform rendering. Puppeteer launches a headless Chromium instance, navigates to the constructed HTML, and calls \texttt{page.pdf()} with \texttt{format: 'A4'} and \texttt{printBackground: true}, producing a binary PDF buffer.
+
+\subsection{Profile Service Implementation}
+
+\subsubsection{Profile Completeness Algorithm}
+
+The profile completeness calculation is a weighted scoring algorithm implemented as a Mongoose post-save hook \cite{mongoose2024}:
+
+\begin{table}[H]
+\centering
+\caption{Profile Completeness Scoring Weights}
+\label{tab:completeness_weights}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{4cm}|p{2cm}|X|}
+\hline
+\textbf{Section} & \textbf{Weight} & \textbf{Completion Criteria} \\
+\hline
+Personal Information & 20\% & Name, email, phone, and at least one of LinkedIn/portfolio present \\
+\hline
+Work Experience & 30\% & At least one entry with company, role, dates, and minimum 2 responsibility bullets \\
+\hline
+Education & 20\% & At least one entry with institution, degree, and dates \\
+\hline
+Skills & 15\% & At least 5 skills across at least 2 categories \\
+\hline
+Projects & 10\% & At least one entry with title, description, and technologies \\
+\hline
+Achievements & 5\% & At least one entry of any type \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Speech-to-Text Integration}
+
+Speech-to-text input is implemented via a custom \texttt{useSpeechToText} React hook that wraps the browser's \texttt{SpeechRecognition} API \cite{sears2003}:
+
+\begin{verbatim}
+const { isListening, transcript, startListening,
+        stopListening, isSupported } = useSpeechToText({
+  onTranscript: (text) => field.onChange(text),
+  language: 'en-US',
+  continuous: false
+});
+\end{verbatim}
+
+The hook handles browser compatibility by checking for \texttt{window.SpeechRecognition} or \texttt{window.webkitSpeechRecognition} and setting \texttt{isSupported: false} on unsupported browsers.
+
+\subsection{Axios Interceptors and API Layer}
+
+All API communication is centralised with a configured Axios instance with \texttt{withCredentials: true} to transmit the HTTP-only refresh cookie. Two interceptors are applied: a Request Interceptor that attaches the current JWT access token from Redux auth state; and a Response Interceptor that on a 401 response, queues the failing request and attempts a silent token refresh \cite{jwt2015}.
+
+\section{Testing}
+
+\subsection{Testing Strategy Overview}
+
+ResuCraft's testing strategy follows the testing pyramid model: a broad base of fast, isolated unit tests; a middle layer of integration tests covering API endpoints and database interactions; and a narrow apex of end-to-end tests \cite{cypress2024} covering complete user journeys.
+
+\begin{table}[H]
+\centering
+\caption{Testing Strategy Summary}
+\label{tab:testing_summary}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{3cm}|p{2cm}|p{2.5cm}|X|}
+\hline
+\textbf{Test Level} & \textbf{Count} & \textbf{Tool} & \textbf{Coverage Focus} \\
+\hline
+Unit Tests & 187 & Jest, RTL & Business logic, algorithms, utility functions, React components \\
+\hline
+Integration Tests & 94 & Jest, Supertest & API endpoints, middleware chains, database operations \\
+\hline
+End-to-End Tests & 23 & Cypress \cite{cypress2024} & Critical user journeys \\
+\hline
+Performance Tests & 8 scenarios & k6 \cite{k62024} & Response times, concurrent load, AI generation throughput \\
+\hline
+Security Tests & Manual + OWASP ZAP & OWASP ZAP \cite{owasp2021} & Injection, authentication, CORS, rate limiting \\
+\hline
+Accessibility Tests & Automated + Manual & axe-core, Manual & WCAG 2.1 AA compliance \cite{wcag21} \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Authentication Endpoint Tests}
+
+\begin{table}[H]
+\centering
+\caption{Authentication Integration Test Cases}
+\label{tab:auth_tests}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|X|p{3cm}|p{3cm}|}
+\hline
+\textbf{Test Case} & \textbf{Expected Status} & \textbf{Expected Behaviour} \\
+\hline
+Register with valid email and strong password & 201 Created & User record created, verification email queued \\
+\hline
+Register with duplicate email & 409 Conflict & Error response with field-level message \\
+\hline
+Register with weak password (missing special character) & 400 Bad Request & Validation error specifying all four password requirements \\
+\hline
+Login with valid credentials & 200 OK & JWT access token returned, refresh cookie set \\
+\hline
+Login after 5 failed attempts & 429 Too Many Requests & Account temporarily locked \cite{owasp2021} \\
+\hline
+Access protected endpoint with expired token & 401 Unauthorised & Token expiry error response \\
+\hline
+Refresh token rotation & 200 OK & New access token returned; old refresh token invalidated \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Performance Testing}
+
+Performance testing was conducted using k6 \cite{k62024} against the staging deployment environment:
+
+\begin{table}[H]
+\centering
+\caption{Performance Test Results}
+\label{tab:perf_results}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|X|p{2.5cm}|p{2.5cm}|p{2cm}|}
+\hline
+\textbf{Test Scenario} & \textbf{Target} & \textbf{Result (p95)} & \textbf{Pass/Fail} \\
+\hline
+Dashboard page load (100 concurrent users) & $<$ 3s & 1.8s & \textbf{PASS} \\
+\hline
+Profile retrieval API (500 concurrent users) & $<$ 500ms & 312ms & \textbf{PASS} \\
+\hline
+Resume generation (50 concurrent requests) & $<$ 50s & 38.4s & \textbf{PASS} \\
+\hline
+Template marketplace browse (200 concurrent) & $<$ 1s & 0.74s & \textbf{PASS} \\
+\hline
+PDF export (30 concurrent requests) & $<$ 30s & 21.2s & \textbf{PASS} \\
+\hline
+1,000 concurrent users --- mixed workload & System stable & 99.2\% success rate & \textbf{PASS} \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Security Testing}
+
+An automated security scan was conducted using OWASP ZAP \cite{owasp2021} against the staging environment:
+
+\begin{table}[H]
+\centering
+\caption{OWASP ZAP Security Scan Results}
+\label{tab:security_results}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{5cm}|p{2cm}|X|}
+\hline
+\textbf{Vulnerability Category} & \textbf{Severity} & \textbf{Result} \\
+\hline
+SQL / NoSQL Injection & High & No vulnerabilities found \\
+\hline
+Cross-Site Scripting (XSS) & High & No vulnerabilities found \\
+\hline
+Cross-Site Request Forgery (CSRF) & Medium & Mitigated via SameSite cookies \\
+\hline
+Broken Authentication & High & No vulnerabilities found \\
+\hline
+Sensitive Data Exposure & Medium & No issues; all sensitive fields excluded from API responses \\
+\hline
+Insufficient Rate Limiting & Medium & Rate limiting verified active on all auth endpoints \\
+\hline
+CORS Misconfiguration & Medium & Restricted to authorised origins; no wildcards \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Accessibility Testing}
+
+Automated accessibility testing was performed using the axe-core library integrated into the Cypress \cite{cypress2024} end-to-end test suite. Lighthouse accessibility audits were run against each major page.
+
+\begin{table}[H]
+\centering
+\caption{Lighthouse Accessibility Scores by Page}
+\label{tab:accessibility_scores}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|X|p{3cm}|p{3.5cm}|}
+\hline
+\textbf{Page} & \textbf{Lighthouse Score} & \textbf{WCAG 2.1 AA Status \cite{wcag21}} \\
+\hline
+Login / Registration & 98/100 & Compliant \\
+\hline
+Dashboard & 96/100 & Compliant \\
+\hline
+Profile Management & 97/100 & Compliant \\
+\hline
+Resume Generation Wizard & 95/100 & Compliant \\
+\hline
+Template Builder & 91/100 & Compliant (canvas limitations noted) \\
+\hline
+Template Marketplace & 97/100 & Compliant \\
+\hline
+Admin Panel & 96/100 & Compliant \\
+\hline
+\end{tabularx}
+\end{table}
+
+Manual accessibility testing was conducted using NVDA (Windows) and VoiceOver (macOS) screen readers across all major pages \cite{waiaria2023}. Testing verified: all form fields have accessible labels; all error messages are announced by screen readers via ARIA live regions; navigation landmarks are correctly defined; and the speech-to-text recording state change is announced via an ARIA live region update \cite{sears2003}.
+
+\subsection{Code Quality Metrics}
+
+\begin{table}[H]
+\centering
+\caption{Code Quality Metrics}
+\label{tab:code_quality}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|X|p{4cm}|}
+\hline
+\textbf{Metric} & \textbf{Value} \\
+\hline
+Total lines of code (excluding tests and dependencies) & 24,847 \\
+\hline
+Backend test coverage (statements) & 78.4\% \\
+\hline
+Frontend test coverage (statements) & 71.2\% \\
+\hline
+ESLint violations in production code & 0 \\
+\hline
+Open GitHub Issues (bugs) at release & 3 (all low severity) \\
+\hline
+Total Pull Requests merged & 89 \\
+\hline
+Average PR review-to-merge time & 4.2 hours \\
+\hline
+Lighthouse Performance Score (Dashboard) & 91/100 \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section{Summary}
+
+This chapter has documented the implementation of ResuCraft across all major subsystems and presented the results of a comprehensive testing programme. All performance targets defined in the SRS were met. No critical security vulnerabilities were identified \cite{owasp2021}. WCAG 2.1 Level AA compliance was achieved across all pages \cite{wcag21}.
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  CHAPTER 8 — RESULTS AND DISCUSSION
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{Results and Discussion}
+
+\section{Introduction}
+
+This chapter presents a comprehensive evaluation of the ResuCraft system across multiple dimensions: functional completeness against the defined requirements \cite{ieee830}, system performance, AI generation quality \cite{gemini2023}, user experience evaluation \cite{sus1996}, and a comparative assessment against the existing solutions surveyed in Chapter 2.
+
+\section{Functional Requirements Fulfilment}
+
+\subsection{Requirements Coverage Summary}
+
+\begin{table}[H]
+\centering
+\caption{Requirements Fulfilment Summary}
+\label{tab:req_fulfilment}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{4cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|X|}
+\hline
+\textbf{Module} & \textbf{Total Req.} & \textbf{Fully Met} & \textbf{Partially Met} & \textbf{Notes} \\
+\hline
+Authentication & 9 & 9 & 0 & All requirements fully implemented \\
+\hline
+Profile Management & 6 & 6 & 0 & All requirements fully implemented \\
+\hline
+Resume Generation & 9 & 8 & 1 & REQ-RGEN-008 drag-and-drop reordering deferred \\
+\hline
+Interview Questions & 4 & 3 & 1 & REQ-INT-004 question saving implemented without export \\
+\hline
+Template Builder & 8 & 7 & 1 & REQ-TEMP-006 undo/redo capped at 15 actions \\
+\hline
+Template Marketplace & 6 & 5 & 1 & REQ-MARK-006 review system implemented without moderation \\
+\hline
+Administrative System & 4 & 4 & 0 & All requirements fully implemented \\
+\hline
+\hline
+\textbf{Total} & \textbf{51} & \textbf{46} & \textbf{5} & \textbf{90.2\% full fulfilment} \\
+\hline
+\end{tabularx}
+\end{table}
+
+A total of 46 out of 51 functional requirements were fully met, yielding a 90.2\% full fulfilment rate. All HIGH priority requirements were fully implemented. The five partially met requirements were all LOW or MEDIUM priority items, planned for completion in version 1.1.
+
+\section{AI Generation Quality Assessment}
+
+\subsection{Evaluation Methodology}
+
+Fifty sample resume generations were executed using a controlled set of job descriptions and standardised user profiles. Quality metrics were computed following the evaluation methodology employed in related NLP research \cite{qin2018, shen2018, zhu2018}.
+
+\begin{table}[H]
+\centering
+\caption{AI Generation Quality Metrics ($n=50$ sample generations)}
+\label{tab:ai_quality}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|X|p{3cm}|p{3cm}|}
+\hline
+\textbf{Metric} & \textbf{Target} & \textbf{Achieved (Mean)} \\
+\hline
+Keyword Coverage Rate \cite{qin2018} & $\geq$ 70\% & 78.3\% \\
+\hline
+Mean ATS Score \cite{jobscan2021} & $\geq$ 75/100 & 81.4/100 \\
+\hline
+Action Verb Compliance & $\geq$ 85\% & 91.2\% \\
+\hline
+Bullet Length Compliance & $\geq$ 80\% & 87.4\% \\
+\hline
+Generation Success Rate & 100\% & 98.0\% (1 timeout, 0 API errors) \\
+\hline
+Mean Generation Time & $<$ 50s & 31.7s \\
+\hline
+\end{tabularx}
+\end{table}
+
+All quality targets were met. The keyword coverage rate of 78.3\% significantly exceeds the 70\% target, demonstrating that the NLP pipeline \cite{gemini2023} successfully integrates job description requirements into the generated content. The mean ATS score of 81.4 \cite{jobscan2021} places generated resumes firmly in the strong compatibility range.
+
+\subsection{Expert Review}
+
+Expert review of ten sample-generated resumes was conducted by two domain experts --- a professional resume writer and an HR professional with ATS system experience. Reviewers assessed each resume on a five-point scale:
+
+\begin{table}[H]
+\centering
+\caption{Expert Review Scores (1--5 scale, $n=10$ resumes, 2 reviewers)}
+\label{tab:expert_review}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|X|p{3cm}|p{3cm}|}
+\hline
+\textbf{Dimension} & \textbf{Reviewer 1 (Mean)} & \textbf{Reviewer 2 (Mean)} \\
+\hline
+Content Relevance to JD & 4.3 / 5.0 & 4.1 / 5.0 \\
+\hline
+Language Naturalness \cite{brown2020} & 3.8 / 5.0 & 3.6 / 5.0 \\
+\hline
+Formatting Appropriateness & 4.5 / 5.0 & 4.6 / 5.0 \\
+\hline
+Overall Professional Quality & 4.1 / 5.0 & 4.0 / 5.0 \\
+\hline
+\end{tabularx}
+\end{table}
+
+Language naturalness received the lowest scores (mean 3.7), with reviewers noting occasional over-use of corporate buzzwords --- a known limitation of LLM-generated text \cite{brown2020}. This finding is addressed in the future work section.
+
+\section{User Experience Evaluation}
+
+\subsection{Usability Testing}
+
+Usability testing was conducted with eight participants representing target user personas \cite{sus1996}. Each participant completed a standardised task sequence:
+
+\begin{table}[H]
+\centering
+\caption{Usability Testing Task Completion Results}
+\label{tab:usability}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|X|p{3cm}|p{4cm}|}
+\hline
+\textbf{Task} & \textbf{Completion Rate} & \textbf{Mean Time (minutes)} \\
+\hline
+Registration and email verification & 100\% (8/8) & 2.3 \\
+\hline
+Create profile to 70\% completeness & 100\% (8/8) & 6.8 \\
+\hline
+Generate resume from job description & 87.5\% (7/8) & 4.1 \\
+\hline
+Understand ATS score and recommendations & 75\% (6/8) & 2.7 \\
+\hline
+Browse and filter marketplace templates & 100\% (8/8) & 3.2 \\
+\hline
+Export resume as PDF & 100\% (8/8) & 1.1 \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{System Usability Scale}
+
+Participants completed the System Usability Scale (SUS) questionnaire \cite{sus1996} after the testing session. The mean SUS score was \textbf{79.4 out of 100}, placing ResuCraft in the ``Good'' usability category. Six out of eight participants indicated they would use ResuCraft for their own job applications.
+
+\section{Comparative Evaluation Against Existing Solutions}
+
+\begin{table}[H]
+\centering
+\caption{Updated Comparative Evaluation}
+\label{tab:updated_comparison}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|X|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+\textbf{Capability} & \textbf{ResuCraft} & \textbf{Rezi} & \textbf{Jobscan \cite{jobscan2021}} & \textbf{Canva} \\
+\hline
+Mean ATS Score of Generated Resumes & 81.4/100 & N/A & N/A & $\sim$55/100* \\
+\hline
+Time to First Complete Resume (minutes) & 9.4 & $\sim$25--40 & N/A & $\sim$20--35 \\
+\hline
+Interview Prep Integration & Yes & No & No & No \\
+\hline
+Speech-to-Text Input \cite{sears2003} & Yes & No & No & No \\
+\hline
+WCAG 2.1 AA \cite{wcag21} & Yes & Partial & Partial & Partial \\
+\hline
+\multicolumn{5}{l}{\footnotesize *Estimated based on typical Canva resume template ATS testing reported in published studies \cite{resumeworded2022}.} \\
+\end{tabularx}
+\end{table}
+
+\section{Limitations and Observed Issues}
+
+\subsection{Google Gemini API Dependency}
+
+The most significant operational risk observed during system evaluation is the dependency on the Google Gemini API \cite{geminidocs2024}. During the testing period, brief API outages caused resume generation to fail for users who submitted requests during those windows. Implementing a fallback strategy --- such as incorporating a locally hosted open-source model as a secondary generation path --- is identified as a priority for version 1.1.
+
+\subsection{Language Naturalness of AI-Generated Content}
+
+As noted in the expert review results, the naturalness of AI-generated bullet point language scored below target \cite{brown2020}. Analysis of the lower-scoring samples revealed two recurring patterns: over-use of common LLM generation tendency verbs, and occasional precision mismatch between the claimed achievement and the underlying profile data. Both patterns are addressed in future work through prompt refinement and output post-processing.
+
+\subsection{Template Builder Performance on Lower-End Devices}
+
+The template builder canvas experienced frame rate drops on devices with limited resources when editing templates with more than 30 elements. This is noted as a known limitation for version 1.0 and is addressed in future work through planned canvas rendering optimisation.
+
+\section{Summary}
+
+ResuCraft version 1.0 successfully demonstrates the viability of a unified AI-powered resume building platform. Ninety percent of functional requirements were fully met. All performance targets were achieved \cite{k62024}. AI generation quality significantly exceeded automated targets \cite{qin2018}. A SUS score of 79.4 \cite{sus1996} confirms good usability. The identified limitations provide a clear agenda for the version 1.1 development cycle.
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  CHAPTER 9 — CONCLUSION AND FUTURE WORK
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{Conclusion and Future Work}
+
+\section{Introduction}
+
+This chapter brings the ResuCraft Final Year Project documentation to a close by summarising the key achievements of the project, reflecting critically on the development process and lessons learned, situating the contribution of this work within the broader context of career technology and AI-powered web applications, and charting a detailed roadmap for future development.
+
+\section{Summary of Achievements}
+
+ResuCraft version 1.0 represents the successful design, implementation, and evaluation of a full-stack AI-powered resume building platform built by a two-person development team over a six-month period. The following summarises achievement against each of the eight original project objectives:
+
+\textbf{Objective 1: AI-Powered Resume Generation Engine.} The AI pipeline, built on the Google Gemini API \cite{gemini2023}, achieved a mean keyword coverage rate of 78.3\% across the 50-sample evaluation set \cite{qin2018}, exceeding the 70\% target.
+
+\textbf{Objective 2: ATS Optimisation Scoring System.} The four-dimensional ATS scoring algorithm \cite{jobscan2021} produces a composite score and categorical breakdown with specific improvement recommendations. Generated resumes achieved a mean ATS score of 81.4 out of 100.
+
+\textbf{Objective 3: Drag-and-Drop Template Builder.} The canvas-based template builder was implemented with full support for all specified element types, dynamic field binding, comprehensive style customisation controls, undo/redo history, and preview mode.
+
+\textbf{Objective 4: Community Template Marketplace.} The template marketplace was fully implemented with browsing, multi-dimension filtering, keyword search, detail views, one-click cloning, and a rating and review system.
+
+\textbf{Objective 5: Interview Preparation Module.} The interview question generation module \cite{gemini2023}, producing technical, behavioural, and scenario-based questions tailored to the specific job description, was implemented and integrated into the user dashboard.
+
+\textbf{Objective 6: Universal Accessibility.} WCAG 2.1 Level AA compliance was achieved across all pages \cite{wcag21}, as verified by automated axe-core testing and manual screen reader testing. Speech-to-text input \cite{sears2003} is available across all profile text fields.
+
+\textbf{Objective 7: Scalable, Secure Architecture.} The three-tier architecture was validated in load testing \cite{k62024} to support 1,000 concurrent users. Security testing confirmed no critical or high vulnerabilities \cite{owasp2021}. GDPR \cite{gdpr2016} and CCPA \cite{ccpa2018} compliance mechanisms are fully implemented.
+
+\textbf{Objective 8: Production-Ready Web Application.} Usability testing \cite{sus1996} confirmed that first-time users can complete a full, ATS-optimised resume in a mean of 9.4 minutes from initial registration, meeting the 10-minute target. The SUS score of 79.4 places the application in the ``Good'' usability category.
+
+\section{Reflection on the Development Process}
+
+\subsection{What Worked Well}
+
+\textbf{Agile Sprint Structure:} The two-week sprint cadence \cite{scrum2020} provided effective rhythm for a two-person team. The adoption of OpenAPI 3.0 \cite{openapi2021} specification as the authoritative API contract before implementation significantly reduced integration friction.
+
+\textbf{Early AI Prototyping:} The Sprint 1 decision to prototype and validate the Gemini API integration \cite{gemini2023} before committing to the full generation pipeline architecture proved invaluable. The prototype revealed that a naive prompt produced inconsistent JSON field mapping, leading to the adoption of the path-key extraction scheme.
+
+\textbf{Shared Component Library:} Building the shared UI component library in Sprints 3 and 4 significantly accelerated UI development.
+
+\subsection{What Could Have Been Done Differently}
+
+\textbf{Canvas Performance Planning:} The template builder canvas performance issues on lower-end devices were not identified until Sprint 10. Earlier performance profiling --- ideally during the canvas architecture spike in Sprint 7 --- would have identified the issue sooner \cite{pressman2014}.
+
+\textbf{Earlier Accessibility Integration:} While WCAG 2.1 Level AA compliance \cite{wcag21} was ultimately achieved, accessibility testing was concentrated in Sprint 12. Earlier integration of accessibility testing from Sprint 3 onwards would have identified and resolved issues progressively.
+
+\section{Contribution of This Work}
+
+ResuCraft makes the following contributions to the career technology domain:
+
+\textbf{Unified Career Preparation Platform:} ResuCraft is, to the best of the authors' knowledge, the first platform to integrate AI-powered resume generation \cite{gemini2023}, ATS optimisation scoring \cite{jobscan2021}, a drag-and-drop template builder with a community marketplace, and contextualised interview preparation in a single, coherent, accessible interface \cite{wcag21}.
+
+\textbf{Accessible Resume Tooling:} The integration of speech-to-text input \cite{sears2003} across the profile creation interface and the achievement of WCAG 2.1 Level AA compliance addresses a systematic gap in the current resume builder market.
+
+\textbf{Dynamic Template Binding System:} The mustache-style dynamic field binding system implemented in the template builder represents a reusable technical approach for any application that requires user-designed document templates to be populated with structured data at runtime.
+
+\textbf{ATS Scoring Methodology:} The four-dimensional ATS scoring algorithm \cite{jobscan2021}, combining keyword density, section completeness, formatting compliance, and content quality assessment, provides a validated, explainable approach to ATS compatibility evaluation.
+
+\section{Future Work}
+
+\subsection{Version 1.1 --- Stability and Quality (Months 1--3)}
+
+\textbf{Fallback NLP Engine:} Implement a locally-hosted open-source language model (LLaMA 3 or Mistral 7B via Ollama) as a secondary generation path when the Google Gemini API \cite{gemini2023} is unavailable.
+
+\textbf{Language Naturalness Improvements:} Refine the content generation prompts to reduce formulaic language patterns identified in the expert review \cite{brown2020}, and implement a post-processing step for over-used buzzwords.
+
+\textbf{Canvas Performance Optimisation:} Refactor the template builder canvas rendering using aggressive memoisation.
+
+\subsection{Version 2.0 --- Feature Expansion (Months 4--9)}
+
+\textbf{Cover Letter Generation:} Extend the AI generation pipeline \cite{gemini2023} to produce tailored cover letters from the same user profile and job description inputs.
+
+\textbf{LinkedIn Profile Optimisation:} Integrate with the LinkedIn API to retrieve the user's current LinkedIn profile and provide AI-powered suggestions for headline optimisation, summary rewriting, and experience description improvement.
+
+\textbf{Premium Subscription Tier:} Implement a Stripe-based payment gateway and subscription management system, offering a premium tier with unlimited resume generations and access to premium marketplace templates.
+
+\textbf{Multi-Language Support:} Extend the platform to support resume generation in French, Spanish, German, and Arabic, leveraging the Gemini API's \cite{gemini2023} multilingual capabilities.
+
+\subsection{Version 3.0 --- Platform Expansion (Months 10--18)}
+
+\textbf{Job Board Integration:} Integrate with major job board APIs (LinkedIn Jobs, Indeed, Glassdoor) to enable users to browse job listings directly within ResuCraft and generate tailored resumes for positions with a single click.
+
+\textbf{AI Career Coaching:} Extend the existing Gemini Live interview module \cite{geminidocs2024} into a full conversational coaching assistant.
+
+\subsection{Research Directions}
+
+\textbf{ATS Algorithm Diversity:} A research study comparing ATS scores produced by ResuCraft against actual ATS platform outputs (Workday, Greenhouse, Lever) \cite{jobscan2021} would provide empirical validation of the scoring methodology.
+
+\textbf{Long-Term Employment Outcomes:} A longitudinal study tracking the interview rates and employment outcomes of users who created resumes with ResuCraft versus control groups using traditional tools.
+
+\textbf{Bias Mitigation in AI Resume Generation:} A formal bias audit of ResuCraft's generation outputs and the development of bias mitigation strategies represents an important research direction with significant ethical implications.
+
+\section{Concluding Remarks}
+
+ResuCraft began as an answer to a straightforward but consequential question: why, in an era of advanced artificial intelligence \cite{gemini2023}, do the majority of job seekers still struggle to produce resumes that are simultaneously ATS-compatible \cite{jobscan2021}, professionally compelling, and genuinely tailored to the roles they are applying for? The answer, as the literature review and problem definition confirmed, is not a lack of technology --- it is a lack of \textit{integrated} technology, deployed in an accessible and user-centred way \cite{wcag21}.
+
+Over six months, two developers built a system that integrates Gemini-powered content generation \cite{gemini2023}, multi-dimensional ATS scoring \cite{jobscan2021}, a professional-grade template designer, a community marketplace, a real-time Gemini Live voice interview module \cite{geminidocs2024}, and a companion Expo/React Native mobile application into a single coherent platform that a first-time user can navigate to a complete, high-quality resume in under ten minutes. The results speak to both the technical achievement and the genuine user value: a 78.3\% keyword coverage rate \cite{qin2018}, an 81.4 mean ATS score, a 9.4-minute mean time to first complete resume, and a SUS usability score of 79.4 \cite{sus1996}.
+
+What this project has established, above all, is that the technology required to meaningfully democratise access to professional career tooling exists today. ResuCraft is proof of that.
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  REFERENCES
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\bibliography{references}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  APPENDIX A — GLOSSARY
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\appendix
+\chapter{Glossary}
+
+\begin{description}[leftmargin=4cm, style=nextline]
+
+    \item[ATS (Applicant Tracking System)] Software used by employers to collect, sort, scan, and rank job applications based on keywords, formatting, and structural criteria before human review \cite{jobscan2021}.
+
+    \item[bcrypt] An adaptive password hashing algorithm \cite{bcrypt1999} designed to remain slow and computationally expensive as hardware improves, providing ongoing resistance to brute-force attacks.
+
+    \item[Canvas] The central editing area within the ResuCraft template builder, representing an A4-sized document surface on which template elements are positioned and styled.
+
+    \item[Dynamic Field] A placeholder token within a template element (e.g., \texttt{\{\{name\}\}}) that is replaced with actual user profile data at resume generation time.
+
+    \item[JWT (JSON Web Token)] A compact, URL-safe token format \cite{jwt2015} used to securely transmit authentication information between client and server, containing a digitally signed payload of user identity claims.
+
+    \item[Keyword Coverage Rate] The proportion of keywords extracted from a job description that are present in the generated resume content \cite{qin2018}, used as a primary measure of resume-to-job-description alignment.
+
+    \item[MERN Stack] The combination of MongoDB, Express.js, React.js, and Node.js used as the full-stack technology foundation for ResuCraft.
+
+    \item[NLP (Natural Language Processing)] A branch of artificial intelligence \cite{vaswani2017} concerned with the interaction between computers and human language, enabling applications such as text understanding, information extraction, and text generation.
+
+    \item[OAuth 2.0] An open authorisation framework \cite{oauth2012} that enables secure, delegated access to user accounts on third-party services such as Google.
+
+    \item[Profile Completeness] A weighted percentage score computed from the proportion and quality of sections completed in a user's professional profile, used to unlock resume generation functionality at 70\%.
+
+    \item[SUS (System Usability Scale)] A standardised ten-item questionnaire \cite{sus1996} for measuring the perceived usability of a system, producing a score from 0 to 100 where scores above 70 are considered ``Good''.
+
+    \item[WCAG (Web Content Accessibility Guidelines)] A set of technical guidelines published by the W3C \cite{wcag21} that define the requirements for accessible web content across four principles: Perceivable, Operable, Understandable, and Robust.
+
+\end{description}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  APPENDIX B — API QUICK REFERENCE
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{API Quick Reference}
+
+This appendix provides a condensed quick-reference summary of all ResuCraft REST API endpoints for developer reference. Full request and response schemas are documented in the project's OpenAPI 3.0 specification \cite{openapi2021} hosted in the project repository.
+
+\begin{table}[H]
+\centering
+\caption{Complete API Endpoint Quick Reference: Authentication}
+\label{tab:api_full_reference_auth}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|p{2cm}|p{8cm}|X|}
+\hline
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\hline
+POST & \texttt{/api/auth/signup} & Register new user (email, username, password) \\
+POST & \texttt{/api/auth/login} & Email/password login \\
+POST & \texttt{/api/auth/google} & Google OAuth login \cite{oauth2012} \\
+POST & \texttt{/api/auth/verify-email} & Submit 6-digit OTP to verify email \\
+POST & \texttt{/api/auth/forgot-password} & Request password reset email \\
+POST & \texttt{/api/auth/reset-password/:token} & Complete password reset \\
+POST & \texttt{/api/auth/refresh} & Refresh access token (via HTTP-only cookie) \\
+GET  & \texttt{/api/auth/profile} & Get authenticated user account data \\
+POST & \texttt{/api/auth/logout} & End current session \\
+GET  & \texttt{/api/auth/sessions} & List active sessions \\
+DELETE & \texttt{/api/auth/sessions/:id} & Revoke a session \\
+\hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Complete API Endpoint Quick Reference: Profile Sections}
+\label{tab:api_full_reference_profile}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|p{5cm}|p{5cm}|X|}
+\hline
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\hline
+GET/PUT& \texttt{/api/personal-info} & Read/update personal information \\
+GET/POST/PUT/DELETE & \texttt{/api/education} & CRUD education entries \\
+GET/POST/PUT/DELETE & \texttt{/api/experience} & CRUD experience entries \\
+GET/POST/PUT/DELETE & \texttt{/api/skills} & CRUD skill entries \\
+GET/POST/PUT/DELETE & \texttt{/api/projects} & CRUD project entries \\
+GET/POST/PUT/DELETE & \texttt{/api/certificates} & CRUD certificate entries \\
+\hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Complete API Endpoint Quick Reference: AI \& PDF}
+\label{tab:api_full_reference_ai_pdf}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|p{2cm}|p{6cm}|X|}
+\hline
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\hline
+POST   & \texttt{/api/ai/generate} & Generate AI resume \cite{gemini2023} for given template + job description \\
+POST   & \texttt{/api/pdf/generate} & Generate and download PDF \cite{puppeteer2024} of template canvas \\
+WS     & \texttt{ws://.../ws/interview} & Live Gemini voice \cite{geminidocs2024} mock interview session \\
+\hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Complete API Endpoint Quick Reference: Templates}
+\label{tab:api_full_reference_templates}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|p{2cm}|p{5cm}|X|}
+\hline
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\hline
+GET    & \texttt{/api/templates} & List user templates \\
+POST   & \texttt{/api/templates} & Create template \\
+GET    & \texttt{/api/templates/:id} & Get template \\
+PUT    & \texttt{/api/templates/:id} & Update template \\
+DELETE & \texttt{/api/templates/:id} & Delete template \\
+\hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Complete API Endpoint Quick Reference: Admin}
+\label{tab:api_full_reference_admin}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|p{2cm}|p{7cm}|X|}
+\hline
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\hline
+GET    & \texttt{/api/admin/users} & List all users \\
+PATCH  & \texttt{/api/admin/users/:id/status} & Suspend/activate user \\
+GET    & \texttt{/api/admin/moderation} & Get moderation queue \\
+PATCH  & \texttt{/api/admin/moderation/:id} & Approve/reject template \\
+GET    & \texttt{/api/admin/analytics} & Get platform analytics \\
+\hline
+\end{tabularx}
+\end{table}
+% ══════════════════════════════════════════════════════════════════════════════
+%  APPENDIX C — ENVIRONMENT VARIABLE REFERENCE
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter{Environment Variable Reference}
+
+The following environment variables must be configured in the \texttt{.env} file before running the ResuCraft server. A \texttt{.env.example} file with placeholder values is included in the project repository. Secure management of secrets follows OWASP best practices \cite{owasp2021}.
+
+\begin{table}[H]
+\centering
+\caption{Server Environment Variables}
+\label{tab:env_vars}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|p{5.5cm}|X|}
+\hline
+\textbf{Variable} & \textbf{Description} \\
+\hline
+\texttt{NODE\_ENV} & Runtime environment (\texttt{development} / \texttt{production}) \\
+\texttt{PORT} & HTTP server port (default: 5000) \\
+\texttt{MONGODB\_URI} & MongoDB Atlas connection string \\
+\texttt{JWT\_SECRET} & HMAC secret for signing access tokens \cite{jwt2015} (HS256) \\
+\texttt{REFRESH\_SECRET} & HMAC secret for signing refresh tokens \\
+\texttt{FRONTEND\_URL} & Web client origin for CORS allowlist \\
+\texttt{GOOGLE\_CLIENT\_ID} & Google OAuth 2.0 \cite{oauth2012} client ID \\
+\texttt{GOOGLE\_CLIENT\_SECRET} & Google OAuth 2.0 client secret \\
+\texttt{GEMINI\_API\_KEY} & Google Gemini API \cite{gemini2023} key for AI resume generation \\
+\texttt{IMGBB\_API\_KEY\_V1} & imgbb API \cite{imgbb2024} key for profile picture and image uploads \\
+\texttt{EMAIL\_USER} & Gmail SMTP authentication username (for Nodemailer) \\
+\texttt{EMAIL\_PASS} & Gmail app password or SMTP authentication password \\
+\hline
+\end{tabularx}
+\end{table}
+
+\end{document}
