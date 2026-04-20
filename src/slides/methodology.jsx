@@ -1,6 +1,5 @@
 import React from "react";
 import NoteCard from "../components/noteCard.jsx";
-import AnimatedCounter from "../components/animatedCounter.jsx";
 import SlideHeader from "../components/shared/slideHeader.jsx";
 
 function Methodology() {
@@ -8,10 +7,11 @@ function Methodology() {
         <main
             className="content">
 
-            <SlideHeader title={'Methodology'} subtitle={'Agile development process, research methods, and evaluation strategy followed during development'}/>
+            <SlideHeader title={'Methodology'}
+                         subtitle={'Agile development process, research methods, and evaluation strategy followed during development'}/>
 
             {/* Methodology Grid */}
-            <section className="grid grid-cols-2 gap-6 flex-grow">
+            <section className="grid grid-cols-2 gap-6 ">
                 {/* Development Approach */}
                 <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition flex flex-col">
                     <div className="flex items-center mb-6">
@@ -36,29 +36,6 @@ function Methodology() {
                     ))}
                 </div>
 
-                {/* Research Methods */}
-                <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition flex flex-col">
-                    <div className="flex items-center mb-6">
-                        <div
-                            className="w-12 h-12 rounded-xl flex items-center justify-center mr-4 bg-gradient-to-br from-green-100 to-green-200">
-                            <i className="fas fa-flask text-green-500 text-2xl"></i>
-                        </div>
-                        <h3 className="text-xl font-semibold text-green-700">
-                            Research Methods
-                        </h3>
-                    </div>
-                    {[
-                        "ATS analysis of existing systems",
-                        "User interviews with job seekers",
-                        "Competitor analysis of resume builders",
-                        "Industry research on recruitment trends",
-                    ].map((item, idx) => (
-                        <div key={idx} className="flex items-start mb-3">
-                            <i className="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span className="text-slate-600 font-medium">{item}</span>
-                        </div>
-                    ))}
-                </div>
 
                 {/* Development Process */}
                 <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition flex flex-col">
@@ -98,54 +75,11 @@ function Methodology() {
                         </div>
                     ))}
                 </div>
-
-                {/* Testing & Evaluation */}
-                <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition flex flex-col">
-                    <div className="flex items-center mb-6">
-                        <div
-                            className="w-12 h-12 rounded-xl flex items-center justify-center mr-4 bg-gradient-to-br from-purple-100 to-purple-200">
-                            <i className="fas fa-clipboard-check text-purple-500 text-2xl"></i>
-                        </div>
-                        <h3 className="text-xl font-semibold text-purple-700">
-                            Testing & Evaluation
-                        </h3>
-                    </div>
-                    {[
-                        "ATS compatibility testing with real systems",
-                        "Usability testing with target users",
-                        "Performance testing under various loads",
-                    ].map((item, idx) => (
-                        <div key={idx} className="flex items-start mb-3">
-                            <i className="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>
-                            <span className="text-slate-600 font-medium">{item}</span>
-                        </div>
-                    ))}
-
-                    {/* Metrics */}
-                    <div className="flex gap-3 mt-4">
-                        {[
-                            {pre: " ", value: 95, unit: "%", label: "ATS Pass Rate"},
-                            {pre: "4.", value: 5 , unit: "/5", label: "User Satisfaction"},
-                            {pre: "<", value: 2, unit: "s", label: "Response Time"},
-                        ].map((metric, idx) => (
-                            <div
-                                key={idx}
-                                className="flex-1 rounded-lg bg-gradient-to-br from-purple-100 to-purple-200 p-3 text-center"
-                            >
-                                <div className="text-lg font-bold text-purple-700">
-                                    {/*{metric.value}*/}
-                                    {metric.pre}{AnimatedCounter({start: 0, end: metric.value})}{metric.unit}
-                                </div>
-                                <div className="text-xs text-slate-600">{metric.label}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </section>
 
-            <NoteCard
-                icon={'fa-lightbulb'}
-                note={"Success was measured through ATS compatibility scores, usability testing feedback, and performance benchmarks — all targets were met or exceeded."}/>
+        {/*    <NoteCard*/}
+        {/*        icon={'fa-lightbulb'}*/}
+        {/*        note={"Success was measured through ATS compatibility scores, usability testing feedback, and performance benchmarks — all targets were met or exceeded."}/>*/}
         </main>
     );
 }

@@ -12,7 +12,6 @@ function Abstract() {
                 "Full-stack AI-powered resume builder (Web + Mobile)",
                 "Broke the ATS knowledge barrier for job seekers",
                 "Unified resume creation, scoring & interview prep",
-                "WCAG 2.1 AA accessible — speech-to-text across all fields",
             ],
         },
         {
@@ -23,7 +22,6 @@ function Abstract() {
                 "MERN stack (React 19 / Node.js / Express / MongoDB)",
                 "Google Gemini API for NLP & content generation",
                 "Gemini Live WebSocket for real-time voice interviews",
-                "Puppeteer for server-side ATS-safe PDF export",
             ],
         },
         {
@@ -31,10 +29,9 @@ function Abstract() {
             color: "purple",
             title: "What We Achieved",
             points: [
-                "≈ 60% faster resume creation vs manual methods",
-                "~95% ATS compatibility on generated resumes",
-                "Professional resume ready in under 10 minutes",
-                "Compliant with IEEE 830, WCAG 2.1 AA, GDPR & CCPA",
+                "≈ 80% faster resume creation vs manual methods",
+                " ATS compatibility on generated resumes",
+                "Professional resume ready in under 2 minutes",
             ],
         },
     ];

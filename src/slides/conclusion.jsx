@@ -17,8 +17,7 @@ const ConclusionContent = () => {
 
     const achievements = [
         {icon: "fa-clock",       title: "≈ 60%",  desc: "Reduction in resume creation time"},
-        {icon: "fa-chart-line",  title: "~95%",   desc: "Target ATS compatibility pass rate"},
-        {icon: "fa-users",       title: "3×",     desc: "Increase in interview call rates"},
+        {icon: "fa-chart-line",  title: "~65%",   desc: "Target ATS compatibility pass rate"},
         {icon: "fa-mobile-alt",  title: "iOS+Android", desc: "Mobile companion via Expo / React Native"},
     ];
 
@@ -77,7 +76,7 @@ const ConclusionContent = () => {
                         <div className="card-header-icon"><i className="fas fa-trophy"></i></div>
                         <h3 className="card-header-title">Key Achievements</h3>
                     </div>
-                    <div className="card-body grid grid-cols-2 gap-3">
+                    <div className="card-body gap-3">
                         {achievements.map((item, idx) => (
                             <div key={idx} className="card-item">
                                 <div className="card-item-icon"><i className={`fas ${item.icon}`}></i></div>
@@ -113,7 +112,7 @@ const ConclusionContent = () => {
             <NoteCard
                 icon="fa-flag-checkered"
                 variant="green"
-                note="ResuCraft is the first platform to unify AI resume generation, ATS scoring, drag-and-drop template building, a community marketplace, live voice mock interviews, and WCAG 2.1 AA accessibility — all in one interface."
+                note="ResuCraft is the first platform to unify AI resume generation, ATS scoring, drag-and-drop template building, a community marketplace, live voice mock interviews — all in one interface."
             />
         </div>
     );

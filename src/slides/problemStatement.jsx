@@ -29,12 +29,6 @@ const ProblemStatement = () => {
             desc: "No unified tool connects resume building, ATS scoring, and interview preparation around the same job description.",
         },
         {
-            icon: "fa-universal-access",
-            color: "purple",
-            title: "Accessibility Barriers",
-            desc: "Existing platforms lack speech-to-text input, screen-reader support, and WCAG 2.1 AA compliance.",
-        },
-        {
             icon: "fa-store",
             color: "green",
             title: "No Community Templates",
@@ -84,7 +78,7 @@ const ProblemStatement = () => {
             <NoteCard
                 icon="fa-exclamation-circle"
                 variant="red"
-                note="All six sub-problems are interconnected — no single existing platform addresses more than two simultaneously. ResuCraft is the first to tackle all six in one unified interface."
+                note="All five sub-problems are interconnected — no single existing platform addresses more than two simultaneously. ResuCraft is the first to tackle all six in one unified interface."
             />
         </div>
     );

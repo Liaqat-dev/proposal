@@ -12,18 +12,17 @@ const ResultsAchievements = () => {
 
     const tangible = [
         {icon: "fa-clock",         title: "Resume Creation Time",   metric: {pre: "≈ −", value: 60, post: "%"}, progress: 60,  note: "vs manual writing"},
-        {icon: "fa-tachometer-alt",title: "ATS Compatibility Score", metric: {pre: "~",  value: 95, post: "%"}, progress: 95,  note: "on generated resumes"},
-        {icon: "fa-user-tie",      title: "Interview Call Rates",   metric: {pre: "3",   value: 0,  post: "×"}, progress: 75,  note: "increase reported"},
+        {icon: "fa-tachometer-alt",title: "ATS Compatibility Score", metric: {pre: "~",  value: 95, post: "%"}, progress: 65,  note: "on generated resumes"},
+        {icon: "fa-user-tie",      title: "Interview Call Rates",   metric: {pre: "3",   value: 0,  post: "×"}, progress: 75,  note: "increase expected"},
         {icon: "fa-stopwatch",     title: "Time to First Resume",   metric: {pre: "< ",  value: 10, post: " min"}, progress: 85, note: "from registration"},
     ];
 
     const compliance = [
-        {icon: "fa-universal-access", title: "WCAG 2.1 Level AA",       status: "Achieved", color: "green"},
         {icon: "fa-shield-alt",       title: "GDPR & CCPA Compliance",   status: "Achieved", color: "green"},
         {icon: "fa-file-alt",         title: "IEEE 830-1998 SRS",        status: "Followed", color: "blue"},
         {icon: "fa-lock",             title: "JWT + bcrypt Security",    status: "Implemented", color: "blue"},
         {icon: "fa-bolt",             title: "< 2s Response Time",       status: "Met",      color: "green"},
-        {icon: "fa-users",            title: "1000+ Concurrent Users",   status: "Designed for", color: "yellow"},
+        {icon: "fa-users",            title: "100+ Concurrent Users",   status: "Designed for", color: "yellow"},
     ];
 
     const modules = [
@@ -32,7 +31,6 @@ const ResultsAchievements = () => {
         {icon: "fa-store",           label: "Community Marketplace",  done: true},
         {icon: "fa-microphone",      label: "Live Mock Interview",    done: true},
         {icon: "fa-mobile-alt",      label: "iOS & Android App",      done: true},
-        {icon: "fa-file-pdf",        label: "PDF Export (Puppeteer)", done: true},
         {icon: "fa-universal-access",label: "Speech-to-Text Input",  done: true},
     ];
 

@@ -46,8 +46,6 @@ function TechStack() {
             icon: "fa-database",
             items: [
                 {name: "MongoDB 6.0+",      desc: "Document store — Atlas cloud",    icon: "fas fa-database"},
-                {name: "Nginx",             desc: "Reverse proxy + SSL termination", icon: "fas fa-network-wired"},
-                {name: "Docker",            desc: "Container-based environments",    icon: "fab fa-docker"},
                 {name: "GitHub Actions",    desc: "CI/CD pipeline automation",       icon: "fab fa-github"},
                 {name: "AWS EC2 + S3",      desc: "Cloud compute + static assets",   icon: "fab fa-aws"},
             ],
@@ -60,7 +58,7 @@ function TechStack() {
                 {name: "Expo 54",           desc: "Universal React Native toolchain",icon: "fas fa-mobile-alt"},
                 {name: "React Native 0.81", desc: "Cross-platform mobile framework", icon: "fab fa-react"},
                 {name: "NativeWind v4",     desc: "Tailwind CSS for React Native",   icon: "fas fa-paint-brush"},
-                {name: "iOS + Android",     desc: "Companion app companion app",     icon: "fab fa-apple"},
+                {name: "Android",     desc: "Companion app companion app",     icon: "fab fa-apple"},
             ],
         },
     ];

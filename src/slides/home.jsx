@@ -38,7 +38,7 @@ function Home() {
 
     const features = [
         {icon: "fa-robot", label: "AI Resume Generation", sub: "Google Gemini NLP"},
-        {icon: "fa-bullseye", label: "ATS Optimization", sub: "95% pass rate target"},
+        {icon: "fa-bullseye", label: "ATS Optimization", sub: "70% pass rate target"},
         {icon: "fa-microphone", label: "Live Mock Interview", sub: "Gemini Live WebSocket"},
         {icon: "fa-paint-brush", label: "Template Marketplace", sub: "Community-driven"},
         {icon: "fa-mobile-alt", label: "Mobile Companion", sub: "iOS & Android (Expo)"},
@@ -67,16 +67,16 @@ function Home() {
                 <div className="flex gap-4 mt-4">
                     {team.map((m, i) => (
                         <div key={i} className="flex items-center bg-white rounded-xl px-4 py-2 shadow-sm">
-                            <i className="fas fa-user-circle text-[#827c76] mr-2 text-lg"></i>
-                            <div>
-                                <span className="text-sm font-semibold text-slate-700">{m.name}</span>
+                            <i  className="fas fa-user-circle text-[#827c76] mr-2  text-5xl"></i>
+                            <div className={'flex flex-col  '}>
+                                <span className="text-lg font-semibold text-slate-700">{m.name}</span>
                                 <span className="text-xs text-slate-400 ml-2">{m.id}</span>
                             </div>
                         </div>
                     ))}
                     <div className="flex items-center bg-white rounded-xl px-4 py-2 shadow-sm">
-                        <i className="fas fa-chalkboard-teacher text-[#827c76] mr-2 text-lg"></i>
-                        <div>
+                        <i className="fas fa-chalkboard-teacher text-[#827c76] mr-2 text-5xl"></i>
+                        <div className={'flex flex-col  '}>
                             <span className="text-sm font-semibold text-slate-700">Dr. Maria Tariq</span>
                             <span className="text-xs text-slate-400 ml-2">Supervisor</span>
                         </div>

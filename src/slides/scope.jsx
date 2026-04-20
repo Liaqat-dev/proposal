@@ -10,7 +10,7 @@ const Scope = () => {
         {icon: "fas fa-paint-brush",     title: "Drag-and-Drop Builder",     desc: "Canvas-based template designer with dynamic field binding"},
         {icon: "fas fa-store",           title: "Community Marketplace",     desc: "Browse, rate, clone & publish templates — moderated ecosystem"},
         {icon: "fas fa-microphone",      title: "Live Mock Interview",       desc: "Real-time voice interview via Gemini Live WebSocket"},
-        {icon: "fas fa-file-pdf",        title: "PDF Export",                desc: "Server-side Puppeteer export preserving ATS-safe formatting"},
+        {icon: "fas fa-tachometer-alt",  title: "ATS Scoring & Suggestions", desc: "0–100 score with actionable improvement recommendations"},
     ];
 
     const outOfScope = [

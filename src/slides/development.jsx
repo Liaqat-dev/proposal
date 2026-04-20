@@ -10,18 +10,15 @@ function Development() {
     ];
     const codingStandards = [
         {icon: "fa-check-double",   label: "ESLint + Prettier",      sub: "Consistent JS/JSX formatting"},
-        {icon: "fa-file-alt",       label: "JSDoc / API Docs",        sub: "OpenAPI 3.0 spec for REST endpoints"},
-        {icon: "fa-users",          label: "GitHub Code Reviews",     sub: "PR-based merge workflow"},
+        {icon: "fa-users",          label: "GitHub ",     sub: "PR-based merge workflow"},
     ];
     const testingTopics = [
         {icon: "fa-bug",            label: "Jest Unit Testing",        sub: "Service & utility layer coverage"},
         {icon: "fa-cubes",          label: "Supertest Integration",    sub: "REST API endpoint testing"},
-        {icon: "fa-desktop",        label: "Cypress E2E",              sub: "Critical user flows automation"},
     ];
     const deploymentTopics = [
-        {icon: "fa-code-branch",    label: "GitHub Actions CI/CD",     sub: "Commit → Build → Test → Deploy"},
-        {icon: "fa-box",            label: "Docker Containers",        sub: "Consistent dev/prod environments"},
-        {icon: "fa-cloud",          label: "AWS EC2 + S3 + MongoDB Atlas", sub: "Cloud-native production stack"},
+        {icon: "fa-code-branch",    label: "GitHub CI/CD",     sub: "Commit → Build → Deploy"},
+        {icon: "fa-cloud",          label: "Onrender + ImgBB + MongoDB Atlas", sub: "Cloud-native production stack"},
     ];
 
     const tools = [
@@ -90,10 +87,6 @@ function Development() {
                 </div>
             </div>
 
-            <NoteCard
-                icon="fa-lightbulb"
-                note="Google Gemini API integration is the core differentiator — handles NLP job description parsing, contextual resume content generation, and Gemini Live manages real-time WebSocket voice interview sessions."
-            />
         </main>
     );
 }

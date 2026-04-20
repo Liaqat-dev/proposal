@@ -8,7 +8,7 @@ function DesignPhase() {
         {icon: "fas fa-code",       title: "Frontend Layer",         tech: "React 19, Tailwind CSS, React Router",     color: "text-blue-500   bg-blue-100/40"},
         {icon: "fas fa-server",     title: "Backend Layer",          tech: "Node.js 18+, Express.js, REST API",        color: "text-green-500  bg-green-100/40"},
         {icon: "fas fa-brain",      title: "AI & External Services", tech: "Google Gemini API, Gemini Live, imgbb",    color: "text-purple-500 bg-purple-100/40"},
-        {icon: "fas fa-database",   title: "Data Layer",             tech: "MongoDB 6.0+, Nginx reverse proxy",        color: "text-yellow-500 bg-yellow-100/40"},
+        {icon: "fas fa-database",   title: "Data Layer",             tech: "MongoDB 6.0+",        color: "text-yellow-500 bg-yellow-100/40"},
     ];
 
     const dbCollections = [

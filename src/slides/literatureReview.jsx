@@ -11,7 +11,6 @@ function LiteratureReview() {
         {feature: "Community Marketplace",     resucraft: true,  canva: true,  rezi: false,      jobscan: false, novoresume: false},
         {feature: "Live Mock Interview",        resucraft: true,  canva: false, rezi: false,      jobscan: false, novoresume: false},
         {feature: "Speech-to-Text Input",      resucraft: true,  canva: false, rezi: false,      jobscan: false, novoresume: false},
-        {feature: "WCAG 2.1 AA Accessibility", resucraft: true,  canva: "partial", rezi: false,  jobscan: "partial", novoresume: false},
         {feature: "Free to Use",               resucraft: true,  canva: "freemium", rezi: "freemium", jobscan: "freemium", novoresume: "freemium"},
         {feature: "Profile-Based Generation",  resucraft: true,  canva: false, rezi: false,      jobscan: false, novoresume: false},
         {feature: "Mobile Companion App",      resucraft: true,  canva: false, rezi: false,      jobscan: false, novoresume: false},
@@ -31,8 +30,7 @@ function LiteratureReview() {
         {icon: "fa-robot",       color: "blue",   title: "LLMs mature enough for resume generation", desc: "No commercial tool uses full semantic pipeline: JD parse → profile match → ATS-scored output"},
         {icon: "fa-paint-brush", color: "green",  title: "Design tools vs ATS compliance", desc: "Visual appeal and machine-readability remain entirely separate product categories"},
         {icon: "fa-microphone",  color: "purple", title: "Interview prep isolated from resume building", desc: "No data sharing between the two activities despite using the same job description"},
-        {icon: "fa-universal-access", color: "orange", title: "Accessibility systematically neglected", desc: "No major platform implements speech-to-text; few achieve full WCAG 2.1 AA compliance"},
-    ];
+        ];
 
     const colorMap = {blue: "text-blue-500 bg-blue-100", green: "text-green-500 bg-green-100", purple: "text-purple-500 bg-purple-100", orange: "text-orange-500 bg-orange-100"};
 
